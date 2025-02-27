@@ -21,5 +21,6 @@ import { Footer } from '@/widgets/footer'
 
 .page {
 	flex: 1 1 auto;
+	
 }
 </style>

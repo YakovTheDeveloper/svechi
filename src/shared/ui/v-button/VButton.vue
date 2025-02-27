@@ -67,26 +67,26 @@ const classes = computed(() => [
 }
 
 .btn-default {
-	height: 112px;
+
 }
 
 .btn-large {
-	height: 128px;
+
 }
 
 .btn-xxs {
-	border-radius: var(--rounded-xxs);
+	// border-radius: var(--rounded-xxs);
 }
 
 .btn-xs {
-	border-radius: var(--rounded-xs);
+	// border-radius: var(--rounded-xs);
 }
 
 .btn-s {
-	border-radius: var(--rounded-s);
+	// border-radius: var(--rounded-s);
 }
 
 .btn-l {
-	border-radius: var(--rounded-l);
+	// border-radius: var(--rounded-l);
 }
 </style>

@@ -23,6 +23,7 @@ const router = useRouter()
 .navbar-list {
     display: flex;
     gap: 16px;
+    padding-top: 68px;
 
 
     &__item {

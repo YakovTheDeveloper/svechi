@@ -16,6 +16,7 @@ const props = withDefaults(defineProps<{
 <style lang="scss" scoped>
 .span-text {
     position: relative;
+    z-index: 0;
 
 }
 
@@ -41,7 +42,7 @@ const props = withDefaults(defineProps<{
     &:after {
         content: '';
         position: absolute;
-        bottom: -15%;
+        bottom: -17%;
         left: -3%;
         height: 20px;
         width: 110%;

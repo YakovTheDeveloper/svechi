@@ -16,5 +16,10 @@
 
 .page {
 	flex: 1 1 auto;
+	display: flex;
+	gap: 128px;
+	flex-direction: column;
+	margin: 0 auto;
+	max-width: 1920px;
 }
 </style>

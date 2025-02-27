@@ -9,8 +9,29 @@ body {
   color: var(--black);
   font-size: 24px;
   font-family: var(--font-playfair-display);
+	background-color: var(--bg);
 
   &.lock {
     overflow: hidden;
   }
+}
+
+.container{
+  // margin: 0 auto;
+  // max-width: 1920px;
+  flex-grow: 1;
+}
+
+.padding{
+  padding-left: var(--padding-container);
+  padding-right: var(--padding-container);
+}
+
+.padding-left{
+  padding-left: var(--padding-container);
+}
+
+.padding-vertical{
+  padding-top: var(--padding-container);
+  padding-bottom: var(--padding-container);
 }
