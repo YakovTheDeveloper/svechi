@@ -1,8 +1,15 @@
 <script setup lang="ts">
+import {  useStore } from '@/shared/stores/store';
 import { VBadge } from '@/shared/ui/v-badge';
 import { VButton } from '@/shared/ui/v-button';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 
+const store = useStore()
+
+const onClick = () => {
+    store.openModal()
+    console.log(`output-'click'`,'click')
+}
 
 </script>
 
@@ -13,7 +20,7 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         </div>
         <p class="text candleItem__text">Свечи в стеклянной банке объемом 360 мл</p>
         <VBadge variant="secondary">36 ароматов</VBadge>
-        <VButtonIcon />
+        <VButtonIcon @click="onClick" />
     </li>
 </template>
 
@@ -34,7 +41,7 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         overflow: hidden;
         background-color: var(--black-third);
 
-        img{
+        img {
             max-width: 100%;
         }
     }

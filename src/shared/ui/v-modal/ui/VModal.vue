@@ -2,6 +2,7 @@
 import { onUnmounted, watchEffect } from 'vue'
 import { useBodyLock } from '@/shared/utils/useBodyLock.ts'
 import { VOverlay } from '@/shared/ui/v-overlay'
+import crossIcon from '@/app/assets/icons/cross.svg'
 
 const isOpen = defineModel({ type: Boolean, required: true })
 const { lock, unlock } = useBodyLock()
@@ -19,6 +20,9 @@ onUnmounted(() => unlock())
 		<transition name="modal-animation">
 			<div v-if="isOpen" @click="isOpen = false" class="modal">
 				<div @click.stop class="modal-content">
+					<button @click="isOpen = false" class="modal-close-btn">
+						<img :src="crossIcon" alt="">
+					</button>
 					<div class="modal-body">
 						<slot></slot>
 					</div>
@@ -44,14 +48,21 @@ onUnmounted(() => unlock())
 		position: relative;
 		// width: 100%;
 		// max-width: 800px;
-		border-radius: var(--rounded-l);
-		background-color: var(--white);
-		padding: 20px;
+		border-radius: 64px;
+		background-color: var(--bg);
+		padding: 64px;
 	}
 
 	&-body {
 		max-height: 90dvh;
 		overflow: auto;
+	}
+
+	&-close-btn{
+		position: absolute;
+		background-color: transparent;
+		top: 48px;
+		right: 48px;
 	}
 }
 

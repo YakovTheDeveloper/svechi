@@ -12,7 +12,7 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 <template>
     <div class="container padding">
         <section class="unique-design">
-            <div>
+            <div class="unique-design__points">
                 <h1 class="title">
                     <VSpan variant="fill">Уникальный</VSpan> дизайн
                 </h1>
@@ -43,6 +43,18 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 <style lang="scss" scoped>
 .title {
     margin-bottom: 40px;
+    position: relative;
+
+    &:after{
+        position: absolute;
+        content:'';
+        top: -100px;
+        right: -330px;
+        background: url('@/app/assets/decorations/unique-design/1.svg') center no-repeat;
+        width: 560px;
+        height: 93px;
+
+    }
 }
 
 .unique-design {
@@ -76,6 +88,7 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 
     &__img {
         max-width: 424px;
+        margin: 0 auto;
         aspect-ratio: 1;
         border-radius: 50%;
         overflow: hidden;

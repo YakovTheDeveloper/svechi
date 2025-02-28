@@ -18,6 +18,7 @@ const props = defineProps<{
 .icon-with-background {
 	width: 120px;
 	aspect-ratio: 1;
+	flex-shrink: 0;
 	padding: 32px;
 	border-radius: 50%;
 	display: flex;
@@ -27,6 +28,7 @@ const props = defineProps<{
 
 	img {
 		max-width: 56px;
+		flex-shrink: 0;
 		aspect-ratio: 1;
 	}
 }

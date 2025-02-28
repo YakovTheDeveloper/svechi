@@ -1,0 +1,65 @@
+<script setup lang="ts">
+import 'vue3-carousel/dist/carousel.css'
+import { ref, onMounted } from 'vue'
+import { Carousel, Slide, Navigation, type CarouselConfig } from 'vue3-carousel'
+import VSpan from '@/shared/ui/v-span/ui/VSpan.vue'
+
+// Ref for the carousel component itself
+const carousel = ref<InstanceType<typeof Carousel> | null>(null)
+
+const carouselConfig = ref<CarouselConfig>({
+    itemsToShow: 3,
+    wrapAround: true,
+    gap: 32
+})
+
+const CONTENT = [
+    { imgUrl: '/img/gallery/1.png', id: 1 },
+    { imgUrl: '/img/gallery/2.png', id: 2 },
+    { imgUrl: '/img/gallery/3.png', id: 3 },
+    { imgUrl: '/img/gallery/3.png', id: 4 },
+    { imgUrl: '/img/gallery/2.png', id: 5 },
+    { imgUrl: '/img/gallery/1.png', id: 6 }
+]
+
+// Optional: Force refresh after mount to fix initialization bug
+onMounted(() => {
+    setTimeout(() => {
+        carousel.value?.update()
+    }, 100)
+})
+</script>
+
+<template>
+    <section class="gallery">
+        <h1 class="title">Галерея <VSpan variant="fill">тепла и уюта</VSpan></h1>
+
+        <Carousel ref="carousel" v-bind="carouselConfig">
+            <Slide v-for="({ imgUrl, id }) in CONTENT" :key="id">
+                <div class="gallery-item">
+                    <img :src="imgUrl" alt="gallery-image" draggable="false">
+                </div>
+            </Slide>
+
+            <template #addons>
+                <Navigation />
+            </template>
+        </Carousel>
+    </section>
+</template>
+
+<style lang="scss" scoped>
+.title {
+    margin-bottom: 64px;
+}
+
+.gallery-item {
+    border-radius: 64px;
+    overflow: hidden;
+
+    img {
+        user-select: none;
+        max-width: 100%;
+    }
+}
+</style>

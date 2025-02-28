@@ -9,29 +9,47 @@ body {
   color: var(--black);
   font-size: 24px;
   font-family: var(--font-playfair-display);
-	background-color: var(--bg);
+  background-color: var(--bg);
 
   &.lock {
     overflow: hidden;
   }
 }
 
-.container{
+.container {
   // margin: 0 auto;
   // max-width: 1920px;
   flex-grow: 1;
 }
 
-.padding{
+.padding {
   padding-left: var(--padding-container);
   padding-right: var(--padding-container);
 }
 
-.padding-left{
+.padding-left {
   padding-left: var(--padding-container);
 }
 
-.padding-vertical{
+.padding-vertical {
   padding-top: var(--padding-container);
   padding-bottom: var(--padding-container);
+}
+
+body .carousel__prev,
+body .carousel__next {
+  background-color: red; // not disabled case
+  color: white; // optional, if you want to change icon color
+  border: none;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &.carousel__navigation-button--disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
 }
