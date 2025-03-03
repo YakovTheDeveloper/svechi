@@ -4,6 +4,7 @@
 @use 'animation';
 @use 'breakpoint';
 @use 'typography';
+@use 'mixin';
 
 body {
   color: var(--black);
@@ -25,15 +26,29 @@ body {
 .padding {
   padding-left: var(--padding-container);
   padding-right: var(--padding-container);
+
+  @include tablet {
+    padding-left: var(--padding-container-tablet);
+    padding-right: var(--padding-container-tablet);
+  }
 }
 
 .padding-left {
   padding-left: var(--padding-container);
+
+  @include tablet {
+    padding-left: var(--padding-container-tablet);
+  }
 }
 
 .padding-vertical {
   padding-top: var(--padding-container);
   padding-bottom: var(--padding-container);
+
+  @include tablet {
+    padding-top: var(--padding-container-tablet);
+    padding-bottom: var(--padding-container-tablet);
+  }
 }
 
 body .carousel__prev,

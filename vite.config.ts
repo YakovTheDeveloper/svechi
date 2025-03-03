@@ -47,7 +47,10 @@ export default defineConfig({
 	css: {
 		preprocessorOptions: {
 			scss: {
-				additionalData: `@use "@/app/assets/styles/breakpoint.scss" as *;`
+				additionalData: `
+                @use "@/app/assets/styles/breakpoint.scss" as *;
+                @use "@/app/assets/styles/mixin.scss" as *;
+            `
 			}
 		}
 	},

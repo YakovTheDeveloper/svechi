@@ -6,17 +6,23 @@ import adminIcon from '@/app/assets/icons/admin.png'
 import phoneIcon from '@/app/assets/icons/contact-phone.svg'
 import fbIcon from '@/app/assets/icons/fb-2.svg'
 import instIcon from '@/app/assets/icons/inst-2.svg'
+import menuIcon from '@/app/assets/icons/burger.svg'
+import HeroTitle from '../../HeroTitle.vue';
 
 </script>
 
 <template>
     <div class="header-actions">
         <div class="header-actions__header">
+            <div class="header-actions__burger">
+                <img :src=menuIcon alt="menu">
+            </div>
             <div class="header-actions__header-side">
                 <VButton variant="primary">Оформить заказ</VButton>
                 <LanguageSwitch />
             </div>
         </div>
+        <HeroTitle class="header-actions__title-center" />
         <div class="header-actions__contacts">
             <component is="button" class="header-actions__contacts-item">
                 <div class="header-actions__contacts-item-icons" :style="{ width: '100px' }">
@@ -44,17 +50,71 @@ import instIcon from '@/app/assets/icons/inst-2.svg'
 <style lang="scss" scoped>
 .header-actions {
     padding: 64px;
+    height: 944px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    position: relative;
+    overflow: hidden;
     flex-grow: 1;
     border-bottom-left-radius: 64px;
-
-    background: url('img/header-bg.png') center no-repeat;
+    background:
+        url('img/header-bg.png') center no-repeat,
+        rgba(0, 0, 0, 0.3);
     background-size: cover;
+
+    @include tablet {
+        padding: 40px 32px;
+        border-bottom-right-radius: 64px;
+    }
+
+    &::before {
+        @include tablet {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 0;
+            pointer-events: none;
+        }
+    }
+
+    @include tablet {
+        height: 960px;
+    }
 
     &__header {
         display: flex;
+        z-index: 1;
+    }
+
+    &__burger {
+        display: none;
+        height: 64px;
+        width: 64px;
+        background-color: var(--white);
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+
+        @include tablet {
+            display: flex;
+        }
+    }
+
+    &__title-center {
+        z-index: 1;
+        display: none;
+        word-wrap: break-word;
+        // word-break: break-all;
+        color: var(--white);
+
+        @include tablet {
+            display: inline-block;
+        }
     }
 
     &__header-side {
@@ -65,6 +125,7 @@ import instIcon from '@/app/assets/icons/inst-2.svg'
     }
 
     &__contacts {
+        z-index: 1;
         display: flex;
         justify-content: space-between;
 

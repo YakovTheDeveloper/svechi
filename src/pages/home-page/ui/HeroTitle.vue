@@ -4,14 +4,27 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 
 </script>
 
+<!-- Text should look like:
+Свечи ручной работы 
+с уникальными
+ароматами
+Best practice way to do specific wraps in landing -->
+
 <template>
-    <h1 class='title italic'>Свечи <VSpan variant="fill">ручной</VSpan> работы с <VSpan variant="underlined">уникальными
-        </VSpan> ароматами</h1>
+    <h1 class='title italic'>
+        <span class='line-break'>Свечи <VSpan variant="fill">ручной</VSpan> работы</span>
+        <span class='line-break'> с <VSpan variant="underlined">уникальными </VSpan> </span>
+        <span class='line-break'>ароматами</span>
+    </h1>
 </template>
 
 <style lang="scss" scoped>
 .title {
     color: var(--black-primary);
     max-width: 728px;
+}
+
+.line-break {
+    display: block;
 }
 </style>

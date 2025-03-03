@@ -7,7 +7,7 @@
 	</main>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .main {
 	min-height: 100dvh;
 	display: flex;
@@ -21,5 +21,10 @@
 	flex-direction: column;
 	margin: 0 auto;
 	max-width: 1920px;
+	width: 100%;
+
+	@include tablet {
+		gap: 48px;
+	}
 }
 </style>

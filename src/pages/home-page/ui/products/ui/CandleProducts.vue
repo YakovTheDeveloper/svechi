@@ -30,15 +30,26 @@ import CandleProductList from './CandleProductList/CandleProductList.vue';
     display: flex;
     gap: 32px;
 
+    @include tablet {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        position: relative;
+
+        &::after {
+            @include fade-overlay-right(120px); // Apply with default or custom width
+        }
+    }
+
     &__contact-btn {
         margin-top: auto;
     }
 
-    &__description{
+    &__description {
         max-width: 424px;
         display: flex;
         flex-direction: column;
         align-items: start;
     }
+
 }
 </style>

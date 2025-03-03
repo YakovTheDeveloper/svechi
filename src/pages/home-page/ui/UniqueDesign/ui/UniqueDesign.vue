@@ -45,15 +45,24 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
     margin-bottom: 40px;
     position: relative;
 
-    &:after{
+    @include tablet {
+        max-width: 590px;
+        margin-bottom: 24px;
+    }
+
+
+    &:after {
         position: absolute;
-        content:'';
+        content: '';
         top: -100px;
         right: -330px;
         background: url('@/app/assets/decorations/unique-design/1.svg') center no-repeat;
         width: 560px;
         height: 93px;
 
+        @include tablet {
+            display: none;
+        }
     }
 }
 
@@ -62,20 +71,40 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
     gap: 108px;
     grid-template-columns: 1fr 1fr 1fr;
 
+    @include tablet {
+        grid-template-columns: 1fr;
+        gap: 48px;
+    }
+
     &__benefits {
         display: flex;
         flex-direction: column;
         gap: 32px;
 
+        @include tablet {
+            gap: 16px;
+        }
+
         &-list {
             display: flex;
             flex-direction: column;
             gap: 16px;
+
+            @include tablet {
+                flex-direction: row;
+            }
         }
     }
 
     &__badge {
         font-weight: 400;
+
+        @include tablet {
+            align-items: center;
+            text-align: center;
+            flex-grow: 1;
+        }
+
     }
 
     &__description {
@@ -84,6 +113,11 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         flex-direction: column;
         align-items: end;
         color: var(--black-secondary);
+
+        @include tablet {
+            gap: 24px;
+            align-items: start;
+        }
     }
 
     &__img {

@@ -6,12 +6,17 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Scrollbar, Navigation } from 'swiper/modules'
 import VButtonIcon from '../v-button/VButtonIcon.vue'
 import { computed, onMounted, ref, useTemplateRef } from 'vue'
+import type { SwiperOptions } from 'swiper/types'
 
 // Props
 const props = defineProps<{
     slides: { imgUrl: string; id: number }[],
     slidesPerView?: number,
     spaceBetween?: number
+    breakpoints?: {
+        [width: number]: SwiperOptions;
+        [ratio: string]: SwiperOptions;
+    }
 }>()
 
 // Defaults if not provided
@@ -52,7 +57,13 @@ onMounted(() => {
 <template>
     <div class="swiper-wrapper">
         <Swiper :modules="[Scrollbar, Navigation]" :slides-per-view="slidesPerView" :space-between="spaceBetween"
-            :scrollbar="scrollbarOptions" :navigation="navigation">
+            :scrollbar="scrollbarOptions" :navigation="navigation" :breakpoints="{
+                960: {
+                    slidesPerView: 2,
+                    spaceBetween: 16
+                }
+            }
+                ">
             <SwiperSlide v-for="slide in slides" :key="slide.id">
                 <slot name="slide" :slide="slide">
                     <!-- Fallback content if slot isn't provided -->

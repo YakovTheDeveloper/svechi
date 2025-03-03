@@ -34,6 +34,11 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 <style lang="scss" scoped>
 .title {
     margin-bottom: 32px;
+
+    @include tablet {
+        font-size: 48px;
+        line-height: normal;
+    }
 }
 
 .text {
@@ -44,10 +49,18 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
     display: flex;
     gap: 32px;
     align-items: center;
-    background: url('/img/customer-profit/bg.svg') center no-repeat;
-    background-size: contain;
+    background: url('/img/customer-profit/bg.svg') no-repeat;
+    background-size: 1024px;
+    background-position: 50% 30%;
     background-color: var(--bg-2);
     border-radius: 64px;
+
+    @include tablet {
+        flex-direction: column-reverse;
+        background-size: 120%;
+        background-position: 20% -20%;
+        gap: 0;
+    }
 
     &__description {
         max-width: 800px;
@@ -63,11 +76,23 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         position: relative;
         height: 100%;
 
+        @include tablet {
+            width: 100%;
+            height: 480px;
+        }
+
         img {
-            max-width: 150%;
+            width: 150%;
             object-fit: cover;
             position: absolute;
             transform: translate(-5%, 5%);
+
+            @include tablet {
+                position: absolute;
+                top: 50%;
+                right: 68%;
+                transform: translate(50%, -50%);
+            }
         }
     }
 }

@@ -32,17 +32,33 @@ const MOCK_PRODUCTS = [
 </script>
 
 <template>
-    <ul class="candle-product-list">
-        <template v-for="product in MOCK_PRODUCTS">
-            <CandleProductItem :product="product" />
-        </template>
-    </ul>
+    <div class="candle-product-list-container">
+        <ul class="candle-product-list">
+            <template v-for="product in MOCK_PRODUCTS">
+                <CandleProductItem :product="product" />
+            </template>
+        </ul>
+    </div>
 </template>
 
 <style lang="scss" scoped>
+.candle-product-list-container {
+    position: relative;
+
+    @include tablet {
+        overflow-x: auto;
+
+        // &::after {
+        //     @include fade-overlay-right(390px); // Apply with default or custom width
+        // }
+    }
+}
+
 .candle-product-list {
 
     display: flex;
     gap: 16px;
+
+
 }
 </style>

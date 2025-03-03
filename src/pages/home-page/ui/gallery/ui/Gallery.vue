@@ -15,27 +15,34 @@ const slides = [
     { imgUrl: '/img/gallery/2.png', id: 5 },
     { imgUrl: '/img/gallery/1.png', id: 6 }
 ]
+
+const sliderBreakpoints = {
+    960: {
+        slidesPerView: 2,
+        spaceBetween: 16
+    }
+}
+
 </script>
 
 <template>
     <section class="gallery padding">
-        <h1 class="title">Галерея <VSpan variant="fill">тепла и уюта</VSpan></h1>
+        <h1 class="subtitle">Галерея <VSpan variant="fill">тепла и уюта</VSpan>
+        </h1>
 
-        <VSwiper :slides="slides" :slides-per-view="3" :spaceBetween="32">
+        <VSwiper :slides="slides" :slides-per-view="3" :spaceBetween="32" :breakpoints="sliderBreakpoints">
             <template #slide="{ slide }">
                 <div class="gallery-item">
                     <img :src="slide.imgUrl" alt="gallery-image" draggable="false">
                 </div>
             </template>
         </VSwiper>
-
-        <!-- External scrollbar (32px below slider) -->
         <div class="custom-scrollbar"></div>
     </section>
 </template>
 
 <style lang="scss" scoped>
-.title {
+.subtitle {
     margin-bottom: 64px;
 }
 

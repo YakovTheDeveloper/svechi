@@ -48,6 +48,7 @@ onUnmounted(() => unlock())
 		position: relative;
 		// width: 100%;
 		// max-width: 800px;
+		max-width: 1792px;
 		border-radius: 64px;
 		background-color: var(--bg);
 		padding: 64px;
@@ -58,7 +59,7 @@ onUnmounted(() => unlock())
 		overflow: auto;
 	}
 
-	&-close-btn{
+	&-close-btn {
 		position: absolute;
 		background-color: transparent;
 		top: 48px;

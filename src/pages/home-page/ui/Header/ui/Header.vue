@@ -11,8 +11,8 @@ import HeaderActions from './HeaderActions.vue';
 <template>
     <header class="container header">
         <div class="header__content padding-left">
-            <Navbar />
-            <HeroTitle />
+            <Navbar class="header__navbar" />
+            <HeroTitle class="header__title" />
             <OurCandles />
         </div>
         <HeaderActions />
@@ -20,14 +20,32 @@ import HeaderActions from './HeaderActions.vue';
 </template>
 
 <style lang="scss" scoped>
+// @import "styles/breakpoint.scss";
+
 .header {
     display: flex;
     gap: 32px;
+
+    @include tablet {
+        flex-direction: column-reverse;
+    }
 
     &__content {
         display: flex;
         gap: 80px;
         flex-direction: column;
+    }
+
+    &__navbar {
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &__title {
+        @include tablet {
+            display: none;
+        }
     }
 }
 </style>
