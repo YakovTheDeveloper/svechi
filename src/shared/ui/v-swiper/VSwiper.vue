@@ -5,26 +5,20 @@ import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Scrollbar, Navigation } from 'swiper/modules'
 import VButtonIcon from '../v-button/VButtonIcon.vue'
-import { computed, onMounted, ref, useTemplateRef } from 'vue'
+import { computed, onMounted, ref, useTemplateRef, watch } from 'vue'
 import type { SwiperOptions } from 'swiper/types'
 
 // Props
 const props = defineProps<{
     slides: { imgUrl: string; id: number }[],
-    slidesPerView?: number,
-    spaceBetween?: number
+    scrollBarClass?: string
     breakpoints?: {
         [width: number]: SwiperOptions;
         [ratio: string]: SwiperOptions;
     }
 }>()
 
-// Defaults if not provided
-const slidesPerView = computed(() => props.slidesPerView ?? 3)
-const spaceBetween = computed(() => props.spaceBetween ?? 32)
-
 const scrollbarRef = ref(null)
-
 const prevButtonRef = ref(null)
 const nextButtonRef = ref<InstanceType<typeof VButtonIcon> | null>(null)
 
@@ -50,20 +44,34 @@ onMounted(() => {
     console.log(navigation.value)
 })
 
+const defaultBreakpoints: SwiperOptions['breakpoints'] = {
+    320: {
+        slidesPerView: 2,
+        spaceBetween: 20
+    },
+    480: {
+        slidesPerView: 3,
+        spaceBetween: 30
+    },
+    640: {
+        slidesPerView: 4,
+        spaceBetween: 40
+    }
+}
+
+const breakpoints = ref<SwiperOptions['breakpoints']>(props.breakpoints ?? defaultBreakpoints)
+
+watch(() => props.breakpoints, (newBreakpoints) => {
+    breakpoints.value = newBreakpoints ?? defaultBreakpoints
+})
 
 
 </script>
 
 <template>
     <div class="swiper-wrapper">
-        <Swiper :modules="[Scrollbar, Navigation]" :slides-per-view="slidesPerView" :space-between="spaceBetween"
-            :scrollbar="scrollbarOptions" :navigation="navigation" :breakpoints="{
-                960: {
-                    slidesPerView: 2,
-                    spaceBetween: 16
-                }
-            }
-                ">
+        <Swiper :modules="[Scrollbar, Navigation]" :scrollbar="scrollbarOptions" :navigation="navigation"
+            :breakpoints="breakpoints">
             <SwiperSlide v-for="slide in slides" :key="slide.id">
                 <slot name="slide" :slide="slide">
                     <!-- Fallback content if slot isn't provided -->
@@ -76,8 +84,10 @@ onMounted(() => {
         <VButtonIcon ref="prevButtonRef" class="custom-prev" :reverse="true" />
         <VButtonIcon ref="nextButtonRef" class="custom-next" />
     </div>
-
-    <div ref="scrollbarRef" class="custom-scrollbar"></div>
+    <div ref="scrollbarRef" :class="[
+        'custom-scrollbar',
+        props.scrollBarClass
+    ]"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -135,8 +145,6 @@ onMounted(() => {
     transform: translateY(-50%);
     background: white;
     border: none;
-    width: 48px;
-    height: 48px;
     border-radius: 50%;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;

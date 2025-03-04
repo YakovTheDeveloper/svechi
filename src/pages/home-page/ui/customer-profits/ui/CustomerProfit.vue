@@ -39,6 +39,12 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         font-size: 48px;
         line-height: normal;
     }
+
+    @include mobile {
+        font-size: 24px;
+        line-height: normal;
+        margin-bottom: 16px;
+    }
 }
 
 .text {
@@ -56,10 +62,16 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
     border-radius: 64px;
 
     @include tablet {
+        margin-top: 64px;
         flex-direction: column-reverse;
         background-size: 120%;
         background-position: 20% -20%;
         gap: 0;
+    }
+
+    @include mobile {
+        background-size: 108%;
+        background-position: 57% 0;
     }
 
     &__description {
@@ -79,6 +91,10 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         @include tablet {
             width: 100%;
             height: 480px;
+        }
+
+        @include mobile {
+            height: 200px;
         }
 
         img {

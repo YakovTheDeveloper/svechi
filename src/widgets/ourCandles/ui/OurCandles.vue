@@ -11,21 +11,26 @@ import OurCandlesItem from './OurCandlesItem.vue';
             <VBadge variant="primary">Популярное</VBadge>
         </div>
         <ul class="ourCandles__list">
-           <OurCandlesItem/>
-           <OurCandlesItem/>
+            <OurCandlesItem />
+            <OurCandlesItem />
         </ul>
         <p class="underline text bold">Посмотреть все</p>
     </section>
 </template>
 
 <style lang="scss" scoped>
-.subtitle{
+.subtitle {
     color: var(--black-primary);
 }
+
 .ourCandles {
     display: flex;
     flex-direction: column;
     gap: 32px;
+
+    @include mobile{
+        gap: 16px;
+    }
 
     &__heading {
         display: flex;

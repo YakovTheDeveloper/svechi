@@ -17,7 +17,7 @@ const props = defineProps<{
             <img :src="props.product.imgUrl" alt="goods-image">
         </div>
         <div class="candle-product-item__main">
-            <p class="text-s">{{ props.product.description }}</p>
+            <p class="candle-product-item__name">{{ props.product.description }}</p>
             <div class="candle-product-item__price">
                 <button>
                     <p class="text underline bold">Подробнее
@@ -46,9 +46,26 @@ const props = defineProps<{
     background-color: var(--bg-2);
     border-radius: 32px;
 
+    @include mobile {
+        max-width: 156px;
+        height: 293px;
+    }
+
+    &__name {
+        font-size: 18px;
+
+        @include mobile {
+            font-size: 14px;
+        }
+    }
+
     &__img {
         height: 322px;
         aspect-ratio: 1;
+
+        @include mobile {
+            height: 156px;
+        }
 
         img {
             max-width: 100%;
@@ -62,21 +79,41 @@ const props = defineProps<{
         justify-content: space-between;
         flex-grow: 1;
         padding: 16px;
+
+        @include mobile {
+            padding: 24px 8px 16px;
+        }
     }
 
     &__price {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        white-space: nowrap;
+
+        @include mobile {
+            flex-direction: column-reverse;
+            align-items: start;
+            gap: 8px;
+        }
 
         &-text {
             font-size: 28px;
+
+            @include mobile {
+                font-size: 18px;
+            }
         }
     }
 
     &__plus-icon {
         display: inline-block;
         margin-left: 6px;
+
+        @include mobile {
+            height: 8px;
+            margin-left: 1px;
+        }
     }
 
 }

@@ -19,30 +19,35 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 
 <style lang="scss" scoped>
 .candleItem {
-    display: grid;
-    gap: 32px;
-    padding: 12px 0;
-    align-items: center;
-    justify-content: space-between;
-    grid-template-columns: auto 50% 1fr auto;
-    border-bottom: 1px solid var(--black-third);
+    // display: grid;
+    // gap: 32px;
+    // padding: 12px 0;
+    // align-items: center;
+    // justify-content: space-between;
+    // grid-template-columns: auto 1fr auto auto;
+    // border-bottom: 1px solid var(--black-third);
 
-    &__image-container {
-        width: 96px;
-        height: 96px;
-        border-radius: 24px;
-        overflow: hidden;
-        background-color: var(--black-third);
+    // &__image-container {
+    //     width: 96px;
+    //     height: 96px;
+    //     border-radius: 24px;
+    //     overflow: hidden;
+    //     background-color: var(--black-third);
 
-        img{
-            max-width: 100%;
-        }
-    }
+    //     @include mobile{
+    //         height: 36px;
+    //         width: 36px;
+    //     }
 
-    &__text {
-        font-weight: 500;
-        color: var(--black-primary);
-    }
+    //     img {
+    //         max-width: 100%;
+    //     }
+    // }
+
+    // &__text {
+    //     font-weight: 500;
+    //     color: var(--black-primary);
+    // }
 
 }
 </style>

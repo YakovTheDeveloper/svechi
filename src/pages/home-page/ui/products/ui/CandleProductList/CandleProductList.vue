@@ -44,21 +44,17 @@ const MOCK_PRODUCTS = [
 <style lang="scss" scoped>
 .candle-product-list-container {
     position: relative;
-
-    @include tablet {
-        overflow-x: auto;
-
-        // &::after {
-        //     @include fade-overlay-right(390px); // Apply with default or custom width
-        // }
-    }
+    overflow-x: auto;
 }
 
 .candle-product-list {
-
     display: flex;
     gap: 16px;
 
-
+    @include mobile {
+        // display: grid;
+        // grid-template-columns: 1fr 1fr;
+        flex-wrap: wrap;
+    }
 }
 </style>

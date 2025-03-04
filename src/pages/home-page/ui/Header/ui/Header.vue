@@ -34,6 +34,10 @@ import HeaderActions from './HeaderActions.vue';
         display: flex;
         gap: 80px;
         flex-direction: column;
+
+        @include tablet {
+            padding-right: var(--padding-container-tablet);
+        }
     }
 
     &__navbar {

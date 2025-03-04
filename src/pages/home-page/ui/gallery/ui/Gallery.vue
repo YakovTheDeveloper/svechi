@@ -17,9 +17,13 @@ const slides = [
 ]
 
 const sliderBreakpoints = {
-    960: {
-        slidesPerView: 2,
+    480: {
+        slidesPerView: 1.5,
         spaceBetween: 16
+    },
+    960: {
+        slidesPerView: 4,
+        spaceBetween: 32
     }
 }
 
@@ -30,29 +34,42 @@ const sliderBreakpoints = {
         <h1 class="subtitle">Галерея <VSpan variant="fill">тепла и уюта</VSpan>
         </h1>
 
-        <VSwiper :slides="slides" :slides-per-view="3" :spaceBetween="32" :breakpoints="sliderBreakpoints">
+        <VSwiper :slides="slides" :slides-per-view="3" :spaceBetween="32" :breakpoints="sliderBreakpoints"
+            scroll-bar-class="gallery-scrollbar">
             <template #slide="{ slide }">
                 <div class="gallery-item">
                     <img :src="slide.imgUrl" alt="gallery-image" draggable="false">
                 </div>
             </template>
         </VSwiper>
-        <div class="custom-scrollbar"></div>
     </section>
 </template>
 
 <style lang="scss" scoped>
 .subtitle {
     margin-bottom: 64px;
+
+    @include mobile{
+        margin-bottom: 16px;
+    }
 }
 
 .gallery-item {
+    height: 432px;
     border-radius: 64px;
     overflow: hidden;
 
     img {
         user-select: none;
-        max-width: 100%;
+        // max-width: 100%;
+        height: 100%;
+        // object-fit: cover;
+    }
+}
+
+:deep(.gallery-scrollbar) {
+    @include tablet {
+        display: none;
     }
 }
 </style>

@@ -17,11 +17,23 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
                     <VSpan variant="fill">Уникальный</VSpan> дизайн
                 </h1>
                 <div class="unique-design__benefits">
-                    <p class="text-l bold">Наши преимущества:</p>
+                    <p class="unique-design__benefits-title bold">
+                        <!-- Наши преимущества: -->
+                        {{ $t('unique_design_benefits_title') }}
+                    </p>
                     <div class="unique-design__benefits-list">
-                        <VBadge variant="primary" class="unique-design__badge">Потрясающий аромат</VBadge>
-                        <VBadge variant="primary" class="unique-design__badge">Уникальный дизайн</VBadge>
-                        <VBadge variant="primary" class="unique-design__badge">Индивидуальные решения</VBadge>
+                        <VBadge variant="primary" class="unique-design__badge">
+                            <!-- Потрясающий аромат -->
+                            {{ $t('unique_design_benefits_aroma') }}
+                        </VBadge>
+                        <VBadge variant="primary" class="unique-design__badge">
+                            <!-- Уникальный дизайн -->
+                            {{ $t('unique_design_benefits_unique_design') }}
+                        </VBadge>
+                        <VBadge variant="primary" class="unique-design__badge">
+                            <!-- Индивидуальные решения -->
+                            {{ $t('unique_design_benefits_individual_solutions') }}
+                        </VBadge>
                     </div>
                 </div>
             </div>
@@ -29,12 +41,16 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
                 <img src="/img/unique-design/1.png" alt="candle">
             </div>
             <div class="unique-design__description">
-                <p class="text">Создаем уникальные свечи ручной работы, которые идеально впишутся в любой интерьер.
+                <p class="text">
+                    {{ $t('unique_design_text') }}
+
+                    <!-- Создаем уникальные свечи ручной работы, которые идеально впишутся в любой интерьер.
                     Мы поможем
                     выбрать аромат, форму и дизайн, соответствующие вашему стилю. Напишите нам, и мы с радостью
                     предложим индивидуальные решения, чтобы ваша свеча стала настоящим украшением вашего пространства!
+                 -->
                 </p>
-                <VButtonIcon label="Наши свечи" />
+                <VButtonIcon :label="$t('our_candles')" />
             </div>
         </section>
     </div>
@@ -48,6 +64,10 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
     @include tablet {
         max-width: 590px;
         margin-bottom: 24px;
+    }
+
+    @include mobile {
+        margin-bottom: 16px;
     }
 
 
@@ -68,7 +88,8 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 
 .unique-design {
     display: grid;
-    gap: 108px;
+    justify-content: space-between;
+    gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 
     @include tablet {
@@ -85,6 +106,14 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
             gap: 16px;
         }
 
+        &-title {
+            font-size: 32px;
+
+            @include mobile {
+                font-size: 14px;
+            }
+        }
+
         &-list {
             display: flex;
             flex-direction: column;
@@ -92,6 +121,7 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 
             @include tablet {
                 flex-direction: row;
+                flex-wrap: wrap;
             }
         }
     }
@@ -125,10 +155,15 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         margin: 0 auto;
         aspect-ratio: 1;
         border-radius: 50%;
+        flex-shrink: 1;
         overflow: hidden;
 
+        @include mobile {
+            max-width: 159px;
+        }
+
         img {
-            max-width: 100%;
+            width: 100%;
             object-fit: cover;
         }
     }

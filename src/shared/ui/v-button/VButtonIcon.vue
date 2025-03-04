@@ -32,6 +32,21 @@ defineExpose({
     background-color: var(--red-accent);
     border-radius: 50%;
     flex-shrink: 0;
+    
+    @include mobile {
+        height: 28px;
+        width: 28px;
+    }
+
+    svg {
+        width: 12px;
+        height: 20px;
+
+        @include mobile {
+            height: 9px;
+            width: 5px;
+        }
+    }
 
     &_reverse {
         -moz-transform: scale(-1, 1);
@@ -51,5 +66,6 @@ defineExpose({
         background-color: rgba(254, 227, 223, 1);
         cursor: not-allowed;
     }
+
 }
 </style>

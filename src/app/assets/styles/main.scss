@@ -31,6 +31,11 @@ body {
     padding-left: var(--padding-container-tablet);
     padding-right: var(--padding-container-tablet);
   }
+
+  @include mobile {
+    padding-left: var(--padding-container-mobile);
+    padding-right: var(--padding-container-mobile);
+  }
 }
 
 .padding-left {
@@ -38,6 +43,10 @@ body {
 
   @include tablet {
     padding-left: var(--padding-container-tablet);
+  }
+
+  @include mobile {
+    padding-left: var(--padding-container-mobile);
   }
 }
 
@@ -48,6 +57,11 @@ body {
   @include tablet {
     padding-top: var(--padding-container-tablet);
     padding-bottom: var(--padding-container-tablet);
+  }
+
+  @include mobile {
+    padding-top: var(--padding-container-mobile);
+    padding-bottom: var(--padding-container-mobile);
   }
 }
 

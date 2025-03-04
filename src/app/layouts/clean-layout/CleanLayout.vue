@@ -26,5 +26,9 @@
 	@include tablet {
 		gap: 48px;
 	}
+
+	@include mobile {
+		gap: 32px;
+	}
 }
 </style>

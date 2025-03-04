@@ -18,6 +18,18 @@ const slides = [
     { imgUrl: icon6, id: 6, title: 'По мотивам духов Santal 33' }
 ]
 
+const sliderBreakpoints = {
+    480: {
+        slidesPerView: 3,
+        spaceBetween: 16
+    },
+    960: {
+        slidesPerView: 6,
+        spaceBetween: 32
+    }
+}
+
+
 </script>
 
 <template>
@@ -26,7 +38,7 @@ const slides = [
             <h2 class="subtitle">
                 Самые <VSpan variant="fill">популярные</VSpan> ароматы
             </h2>
-            <VSwiper :slides="slides" :slides-per-view="6" :spaceBetween="32">
+            <VSwiper :slides="slides" :breakpoints="sliderBreakpoints">
                 <template #slide="{ slide }">
                     <div class="popular-aroma__item">
                         <IconWithBackground :src="slide.imgUrl" alt="aroma-icon" />
@@ -46,8 +58,7 @@ const slides = [
 .popular-aroma {
 
     &__item {
-        width: 280px;
-        aspect-ratio: 1;
+        height: 280px;
         padding: 32px;
         gap: 32px;
         display: flex;

@@ -35,6 +35,7 @@ const props = defineProps<{
     align-items: center;
     gap: 32px;
     border-radius: 64px;
+    flex-shrink: 0;
     background-color: var(--bg);
 
 

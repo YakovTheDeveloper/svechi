@@ -8,6 +8,7 @@ import fbIcon from '@/app/assets/icons/fb-2.svg'
 import instIcon from '@/app/assets/icons/inst-2.svg'
 import menuIcon from '@/app/assets/icons/burger.svg'
 import HeroTitle from '../../HeroTitle.vue';
+import { messages } from '@/app/assets/locales';
 
 </script>
 
@@ -18,7 +19,10 @@ import HeroTitle from '../../HeroTitle.vue';
                 <img :src=menuIcon alt="menu">
             </div>
             <div class="header-actions__header-side">
-                <VButton variant="primary">Оформить заказ</VButton>
+                <!-- Оформить заказ -->
+                <VButton variant="primary">
+                    {{ $t('contact_order') }}
+                </VButton>
                 <LanguageSwitch />
             </div>
         </div>
@@ -68,6 +72,10 @@ import HeroTitle from '../../HeroTitle.vue';
         border-bottom-right-radius: 64px;
     }
 
+    @include mobile {
+        padding: 48px 16px 10px;
+    }
+
     &::before {
         @include tablet {
             content: "";
@@ -86,6 +94,11 @@ import HeroTitle from '../../HeroTitle.vue';
         height: 960px;
     }
 
+
+    @include mobile {
+        height: 360px;
+    }
+
     &__header {
         display: flex;
         z-index: 1;
@@ -95,6 +108,7 @@ import HeroTitle from '../../HeroTitle.vue';
         display: none;
         height: 64px;
         width: 64px;
+        flex-shrink: 0;
         background-color: var(--white);
         align-items: center;
         justify-content: center;
@@ -102,6 +116,15 @@ import HeroTitle from '../../HeroTitle.vue';
 
         @include tablet {
             display: flex;
+            height: var(--header-button-size-mobile);
+            width: var(--header-button-size-mobile);
+        }
+
+        img {
+            @include tablet {
+                width: var(--header-button-icon-size-mobile);
+                height: var(--header-button-icon-size-mobile);
+            }
         }
     }
 
@@ -122,12 +145,20 @@ import HeroTitle from '../../HeroTitle.vue';
         align-items: center;
         gap: 20px;
         margin-left: auto;
+
+        @include mobile {
+            gap: 7px;
+        }
     }
 
     &__contacts {
         z-index: 1;
         display: flex;
         justify-content: space-between;
+
+        @include mobile {
+            visibility: hidden;
+        }
 
         &-item {
             display: flex;

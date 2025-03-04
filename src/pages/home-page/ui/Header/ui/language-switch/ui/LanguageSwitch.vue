@@ -4,6 +4,7 @@ import { ref, computed } from 'vue'
 import icon1 from '@/app/assets/icons/language/ru.svg'
 import icon2 from '@/app/assets/icons/language/isr.svg'
 import icon3 from '@/app/assets/icons/language/en.svg'
+import { useI18n } from 'vue-i18n'
 
 const languages = [
     { imgUrl: icon1, id: 1, value: 'ru' },
@@ -11,7 +12,11 @@ const languages = [
     { imgUrl: icon3, id: 3, value: 'en' },
 ]
 
-const currentLanguage = ref(languages[0])
+const { locale } = useI18n()
+
+const currentLanguage = computed(() => {
+    return languages.find(lang => lang.value === locale.value) || languages[0]
+})
 
 const filteredLanguages = computed(() =>
     languages.filter(lang => lang.id !== currentLanguage.value.id)
@@ -24,7 +29,7 @@ function toggleDropdown() {
 }
 
 function selectLanguage(lang: typeof languages[number]) {
-    currentLanguage.value = lang
+    locale.value = lang.value
     isDropdownOpen.value = false
 }
 
@@ -58,17 +63,24 @@ const headingClasses = computed(() => ([
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 64px;
-        height: 64px;
+        padding: 8px;
+        width: var(--header-button-size);
+        height: var(--header-button-size);
         border-radius: var(--border-radius);
         cursor: pointer;
         background-color: white;
+
+        @include mobile {
+            width: var(--header-button-size-mobile);
+            height: var(--header-button-size-mobile);
+        }
+
 
         &_open {
             border-bottom-left-radius: 0;
             border-bottom-right-radius: 0;
 
-            img{
+            img {
                 outline: 2px solid #000;
                 outline-offset: -2px;
             }
@@ -78,6 +90,11 @@ const headingClasses = computed(() => ([
             width: 32px;
             height: 32px;
             border-radius: 50%;
+
+            @include mobile {
+                width: var(--header-button-icon-size-mobile);
+                height: var(--header-button-icon-size-mobile);
+            }
         }
     }
 
@@ -90,9 +107,13 @@ const headingClasses = computed(() => ([
         border-bottom-left-radius: var(--border-radius);
         overflow: hidden;
         z-index: 10;
-        min-width: 64px;
+        min-width: var(--header-button-size);
         display: flex;
         flex-direction: column;
+
+        @include mobile {
+            min-width: var(--header-button-size-mobile);
+        }
     }
 
     &__item {
@@ -105,6 +126,10 @@ const headingClasses = computed(() => ([
         background-color: white;
         transition: background-color 0.2s;
 
+        @include mobile {
+            height: var(--header-button-size-mobile);
+        }
+
         &:hover {
             background-color: #f0f0f0;
         }
@@ -112,6 +137,11 @@ const headingClasses = computed(() => ([
         img {
             width: 32px;
             height: 32px;
+
+            @include mobile {
+                width: var(--header-button-icon-size-mobile);
+                height: var(--header-button-icon-size-mobile);
+            }
         }
 
     }

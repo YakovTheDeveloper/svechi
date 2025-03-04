@@ -22,6 +22,16 @@ const props = withDefaults(defineProps<{
     font-weight: 700;
     width: fit-content;
     border: 2px solid transparent;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include mobile {
+        font-size: 10px;
+        height: auto;
+        padding: 2px 6px;
+    }
 
     &_primary {
         color: var(--white);

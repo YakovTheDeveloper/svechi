@@ -11,7 +11,7 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 					дом.
 				</p>
 				<div class="footer__content-part__delivery">
-					<img src="@/app/assets/icons/delivery.svg" alt="delivery-icon"/>
+					<img src="@/app/assets/icons/delivery.svg" alt="delivery-icon" />
 					<p class="bold text">
 						Самовывоз возможен из города Бат-Ям
 					</p>
@@ -33,7 +33,7 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 				<ul class="footer__contacts">
 					<li>
 						<a href="">
-							<img src="@/app/assets/icons/phone.svg"  alt="">
+							<img src="@/app/assets/icons/phone.svg" alt="">
 							+053-278-75-32
 						</a>
 					</li>
@@ -66,9 +66,10 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 </template>
 
 <style lang="scss" scoped>
-.subtitle{
+.subtitle {
 	font-style: normal;
 }
+
 .footer {
 
 	--gap: 32px;
@@ -80,23 +81,27 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 	padding: 64px 216px;
 	background-color: var(--green-accent-2);
 
-	&__contacts{
-display: flex;
-gap: var(--gap-small);
-flex-direction: column;
+	@include tablet {
+		padding: 64px;
 	}
 
-	&__socials{
+	&__contacts {
+		display: flex;
+		gap: var(--gap-small);
+		flex-direction: column;
+	}
+
+	&__socials {
 		display: flex;
 		gap: var(--gap-small);
 	}
 
-	&__about-list{
+	&__about-list {
 		display: flex;
 		flex-direction: column;
 		gap: var(--gap-small);
 
-		a{
+		a {
 			font-size: 18px;
 		}
 	}
@@ -112,12 +117,12 @@ flex-direction: column;
 			gap: var(--gap);
 			max-width: 365px;
 
-			&__delivery{
+			&__delivery {
 				display: flex;
 				gap: 6px;
 				align-items: start;
 
-				img{
+				img {
 					margin-top: 6px;
 				}
 			}
@@ -125,7 +130,7 @@ flex-direction: column;
 		}
 	}
 
-	&__copyright{
+	&__copyright {
 		border-top: 2px solid rgba(255, 255, 255, 0.1);
 		color: rgba(255, 255, 255, 0.9);
 		font-size: 16px;

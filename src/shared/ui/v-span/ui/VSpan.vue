@@ -5,6 +5,7 @@ const props = withDefaults(defineProps<{
     variant: 'fill'
 })
 
+
 </script>
 
 <template>
@@ -17,7 +18,8 @@ const props = withDefaults(defineProps<{
 .span-text {
     position: relative;
     z-index: 0;
-
+    display: inline;
+    white-space: nowrap;
 }
 
 .fill {
@@ -47,6 +49,11 @@ const props = withDefaults(defineProps<{
         height: 20px;
         width: 110%;
         background: url('curved-line.svg') center no-repeat;
+
+        @include mobile {
+            background-image: url('@/app/assets/decorations/text-span/curved-line-mobile.svg');
+            bottom: -10px;
+        }
     }
 }
 </style>

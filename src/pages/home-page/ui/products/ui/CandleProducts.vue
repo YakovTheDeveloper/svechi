@@ -21,18 +21,20 @@ import CandleProductList from './CandleProductList/CandleProductList.vue';
                 </VButton>
             </div>
             <CandleProductList />
+            <VButton class="candle-products__contact-btn_mobile">
+                Написать нам
+            </VButton>
         </section>
     </div>
 </template>
 
 <style lang="scss" scoped>
 .candle-products {
-    display: flex;
+    display: grid;
+    grid-template-columns: auto 1fr;
     gap: 32px;
 
     @include tablet {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
         position: relative;
 
         &::after {
@@ -40,8 +42,34 @@ import CandleProductList from './CandleProductList/CandleProductList.vue';
         }
     }
 
+    @include mobile {
+        &::after {
+            display: none;
+        }
+    }
+
+    @include mobile {
+        gap: 16px;
+        grid-template-columns: 1fr;
+    }
+
     &__contact-btn {
+        display: flex;
         margin-top: auto;
+
+
+        @include mobile {
+            display: none;
+        }
+
+        &_mobile {
+            display: none;
+
+            @include mobile {
+                display: inline-block;
+                width: fit-content;
+            }
+        }
     }
 
     &__description {

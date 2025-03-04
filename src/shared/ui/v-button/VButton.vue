@@ -49,6 +49,11 @@ const classes = computed(() => [
 		pointer-events: none;
 	}
 
+	@include mobile{
+		padding: 10px 16px;
+		font-size: 14px;
+	}
+
 }
 
 .btn-primary {
@@ -66,27 +71,4 @@ const classes = computed(() => [
 	background: var(--white);
 }
 
-.btn-default {
-
-}
-
-.btn-large {
-
-}
-
-.btn-xxs {
-	// border-radius: var(--rounded-xxs);
-}
-
-.btn-xs {
-	// border-radius: var(--rounded-xs);
-}
-
-.btn-s {
-	// border-radius: var(--rounded-s);
-}
-
-.btn-l {
-	// border-radius: var(--rounded-l);
-}
 </style>

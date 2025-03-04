@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import {  useStore } from '@/shared/stores/store';
+import { useStore } from '@/shared/stores/store';
 import { VBadge } from '@/shared/ui/v-badge';
 import { VButton } from '@/shared/ui/v-button';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
@@ -8,7 +8,7 @@ const store = useStore()
 
 const onClick = () => {
     store.openModal()
-    console.log(`output-'click'`,'click')
+    console.log(`output-'click'`, 'click')
 }
 
 </script>
@@ -34,12 +34,21 @@ const onClick = () => {
     grid-template-columns: auto 50% 1fr auto;
     border-bottom: 1px solid var(--black-third);
 
+    @media (max-width: 850px) {
+        gap: 4px;
+    }
+
     &__image-container {
         width: 96px;
         height: 96px;
         border-radius: 24px;
         overflow: hidden;
         background-color: var(--black-third);
+
+        @include mobile {
+            width: 36px;
+            height: 36px;
+        }
 
         img {
             max-width: 100%;
@@ -49,6 +58,11 @@ const onClick = () => {
     &__text {
         font-weight: 500;
         color: var(--black-primary);
+
+        @include mobile {
+            font-size: 12px;
+            font-weight: 500;
+        }
     }
 
 }

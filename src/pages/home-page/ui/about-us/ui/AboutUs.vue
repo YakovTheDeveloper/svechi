@@ -12,27 +12,28 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
                 <img src="/img/about-us/1.png" alt="">
             </div>
             <div class="about-us__text-content">
-                <h2 class="subtitle">О нашей <VSpan variant="fill">мастерской</VSpan></h2>
+                <h2 class="subtitle">О нашей <VSpan variant="fill">мастерской</VSpan>
+                </h2>
                 <p>
                     Всем привет! Я Дарья Агафонова, и я создаю свечи ручной работы с уникальными ароматами. Каждая свеча
                     сделана с любовью, из 100% натуральных компонентов, безопасных для здоровья. В отличие от массово
                     производимых свечей с парафином и синтетическими ароматами, мои свечи не содержат вредных веществ,
                     что делает их идеальными для вашего дома.
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     Я предлагаю широкий ассортимент свечей, подходящих под любой интерьер и предпочтения. У нас есть
                     различные ароматы: от свежих и легких до насыщенных и уютных, а также различные объемы с разным
                     временем горения. Каждая свеча индивидуальна и подбирается под ваш интерьер.
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     Доставка по всему
                     Израилю.
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     Свечи ручной работы — это не только безвредные и безопасные продукты, но и отличный способ украсить
                     дом. Они добавят уюта в любую комнату, будь то спальня, гостиная, ванная комната или даже офис.
-                    <br/>
-                    <br/>
+                    <br />
+                    <br />
                     Пишите, я помогу вам выбрать идеальные свечи, которые станут частью вашего уюта в доме или добавит
                     магии вечерним моментам на улице!
                 </p>
@@ -49,7 +50,7 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
     margin-bottom: 32px;
 }
 
-.subtitle{
+.subtitle {
     color: var(--black-primary);
 }
 
@@ -61,18 +62,26 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
     display: flex;
     gap: 32px;
 
-    &__img{
+    @media (max-width: 1400px) {
+        flex-direction: column;
+    }
+
+    @include tablet {
+        flex-direction: column;
+    }
+
+    &__img {
         padding: 60px 76px;
         max-width: 728px;
         flex-shrink: 0;
         position: relative;
 
-        img{
+        img {
             max-width: 100%;
             object-fit: contain;
         }
 
-        &:after{
+        &:after {
             position: absolute;
             top: 13%;
             right: 0;
@@ -112,6 +121,10 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 
     &__order-btn {
         margin-top: 64px;
+
+        @include tablet {
+            margin-top: 0;
+        }
     }
 }
 </style>
