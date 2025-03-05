@@ -5,7 +5,7 @@ import OurAdvantagesItem from './OurAdvantagesItem.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 
-const { t } = useI18n()
+const { locale, t } = useI18n()
 
 const MOCK_DATA = computed(() => {
     return [
@@ -17,28 +17,28 @@ const MOCK_DATA = computed(() => {
         },
         {
             imgUrl: '/img/our-advantages/2.svg',
-            description: 'Мы создаем ароматы, которые подчеркивают ваш стиль и атмосферу дома, а также учитываем индивидуальные предпочтения.',
-            title: 'Уникальные ароматы и индивидуальный подход',
+            description: t('our_advantages_item_2_description'),
+            title: t('our_advantages_item_2_title'),
         },
         {
             imgUrl: '/img/our-advantages/3.svg',
-            description: 'В наличии свечи разных объемов и времени горения, что позволяет подобрать идеальный вариант для любого случая.',
-            title: 'Разнообразие форм и размеров',
+            description: t('our_advantages_item_3_description'),
+            title: t('our_advantages_item_3_title'),
         },
         {
             imgUrl: '/img/our-advantages/4.svg',
-            description: 'Мы оперативно доставляем заказы в любую точку страны, чтобы ваши свечи радовали вас как можно быстрее.',
-            title: 'Быстрая доставка по Израилю',
+            description: t('our_advantages_item_4_description'),
+            title: t('our_advantages_item_4_title'),
         },
         {
             imgUrl: '/img/our-advantages/5.svg',
-            description: 'Наши свечи — это не только уют и аромат, но и прекрасное украшение интерьера или продуманный подарок.',
-            title: 'Идеальный подарок и стильный декор',
+            description: t('our_advantages_item_5_description'),
+            title: t('our_advantages_item_5_title'),
         },
         {
             imgUrl: '/img/our-advantages/6.svg',
-            description: 'Мы часто радуем клиентов скидками и предлагаем самые доступные цены на рынке свечей ручной работы.',
-            title: 'Лучшие цены и регулярные акции',
+            description: t('our_advantages_item_6_description'),
+            title: t('our_advantages_item_6_title'),
         },
     ]
 })
@@ -51,10 +51,18 @@ const MOCK_DATA = computed(() => {
     <div class="container padding">
         <section class="our-advantages">
             <h2 class="subtitle">
-                <VSpan variant="underlined subtitle-span">Мы заботимся</VSpan>
-                <span class="subtitle-span_mobile">Мы заботимся</span>
-                о вашем уюте — вот почему <VSpan variant="fill">нам
-                    доверяют</VSpan>
+
+                <template v-if="locale === 'ru'">
+                    <VSpan variant="underlined" class="subtitle-span">Мы заботимся</VSpan>
+                    <span class="subtitle-span_mobile">Мы заботимся</span>
+                    о вашем уюте — вот почему <VSpan variant="fill">нам
+                        доверяют</VSpan>
+                </template>
+                <template v-else>
+                    <VSpan variant="underlined" class="subtitle-span">We care</VSpan>
+                    <span class="subtitle-span_mobile">We care</span>
+                    about your comfort — that's why you <VSpan variant="fill">trust us</VSpan>
+                </template>
             </h2>
         </section>
         <div class="our-advantages__list-container">
@@ -100,10 +108,16 @@ const MOCK_DATA = computed(() => {
         flex-wrap: wrap;
         padding-left: 64px;
         justify-content: space-evenly;
+        
 
         @include tablet {
             overflow: auto;
             flex-wrap: nowrap;
+        }
+
+        @include mobile{
+            padding-left: 0;
+            gap: 8px;
         }
 
     }
@@ -113,9 +127,19 @@ const MOCK_DATA = computed(() => {
         background-color: var(--bg-2);
         padding: 64px;
         padding-left: unset;
+        position: relative;
 
         @include tablet {
             overflow: auto;
+        }
+        
+        @include mobile{
+            padding: 8px;
+            border-radius: 32px;
+
+            &:after{
+                @include fade-overlay-right($width: 20%)
+            }
         }
     }
 }

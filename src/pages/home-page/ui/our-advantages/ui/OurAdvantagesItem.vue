@@ -38,17 +38,38 @@ const props = defineProps<{
     flex-shrink: 0;
     background-color: var(--bg);
 
+    @include mobile {
+        padding: 12px;
+        width: 280px;
+        height: 202px;
+        gap: 16px;
+        border-radius: 20px;
+    }
 
     &__text-content {
         display: flex;
         flex-direction: column;
         gap: 16px;
         text-align: center;
+
+        @include mobile {
+            gap: 8px;
+        }
     }
 
     &__title {
         color: var(--black-primary);
         font-size: 36px;
+
+        @include mobile {
+            font-size: 16px;
+        }
+    }
+
+    &__text {
+        @include mobile {
+            font-size: 12px;
+        }
     }
 }
 </style>

@@ -100,15 +100,7 @@ watch(() => props.breakpoints, (newBreakpoints) => {
     position: relative;
 
     &:before {
-        content: ''; // Required for pseudo-elements
-        position: absolute; // Place over the swiper
-        top: 0;
-        right: 0;
-        z-index: 2;
-        height: 100%;
-        width: 390px; // Width of the fade effect (adjust as needed)
-        pointer-events: none; // Don’t block interaction with slides
-        background: linear-gradient(270deg, #FEFBF2 3.72%, rgba(254, 251, 242, 0) 100%);
+        @include fade-overlay-right($width: 20%);
     }
 }
 

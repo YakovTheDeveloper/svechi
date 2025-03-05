@@ -1,21 +1,24 @@
 <script setup lang="ts">
 
+import { useStore } from '@/shared/stores/store';
 import VButton from '@/shared/ui/v-button/VButton.vue';
 import { ref } from 'vue'
+
+const store = useStore()
 
 </script>
 
 <template>
     <div class="modal-content-product-description">
         <div>
-            <p class="modal-content-product-description__title bold">Свечи в стеклянной банке, 360 мл.</p>
-            <p class="modal-content-product-description__text">Свечи в металлической банке объемом 200 мл — это
-                сочетание современного дизайна и длительного горения от 25 часов. Они идеально подойдут для создания
-                уюта в любом уголке вашего дома. Пишите нам, и мы предложим свечи, которые гармонично впишутся в ваш
-                интерьер!</p>
+            <p class="modal-content-product-description__title bold">
+                {{ store.currentModalProduct?.title }}, 360 мл.</p>
+            <p class="modal-content-product-description__text">{{ store.currentModalProduct?.description }}</p>
         </div>
-        <p class="modal-content-product-description__price">160 ₪</p>
-        <VButton>Написать нам</VButton>
+        <p class="modal-content-product-description__price">{{ store.currentModalProduct?.price }} ₪</p>
+        <VButton>
+            {{ $t('contact_write_us') }}
+        </VButton>
     </div>
 </template>
 

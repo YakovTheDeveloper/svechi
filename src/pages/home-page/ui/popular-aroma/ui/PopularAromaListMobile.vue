@@ -11,7 +11,6 @@ import icon6 from '@/app/assets/icons/aroma/6.svg'
 
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import PopularAromaListMobile from './PopularAromaListMobile.vue';
 
 const { t, locale } = useI18n()
 const slides = computed(() => ([
@@ -51,84 +50,79 @@ const slides = computed(() => ([
     { imgUrl: icon6, id: 34, title: t('popular_aroma_item_34') }
 ]))
 
-
-const sliderBreakpoints = {
-    480: {
-        slidesPerView: 3,
-        spaceBetween: 16
-    },
-    960: {
-        slidesPerView: 5,
-        spaceBetween: 32
-    },
-    1500: {
-        slidesPerView: 6,
-        spaceBetween: 32
-    }
-}
-
+const partOne = computed(() => slides.value.slice(0, Math.ceil(slides.value.length / 2)))
+const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length / 2)))
 
 </script>
 
 <template>
-    <div class="container padding">
-        <section class="popular-aroma">
-            <h2 class="subtitle">
-                <template v-if="locale === 'ru'">
-                    Самые <VSpan variant="fill">популярные</VSpan> ароматы
-                </template>
-                <template v-else>
-                    Most <VSpan variant="fill">Popular</VSpan> Fragrances
-                </template>
-            </h2>
-            <div class="popular-aroma__content">
-                <VSwiper :slides="slides" :breakpoints="sliderBreakpoints">
-                    <template #slide="{ slide }">
-                        <div class="popular-aroma__item">
-                            <IconWithBackground :src="slide.imgUrl" alt="aroma-icon" />
-                            <p class="bold">{{ slide.title }}</p>
-                        </div>
-                    </template>
-                </VSwiper>
-            </div>
-            <PopularAromaListMobile/>
-        </section>
+    <div class="popular-aroma-mobile">
+        <div class="popular-aroma-mobile-inner">
+            <ul class="popular-aroma-mobile__list">
+                <li class="popular-aroma-mobile-item" v-for="item in partOne" :key="item.id">
+                    <IconWithBackground :src="item.imgUrl" />
+                    <p class="popular-aroma-mobile-item__text">
+                        {{ item.title }}
+                    </p>
+                </li>
+            </ul>
+            <ul class="popular-aroma-mobile__list">
+                <li class="popular-aroma-mobile-item" v-for="item in partTwo" :key="item.id">
+                    <IconWithBackground :src="item.imgUrl" />
+                    <p class="popular-aroma-mobile-item__text">
+                        {{ item.title }}
+                    </p>
+                </li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <style lang="scss" scoped>
-.subtitle {
-    margin-bottom: 64px;
+.popular-aroma-mobile {
+    display: none;
+    width: 100%;
+    position: relative;
+
+    &::after {
+        @include fade-overlay-right(16%); // Apply with default or custom width
+    }
 
     @include mobile {
-        margin-bottom: 32px;
+        display: block;
+    }
+
+    &__list {
+        display: flex;
+        gap: 8px;
     }
 }
 
-.popular-aroma {
+.popular-aroma-mobile-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+}
 
-    &__item {
-        height: 280px;
-        padding: 32px;
-        gap: 32px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+.popular-aroma-mobile-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 8px 10px;
+    width: 105px;
+    height: 105px;
+    flex-shrink: 0;
+    background-color: var(--bg-2);
+    border-radius: 24px;
+
+    &__text {
+        font-size: 10px;
+        font-weight: 700;
         text-align: center;
-        background-color: var(--bg-2);
-        border-radius: 64px;
-
-        img {
-            width: 100%;
-        }
     }
 
-    &__content {
-        display: flex;
 
-        @include mobile {
-            display: none;
-        }
-    }
 }
 </style>

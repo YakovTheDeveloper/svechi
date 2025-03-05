@@ -34,8 +34,12 @@ import { messages } from '@/app/assets/locales';
                     <img :src="phoneIcon" alt="contact-icon" :style="{ transform: 'translateX(-17px)' }">
                 </div>
                 <div class="header-actions__contacts-item-text">
-                    <p class="header-actions__contacts-item-text__title">Напишите нам</p>
-                    <p class="header-actions__contacts-item-text__sub">Администратор</p>
+                    <p class="header-actions__contacts-item-text__title">
+                        {{ $t('contact_write_us_2') }}
+                    </p>
+                    <p class="header-actions__contacts-item-text__sub">
+                        {{ $t('contact_admin') }}
+                    </p>
                 </div>
             </component>
             <component is="a" class="header-actions__contacts-item">
@@ -44,7 +48,9 @@ import { messages } from '@/app/assets/locales';
                     <img :src="instIcon" alt="contact-icon">
                 </div>
                 <div class="header-actions__contacts-item-text">
-                    <p class="header-actions__contacts-item-text__title">Присоединяйтесь!</p>
+                    <p class="header-actions__contacts-item-text__title">
+                        {{ $t('contact_join') }}
+                    </p>
                 </div>
             </component>
         </div>
@@ -55,12 +61,13 @@ import { messages } from '@/app/assets/locales';
 .header-actions {
     padding: 64px;
     height: 944px;
+    max-width: 944px;
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: relative;
     overflow: hidden;
-    flex-grow: 1;
     border-bottom-left-radius: 64px;
     background:
         url('img/header-bg.png') center no-repeat,
@@ -92,6 +99,7 @@ import { messages } from '@/app/assets/locales';
 
     @include tablet {
         height: 960px;
+        width: 100%;
     }
 
 

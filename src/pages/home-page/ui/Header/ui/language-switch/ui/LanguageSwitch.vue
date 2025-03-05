@@ -8,7 +8,7 @@ import { useI18n } from 'vue-i18n'
 
 const languages = [
     { imgUrl: icon1, id: 1, value: 'ru' },
-    { imgUrl: icon2, id: 2, value: 'isr' },
+    { imgUrl: icon2, id: 2, value: 'he' },
     { imgUrl: icon3, id: 3, value: 'en' },
 ]
 

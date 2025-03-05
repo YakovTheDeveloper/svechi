@@ -6,7 +6,8 @@ import HeroTitle from '../../HeroTitle.vue';
 import OurCandles from '@/widgets/ourCandles/ui/OurCandles.vue';
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
-
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n()
 </script>
 
 <template>
@@ -14,7 +15,12 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         <section class="unique-design">
             <div class="unique-design__points">
                 <h1 class="title">
-                    <VSpan variant="fill">Уникальный</VSpan> дизайн
+                    <template v-if="locale === 'ru'">
+                        <VSpan variant="fill">Уникальный</VSpan> дизайн
+                    </template>
+                    <template v-else>
+                        <VSpan variant="fill">Unique</VSpan> Design
+                    </template>
                 </h1>
                 <div class="unique-design__benefits">
                     <p class="unique-design__benefits-title bold">
@@ -75,7 +81,7 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
         position: absolute;
         content: '';
         top: -100px;
-        right: -330px;
+        right: -248px;
         background: url('@/app/assets/decorations/unique-design/1.svg') center no-repeat;
         width: 560px;
         height: 93px;
@@ -133,6 +139,10 @@ import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
             align-items: center;
             text-align: center;
             flex-grow: 1;
+        }
+
+        @include mobile {
+            flex-grow: 0;
         }
 
     }

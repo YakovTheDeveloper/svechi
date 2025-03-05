@@ -6,6 +6,8 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Scrollbar, Navigation } from 'swiper/modules'
 import VSwiper from '@/shared/ui/v-swiper/VSwiper.vue'
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue'
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
 
 const slides = [
     { imgUrl: '/img/gallery/1.png', id: 1 },
@@ -17,11 +19,11 @@ const slides = [
 ]
 
 const sliderBreakpoints = {
-    480: {
+    500: {
         slidesPerView: 1.5,
         spaceBetween: 16
     },
-    960: {
+    1060: {
         slidesPerView: 4,
         spaceBetween: 32
     }
@@ -31,7 +33,13 @@ const sliderBreakpoints = {
 
 <template>
     <section class="gallery padding">
-        <h1 class="subtitle">Галерея <VSpan variant="fill">тепла и уюта</VSpan>
+        <h1 class="subtitle">
+            <template v-if="locale === 'ru'">
+                Галерея <VSpan variant="fill">тепла и уюта</VSpan>
+            </template>
+            <template v-else>
+                Gallery of <VSpan variant="fill">Warmth and Comfort</VSpan>
+            </template>
         </h1>
 
         <VSwiper :slides="slides" :slides-per-view="3" :spaceBetween="32" :breakpoints="sliderBreakpoints"
@@ -49,7 +57,11 @@ const sliderBreakpoints = {
 .subtitle {
     margin-bottom: 64px;
 
-    @include mobile{
+    @include tablet {
+        margin-bottom: 32px;
+    }
+
+    @include mobile {
         margin-bottom: 16px;
     }
 }
@@ -58,6 +70,10 @@ const sliderBreakpoints = {
     height: 432px;
     border-radius: 64px;
     overflow: hidden;
+
+    @include mobile {
+        height: 209px;
+    }
 
     img {
         user-select: none;

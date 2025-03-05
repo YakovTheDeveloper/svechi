@@ -11,7 +11,7 @@ body {
   font-size: 24px;
   font-family: var(--font-playfair-display);
   background-color: var(--bg);
-
+  font-feature-settings: "lnum";
   &.lock {
     overflow: hidden;
   }

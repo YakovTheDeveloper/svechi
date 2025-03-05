@@ -1,20 +1,31 @@
 <script setup lang="ts">
-import VIcon from '@/shared/ui/v-icon/VIcon.vue'
-import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-
+function scrollToSection(id: string) {
+    const section = document.getElementById(id)
+    section?.scrollIntoView({ behavior: 'smooth' })
+}
 </script>
 
 <template>
     <nav>
         <ul class="navbar-list">
-            <li class="navbar-list__item navbar-list__item_active">Главная</li>
-            <li class="navbar-list__item">Контакты</li>
-            <li class="navbar-list__item">О нас</li>
-            <li class="navbar-list__item">Консультация</li>
-            <li class="navbar-list__item">Акции</li>
+            <li class="navbar-list__item navbar-list__item_active">
+                <a>{{ $t('nav_main') }}</a>
+            </li>
+            <li class="navbar-list__item">
+                <a>{{ $t('nav_contacts') }}</a>
+            </li>
+            <li class="navbar-list__item">
+                <a @click.prevent="scrollToSection('about-us')">{{ $t('nav_about_us') }}</a>
+            </li>
+            <li class="navbar-list__item">
+                <a>{{ $t('nav_consulting') }}</a>
+            </li>
+            <li class="navbar-list__item">
+                <a>{{ $t('nav_promotions') }}</a>
+            </li>
         </ul>
     </nav>
 </template>

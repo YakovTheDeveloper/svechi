@@ -27,14 +27,18 @@ const props = withDefaults(defineProps<{
 
     &:after {
         top: 0;
-        left: -3%;
-        transform: rotate(-2deg);
+        left: -9px;
+        transform: rotate(-2.4deg);
         position: absolute;
         content: '';
         background-color: red;
-        width: 105%;
+        width: 106%;
         height: 105%;
         z-index: -1;
+
+        @include mobile {
+            left: -4px;
+        }
     }
 }
 

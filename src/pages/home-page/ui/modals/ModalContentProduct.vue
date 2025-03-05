@@ -2,6 +2,7 @@
 
 import { ref } from 'vue'
 import ModalContentProductDescription from './ModalContentProductDescription.vue'
+import { useStore } from '@/shared/stores/store'
 const data = [
     { imgUrl: '/img/product-desc/1.jpg', id: 1 },
     { imgUrl: '/img/product-desc/2.jpg', id: 2 },
@@ -11,6 +12,8 @@ const data = [
 
 const currentImage = ref(data[0].imgUrl)
 const setCurrentImage = (src: string) => currentImage.value = src
+
+const store = useStore()
 
 </script>
 

@@ -19,11 +19,15 @@ import ModalContentProduct from './ui/modals/ModalContentProduct.vue';
 import { storeToRefs } from 'pinia';
 import { useStore } from '@/shared/stores/store';
 
-const store = useStore()
+// const store = useStore()
+const store = storeToRefs(useStore())
+const { clearModalContent } = useStore()
 
-watchEffect(() => {
-	console.log(`output->showModal`, store.showModal)
-})
+// watchEffect(() => {
+// 	console.log(`output->showModal`, store.showModal)
+// })
+
+watch(store.showModal, (isShow) => !isShow && clearModalContent())
 
 </script>
 
@@ -37,7 +41,7 @@ watchEffect(() => {
 	<OurAdvantages />
 	<PopularAroma />
 	<Footer />
-	<VModal v-model="store.showModal">
+	<VModal v-model="store.showModal.value">
 		<ModalContentProduct />
 	</VModal>
 </template>

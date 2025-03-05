@@ -31,5 +31,15 @@ const props = defineProps<{
 		flex-shrink: 0;
 		aspect-ratio: 1;
 	}
+
+	@include mobile {
+		width: 48px;
+		height: 48px;
+		padding: 0;
+
+		img {
+			max-width: 24px;
+		}
+	}
 }
 </style>

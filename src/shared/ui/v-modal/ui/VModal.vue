@@ -3,6 +3,7 @@ import { onUnmounted, watchEffect } from 'vue'
 import { useBodyLock } from '@/shared/utils/useBodyLock.ts'
 import { VOverlay } from '@/shared/ui/v-overlay'
 import crossIcon from '@/app/assets/icons/cross.svg'
+import { useStore } from '@/shared/stores/store'
 
 const isOpen = defineModel({ type: Boolean, required: true })
 const { lock, unlock } = useBodyLock()
@@ -11,6 +12,8 @@ watchEffect(() => {
 	if (isOpen.value) lock()
 	else unlock()
 })
+
+
 
 onUnmounted(() => unlock())
 </script>

@@ -2,7 +2,7 @@
     content: ''; // Required for pseudo-elements
     position: absolute; // Place over the swiper
     top: 0;
-    right: 0;
+    right: -2px;
     z-index: 2;
     height: 100%;
     width: $width; // Dynamic width

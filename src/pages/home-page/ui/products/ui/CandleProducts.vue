@@ -7,22 +7,30 @@ import OurCandles from '@/widgets/ourCandles/ui/OurCandles.vue';
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 import CandleProductList from './CandleProductList/CandleProductList.vue';
-
+import { useI18n } from 'vue-i18n';
+const { locale } = useI18n()
 </script>
 
 <template>
     <div class="container padding">
         <section class="candle-products">
             <div class="candle-products__description">
-                <h1 class="title">Свечи, согревающие <VSpan variant="fill">сердца</VSpan>
+
+                <h1 class="title">
+                    <template v-if="locale === 'ru'">
+                        Свечи, согревающие <VSpan variant="fill">сердца</VSpan>
+                    </template>
+                    <template v-else>
+                        Candles that Warm <VSpan variant="fill">Hearts</VSpan>
+                    </template>
                 </h1>
                 <VButton class="candle-products__contact-btn">
-                    Написать нам
+                    {{ $t('contact_write_us') }}
                 </VButton>
             </div>
             <CandleProductList />
             <VButton class="candle-products__contact-btn_mobile">
-                Написать нам
+                {{ $t('contact_write_us') }}
             </VButton>
         </section>
     </div>

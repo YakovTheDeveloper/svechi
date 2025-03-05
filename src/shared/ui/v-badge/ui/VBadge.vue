@@ -17,6 +17,7 @@ const props = withDefaults(defineProps<{
 .badge {
     height: 36px;
     font-size: 18px;
+    line-height: 23px;
     padding: 6px 16px;
     border-radius: 28px;
     font-weight: 700;
@@ -28,9 +29,11 @@ const props = withDefaults(defineProps<{
     justify-content: center;
 
     @include mobile {
-        font-size: 10px;
-        height: auto;
-        padding: 2px 6px;
+        font-size: 10px;  
+        height: fit-content;
+        padding: 4px 6px;
+        line-height: normal;
+        border-width: 1px;
     }
 
     &_primary {

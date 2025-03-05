@@ -1,26 +1,29 @@
 <script setup lang="ts">
 import { useStore } from '@/shared/stores/store';
+import type { Product } from '@/shared/types/product';
 import { VBadge } from '@/shared/ui/v-badge';
 import { VButton } from '@/shared/ui/v-button';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 
-const store = useStore()
+const emits = defineEmits(['onClick'])
 
-const onClick = () => {
-    store.openModal()
-    console.log(`output-'click'`, 'click')
-}
+const props = defineProps<Product>()
+
+const store = useStore()
 
 </script>
 
 <template>
     <li class="candleItem">
         <div class="candleItem__image-container">
-            <img src="" alt="">
+            <img :src="props.imgUrl" alt="">
         </div>
-        <p class="text candleItem__text">Свечи в стеклянной банке объемом 360 мл</p>
-        <VBadge variant="secondary">36 ароматов</VBadge>
-        <VButtonIcon @click="onClick" />
+        <div class="candleItem__text">
+            <p class="text candleItem__text-title">{{ props.title }}</p>
+            <p class="candleItem__text-amount">{{ props.amount }} {{ props.unit }}</p>
+        </div>
+        <VBadge variant="secondary">36 {{ $t('scents') }}</VBadge>
+        <VButtonIcon @click="emits('onClick')" />
     </li>
 </template>
 
@@ -38,6 +41,22 @@ const onClick = () => {
         gap: 4px;
     }
 
+    &__text {
+        display: flex;
+        flex-direction: column;
+        font-weight: 500;
+        color: var(--black-primary);
+
+        @include mobile {
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        &-title {}
+
+        &-amount {}
+    }
+
     &__image-container {
         width: 96px;
         height: 96px;
@@ -48,6 +67,7 @@ const onClick = () => {
         @include mobile {
             width: 36px;
             height: 36px;
+            border-radius: 9px;
         }
 
         img {
@@ -55,15 +75,6 @@ const onClick = () => {
         }
     }
 
-    &__text {
-        font-weight: 500;
-        color: var(--black-primary);
-
-        @include mobile {
-            font-size: 12px;
-            font-weight: 500;
-        }
-    }
 
 }
 </style>

@@ -33,6 +33,7 @@ import HeaderActions from './HeaderActions.vue';
     &__content {
         display: flex;
         gap: 80px;
+        flex-grow: 1;
         flex-direction: column;
 
         @include tablet {
