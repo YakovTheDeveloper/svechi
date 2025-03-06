@@ -86,9 +86,10 @@ const { locale } = useI18n()
         width: 560px;
         height: 93px;
 
-        @include tablet {
+        @media (max-width: 1400px) {
             display: none;
         }
+
     }
 }
 
@@ -98,7 +99,7 @@ const { locale } = useI18n()
     gap: 10px;
     grid-template-columns: 1fr 1fr 1fr;
 
-    @include tablet {
+    @media (max-width: 1400px) {
         grid-template-columns: 1fr;
         gap: 48px;
     }

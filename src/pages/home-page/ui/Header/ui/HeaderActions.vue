@@ -99,7 +99,7 @@ import { messages } from '@/app/assets/locales';
 
     @include tablet {
         height: 960px;
-        width: 100%;
+        min-width: 100%;
     }
 
 
@@ -110,6 +110,7 @@ import { messages } from '@/app/assets/locales';
     &__header {
         display: flex;
         z-index: 1;
+        align-items: center;
     }
 
     &__burger {
@@ -124,12 +125,16 @@ import { messages } from '@/app/assets/locales';
 
         @include tablet {
             display: flex;
+        }
+
+        @include mobile {
+            display: flex;
             height: var(--header-button-size-mobile);
             width: var(--header-button-size-mobile);
         }
 
         img {
-            @include tablet {
+            @include mobile {
                 width: var(--header-button-icon-size-mobile);
                 height: var(--header-button-icon-size-mobile);
             }
@@ -137,6 +142,8 @@ import { messages } from '@/app/assets/locales';
     }
 
     &__title-center {
+        position: relative;
+        bottom: -35px;
         z-index: 1;
         display: none;
         word-wrap: break-word;
@@ -153,6 +160,7 @@ import { messages } from '@/app/assets/locales';
         align-items: center;
         gap: 20px;
         margin-left: auto;
+        flex-wrap: wrap;
 
         @include mobile {
             gap: 7px;
@@ -162,6 +170,8 @@ import { messages } from '@/app/assets/locales';
     &__contacts {
         z-index: 1;
         display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
         justify-content: space-between;
 
         @include mobile {

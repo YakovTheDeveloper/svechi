@@ -22,14 +22,15 @@ const { locale } = useI18n()
                         <VSpan variant="underlined">постоянных</VSpan> клиентов
                     </template>
                     <template v-else>
-                        Favorable <VSpan variant="fill">Conditions</VSpan> for <VSpan variant="underlined">Regular</VSpan> Customers
+                        Favorable <VSpan variant="fill">Conditions</VSpan> for <VSpan variant="underlined">Regular
+                        </VSpan> Customers
                     </template>
                 </h1>
-                <p class="text">
+                <p class="text customer-profit__text">
                     {{ $t('customer_profit_text') }}
                 </p>
             </div>
-            <div class="customer-profit__img">
+            <div class="customer-profit__img padding-vertical">
                 <img src="/img/customer-profit/1.png" alt="customer-profit">
             </div>
         </section>
@@ -59,7 +60,9 @@ const { locale } = useI18n()
 .customer-profit {
     display: flex;
     gap: 32px;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    // align-items: stretch;
     background: url('/img/customer-profit/bg.svg') no-repeat;
     background-size: 1024px;
     background-position: 50% 30%;
@@ -68,7 +71,8 @@ const { locale } = useI18n()
 
     @include tablet {
         margin-top: 64px;
-        flex-direction: column-reverse;
+
+        grid-template-columns: 1fr;
         background-size: 120%;
         background-position: 20% -20%;
         gap: 0;
@@ -77,6 +81,14 @@ const { locale } = useI18n()
     @include mobile {
         background-size: 108%;
         background-position: 57% 0;
+    }
+
+    &__text {
+        max-width: 664px;
+
+        @include tablet {
+            max-width: unset;
+        }
     }
 
     &__description {
@@ -88,14 +100,14 @@ const { locale } = useI18n()
     &__img {
         flex-grow: 1;
         display: flex;
-        align-items: center;
         justify-content: center;
         position: relative;
-        height: 100%;
+        min-width: 30%;
 
         @include tablet {
-            width: 100%;
-            height: 480px;
+            min-width: 100%;
+            height: 450px;
+            order: -1;
         }
 
         @include mobile {
@@ -103,16 +115,20 @@ const { locale } = useI18n()
         }
 
         img {
-            width: 150%;
+            min-width: 450px;
+            max-width: 150%;
             object-fit: cover;
             position: absolute;
-            transform: translate(-5%, 5%);
+            right: 37%;
+            top: 40%;
+            transform: translate(50%, -50%);
 
             @include tablet {
+                min-width: unset;
+                max-width: 100%;
                 position: absolute;
-                top: 50%;
-                right: 68%;
-                transform: translate(50%, -50%);
+                top: 43%;
+                right: 48%;
             }
         }
     }

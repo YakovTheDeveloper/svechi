@@ -19,12 +19,16 @@ const slides = [
 ]
 
 const sliderBreakpoints = {
+    0: {
+        slidesPerView: 1.25,
+        spaceBetween: 16
+    },
     500: {
         slidesPerView: 1.5,
         spaceBetween: 16
     },
     1060: {
-        slidesPerView: 4,
+        slidesPerView: 3,
         spaceBetween: 32
     }
 }
@@ -73,6 +77,7 @@ const sliderBreakpoints = {
 
     @include mobile {
         height: 209px;
+        border-radius: 24px;
     }
 
     img {

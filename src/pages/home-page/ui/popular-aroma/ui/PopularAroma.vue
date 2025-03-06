@@ -100,6 +100,10 @@ const sliderBreakpoints = {
 .subtitle {
     margin-bottom: 64px;
 
+    @include tablet {
+        margin-bottom: 32px;
+    }
+
     @include mobile {
         margin-bottom: 32px;
     }

@@ -5,10 +5,10 @@ import 'swiper/css/scrollbar'
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import { Scrollbar, Navigation } from 'swiper/modules'
 import VButtonIcon from '../v-button/VButtonIcon.vue'
-import { computed, onMounted, ref, useTemplateRef, watch } from 'vue'
+import { computed, nextTick, onMounted, ref, useTemplateRef, watch } from 'vue'
 import type { SwiperOptions } from 'swiper/types'
+import { useI18n } from 'vue-i18n'
 
-// Props
 const props = defineProps<{
     slides: { imgUrl: string; id: number }[],
     scrollBarClass?: string
@@ -17,32 +17,64 @@ const props = defineProps<{
         [ratio: string]: SwiperOptions;
     }
 }>()
-
+const swiperRef = ref<{ swiper: any } | null>(null)
+const { locale } = useI18n()
 const scrollbarRef = ref(null)
 const prevButtonRef = ref(null)
 const nextButtonRef = ref<InstanceType<typeof VButtonIcon> | null>(null)
+const prevButtonRtlRef = ref(null)
+const nextButtonRtlRef = ref<InstanceType<typeof VButtonIcon> | null>(null)
+
+// 
+
+const scrollbarOptions = ref({
+    el: null,
+    draggable: true
+})
+const isRtl = computed(() => locale.value === 'he')
+
+// onMounted(() => {
+//     navigation.value = {
+//         nextEl: nextButtonRef.value?.getEl(),
+//         prevEl: prevButtonRef.value?.getEl()
+//     }
+//     scrollbarOptions.value = {
+//         ...scrollbarOptions.value,
+//         el: scrollbarRef.value
+//     }
+//     console.log(navigation.value)
+// })
 
 const navigation = ref({
     nextEl: null,
     prevEl: null
 })
 
-const scrollbarOptions = ref({
-    el: null,
-    draggable: true
-})
+function updateNavigation() {
+    if (isRtl.value) {
+        navigation.value = {
+            nextEl: nextButtonRtlRef.value?.getEl(),
+            prevEl: prevButtonRtlRef.value?.getEl()
+        }
+    } else {
+        navigation.value = {
+            nextEl: nextButtonRef.value?.getEl(),
+            prevEl: prevButtonRef.value?.getEl()
+        }
+    }
+}
 
-onMounted(() => {
-    navigation.value = {
-        nextEl: nextButtonRef.value?.getEl(),
-        prevEl: prevButtonRef.value?.getEl()
-    }
-    scrollbarOptions.value = {
-        ...scrollbarOptions.value,
-        el: scrollbarRef.value
-    }
-    console.log(navigation.value)
-})
+// const localeBasedNavigation = computed(() => {
+//     if (isRtl) return {
+//         nextEl: nextButtonRtlRef.value?.getEl(),
+//         prevEl: prevButtonRtlRef.value?.getEl()
+//     }
+//     else return {
+//         nextEl: nextButtonRef.value?.getEl(),
+//         prevEl: prevButtonRef.value?.getEl()
+//     }
+// })
+
 
 const defaultBreakpoints: SwiperOptions['breakpoints'] = {
     320: {
@@ -65,13 +97,24 @@ watch(() => props.breakpoints, (newBreakpoints) => {
     breakpoints.value = newBreakpoints ?? defaultBreakpoints
 })
 
+watch(navigation, (result) => {
+    console.log(`output->NAVIGATION`, result)
+})
+
+onMounted(() => {
+    updateNavigation()
+    scrollbarOptions.value = {
+        ...scrollbarOptions.value,
+        el: scrollbarRef.value
+    }
+})
 
 </script>
 
 <template>
     <div class="swiper-wrapper">
-        <Swiper :modules="[Scrollbar, Navigation]" :scrollbar="scrollbarOptions" :navigation="navigation"
-            :breakpoints="breakpoints">
+        <Swiper :key="locale" ref="swiperRef" :modules="[Scrollbar, Navigation]" :scrollbar="scrollbarOptions"
+            :breakpoints="breakpoints" :rtl="true" :navigation="navigation">
             <SwiperSlide v-for="slide in slides" :key="slide.id">
                 <slot name="slide" :slide="slide">
                     <!-- Fallback content if slot isn't provided -->
@@ -81,8 +124,8 @@ watch(() => props.breakpoints, (newBreakpoints) => {
                 </slot>
             </SwiperSlide>
         </Swiper>
-        <VButtonIcon ref="prevButtonRef" class="custom-prev" :reverse="true" />
-        <VButtonIcon ref="nextButtonRef" class="custom-next" />
+        <VButtonIcon ref="prevButtonRef" :class="['custom-prev']" :reverse="!isRtl" />
+        <VButtonIcon ref="nextButtonRef" :class="['custom-next']" :reverse="isRtl" />
     </div>
     <div ref="scrollbarRef" :class="[
         'custom-scrollbar',
@@ -145,10 +188,28 @@ watch(() => props.breakpoints, (newBreakpoints) => {
     align-items: center;
     justify-content: center;
     user-select: none;
+
+    @include tablet {
+        display: none;
+    }
+
+    @include mobile {
+        display: none;
+    }
+}
+
+html[dir="rtl"] .custom-prev {
+    right: -28px;
+    left: unset;
 }
 
 .custom-prev {
     left: -28px;
+}
+
+html[dir="rtl"] .custom-next {
+    left: -28px;
+    right: unset;
 }
 
 .custom-next {

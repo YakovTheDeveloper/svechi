@@ -84,7 +84,7 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 	color: white;
 
 	@include tablet {
-		padding: 64px;
+		padding: 32px;
 		border-top-left-radius: 64px;
 		border-top-right-radius: 64px;
 	}
@@ -146,6 +146,10 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 		margin: 0 auto;
 		max-width: 1487px;
 		gap: 16px;
+
+		@include tablet{
+			max-width: 832px;
+		}
 
 		@include mobile {
 			flex-direction: column;

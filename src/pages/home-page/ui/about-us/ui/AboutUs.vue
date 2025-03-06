@@ -130,6 +130,8 @@ const { locale } = useI18n()
 
         @include tablet {
             margin: 0 auto;
+            padding: 40px 0 0;
+            max-width: 75%;
         }
 
         img {
@@ -146,6 +148,10 @@ const { locale } = useI18n()
             width: 152px;
             height: 160px;
             background: url('/img/about-us/quotation-mark.png') center no-repeat;
+
+            @include tablet {
+                display: none;
+            }
         }
     }
 
@@ -162,6 +168,11 @@ const { locale } = useI18n()
             padding-right: 0;
         }
 
+        @include mobile{
+            font-size: 14px;
+            gap: 16px;
+        }
+
         &:after {
             position: absolute;
             bottom: 18%;
@@ -176,6 +187,13 @@ const { locale } = useI18n()
             -ms-transform: scale(-1, 1);
             transform: scale(-1, 1);
             background: url('/img/about-us/quotation-mark.png') center no-repeat;
+
+            @include tablet {
+                bottom: 0%;
+                right: 0;
+                background-size: 50%;
+                
+            }
         }
     }
 

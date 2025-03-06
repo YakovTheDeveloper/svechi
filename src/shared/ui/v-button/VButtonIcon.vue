@@ -67,5 +67,9 @@ defineExpose({
         cursor: not-allowed;
     }
 
+    @include mobile{
+		gap: 6px;
+	}
+
 }
 </style>

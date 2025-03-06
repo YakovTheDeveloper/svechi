@@ -35,6 +35,7 @@ function scrollToSection(id: string) {
     display: flex;
     gap: 16px;
     padding-top: 68px;
+    flex-wrap: wrap;
 
 
     &__item {

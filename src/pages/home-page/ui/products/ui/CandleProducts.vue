@@ -50,6 +50,11 @@ const { locale } = useI18n()
         }
     }
 
+    @media (max-width: 1000px) {
+        gap: 16px;
+        grid-template-columns: 1fr;
+    }
+
     @include mobile {
         &::after {
             display: none;
@@ -66,14 +71,14 @@ const { locale } = useI18n()
         margin-top: auto;
 
 
-        @include mobile {
+        @media (max-width: 1000px){
             display: none;
         }
 
         &_mobile {
             display: none;
 
-            @include mobile {
+            @media (max-width: 1000px){
                 display: inline-block;
                 width: fit-content;
             }

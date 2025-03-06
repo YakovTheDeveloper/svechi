@@ -26,18 +26,26 @@ import HeaderActions from './HeaderActions.vue';
     display: flex;
     gap: 32px;
 
+    // @media (max-width: 1400px) {
+    //     flex-direction: column-reverse;
+    // }
+
     @include tablet {
         flex-direction: column-reverse;
     }
 
     &__content {
         display: flex;
-        gap: 80px;
+        gap: 70px;
         flex-grow: 1;
         flex-direction: column;
 
         @include tablet {
             padding-right: var(--padding-container-tablet);
+        }
+
+        @include mobile {
+            padding-right: var(--padding-container-mobile);
         }
     }
 
@@ -45,6 +53,10 @@ import HeaderActions from './HeaderActions.vue';
         @include tablet {
             display: none;
         }
+
+        // @media (max-width: 1400px) {
+        //               display: none;
+        // }
     }
 
     &__title {
