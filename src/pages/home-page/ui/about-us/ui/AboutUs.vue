@@ -113,6 +113,7 @@ const { locale } = useI18n()
 .about-us {
     display: flex;
     gap: 32px;
+    position: relative;
 
     @media (max-width: 1400px) {
         flex-direction: column;
@@ -120,6 +121,23 @@ const { locale } = useI18n()
 
     @include tablet {
         flex-direction: column;
+    }
+
+    &:after {
+        width: 100%;
+        height: 206px;
+        content: "";
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        transform: translateY(63%);
+        background: url('@/app/assets/decorations/about-us/1.svg') no-repeat;
+        background-position: 36% 0;
+        background-size: auto;
+
+        @include tablet {
+            display: none;
+        }
     }
 
     &__img {
@@ -168,7 +186,7 @@ const { locale } = useI18n()
             padding-right: 0;
         }
 
-        @include mobile{
+        @include mobile {
             font-size: 14px;
             gap: 16px;
         }
@@ -192,7 +210,7 @@ const { locale } = useI18n()
                 bottom: 0%;
                 right: 0;
                 background-size: 50%;
-                
+
             }
         }
     }

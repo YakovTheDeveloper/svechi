@@ -165,9 +165,8 @@ const { locale } = useI18n()
         max-width: 424px;
         margin: 0 auto;
         aspect-ratio: 1;
-        border-radius: 50%;
         flex-shrink: 1;
-        overflow: hidden;
+        position: relative;
 
         @include mobile {
             max-width: 159px;
@@ -175,7 +174,34 @@ const { locale } = useI18n()
 
         img {
             width: 100%;
+            aspect-ratio: 1;
             object-fit: cover;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+
+        &:before,
+        &:after {
+            content: '';
+            position: absolute;
+            z-index: 1;
+        }
+
+        &:before {
+            width: 480px;
+            height: 110px;
+            bottom: 18px;
+            left: -382px;
+            background: url('@/app/assets/decorations/unique-design/candle-line-2.svg') center no-repeat;
+
+        }
+
+        &:after {
+            width: 300px;
+            height: 122px;
+            top: 10px;
+            right: -79px;
+            background: url('@/app/assets/decorations/unique-design/candle-line-1.svg') center no-repeat;
         }
     }
 }

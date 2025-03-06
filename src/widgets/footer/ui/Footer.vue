@@ -4,71 +4,73 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 
 <template>
 	<footer class="footer">
-		<div class="footer__content">
-			<div class="footer__content-part">
-				<p class="text-s">
-					{{ $t('footer_benefit') }}
-				</p>
-				<div class="footer__content-part__delivery">
-					<img src="@/app/assets/icons/delivery.svg" alt="delivery-icon" />
-					<p class="bold text">
-						Самовывоз возможен из города Бат-Ям
+		<div class="footer__inner">
+			<div class="footer__content">
+				<div class="footer__content-part">
+					<p class="text-s">
+						{{ $t('footer_benefit') }}
 					</p>
+					<div class="footer__content-part__delivery">
+						<img src="@/app/assets/icons/delivery.svg" alt="delivery-icon" />
+						<p class="bold text">
+							Самовывоз возможен из города Бат-Ям
+						</p>
+					</div>
+				</div>
+				<div class="footer__content-part">
+					<p class="footer__title">
+						{{ $t('footer_about_company') }}
+					</p>
+					<ul class="footer__about-list">
+						<li class="footer__list-item">
+							<a href="">
+								{{ $t('nav_about_us') }}
+							</a>
+						</li>
+						<li class="footer__list-item">
+							<a href="">
+								{{ $t('nav_consulting') }}
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="footer__content-part">
+					<p class="footer__title">
+						{{ $t('nav_contacts') }}
+					</p>
+					<ul class="footer__contacts">
+						<li class="footer__list-item">
+							<a href="" class="footer__phone-link">
+								<img src="@/app/assets/icons/phone.svg" alt="">
+								+053-278-75-32
+							</a>
+						</li>
+						<li>
+							<ul class="footer__socials">
+								<li>
+									<a href="">
+										<img src="@/app/assets/icons/fb.svg" alt="facebook-icon">
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<img src="@/app/assets/icons/inst.svg" alt="inst-icon">
+									</a>
+								</li>
+								<li>
+									<a href="">
+										<img src="@/app/assets/icons/whatsapp.svg" alt="whatsapp-icon">
+									</a>
+								</li>
+							</ul>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<div class="footer__content-part">
-				<p class="footer__title">
-					{{ $t('footer_about_company') }}
-				</p>
-				<ul class="footer__about-list">
-					<li class="footer__list-item">
-						<a href="">
-							{{ $t('nav_about_us') }}
-						</a>
-					</li>
-					<li class="footer__list-item">
-						<a href="">
-							{{ $t('nav_consulting') }}
-						</a>
-					</li>
-				</ul>
-			</div>
-			<div class="footer__content-part">
-				<p class="footer__title">
-					{{ $t('nav_contacts') }}
-				</p>
-				<ul class="footer__contacts">
-					<li class="footer__list-item">
-						<a href="" class="footer__phone-link">
-							<img src="@/app/assets/icons/phone.svg" alt="">
-							+053-278-75-32
-						</a>
-					</li>
-					<li>
-						<ul class="footer__socials">
-							<li>
-								<a href="">
-									<img src="@/app/assets/icons/fb.svg" alt="facebook-icon">
-								</a>
-							</li>
-							<li>
-								<a href="">
-									<img src="@/app/assets/icons/inst.svg" alt="inst-icon">
-								</a>
-							</li>
-							<li>
-								<a href="">
-									<img src="@/app/assets/icons/whatsapp.svg" alt="whatsapp-icon">
-								</a>
-							</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
+			<p class="footer__copyright">
+				Copyright @ 2025. All right reserved.
+			</p>
 		</div>
-		<p class="footer__copyright">
-			Copyright @ 2025. All right reserved.
-		</p>
 	</footer>
 </template>
 
@@ -80,8 +82,10 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 	border-top-left-radius: 128px;
 	border-top-right-radius: 128px;
 	padding: 64px;
+	position: relative;
 	background-color: var(--green-accent-2);
 	color: white;
+	overflow: hidden;
 
 	@include tablet {
 		padding: 32px;
@@ -95,6 +99,38 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 		padding: 32px 16px;
 		border-top-left-radius: 32px;
 		border-top-right-radius: 32px;
+	}
+
+	&:after,
+	&:before {
+		width: 354px;
+		height: 486px;
+		content: "";
+		position: absolute;
+		background: url('@/app/assets/decorations/footer/1.svg') center no-repeat;
+		z-index: 1;
+
+		@include mobile{
+			background-size: 50%;
+		}
+	}
+
+
+	&:before {
+		left: -150px;
+		bottom: -192px;
+	}
+
+
+	&:after {
+		right: -150px;
+		top: -10px;
+
+		-moz-transform: scale(-1, 1);
+		-webkit-transform: scale(-1, 1);
+		-o-transform: scale(-1, 1);
+		-ms-transform: scale(-1, 1);
+		transform: scale(-1, 1);
 	}
 
 	&__title {
@@ -140,16 +176,20 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 		gap: var(--gap-list);
 	}
 
+	&__inner {
+		margin: 0 auto;
+		max-width: 1487px;
+
+		@include tablet {
+			max-width: 832px;
+		}
+	}
+
 	&__content {
 		display: flex;
 		justify-content: space-between;
-		margin: 0 auto;
-		max-width: 1487px;
 		gap: 16px;
 
-		@include tablet{
-			max-width: 832px;
-		}
 
 		@include mobile {
 			flex-direction: column;
@@ -213,6 +253,10 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 			}
 		}
 	}
+
+
+
+
 
 }
 </style>

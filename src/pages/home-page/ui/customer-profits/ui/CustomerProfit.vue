@@ -68,6 +68,35 @@ const { locale } = useI18n()
     background-position: 50% 30%;
     background-color: var(--bg-2);
     border-radius: 64px;
+    position: relative;
+
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: 0;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+    &:before {
+        width: 516px;
+        height: 217px;
+        top: -30%;
+        left: 26%;
+        background: url('@/app/assets/decorations/customer-profit/1.svg') center no-repeat;
+
+    }
+
+    &:after {
+        width: 690px;
+        height: 253px;
+        bottom: -32%;
+        left: 21%;
+        background: url('@/app/assets/decorations/customer-profit/2.svg') center no-repeat;
+    }
 
     @include tablet {
         margin-top: 64px;

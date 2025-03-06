@@ -91,7 +91,7 @@ const sliderBreakpoints = {
                     </template>
                 </VSwiper>
             </div>
-            <PopularAromaListMobile/>
+            <PopularAromaListMobile />
         </section>
     </div>
 </template>
@@ -99,6 +99,8 @@ const sliderBreakpoints = {
 <style lang="scss" scoped>
 .subtitle {
     margin-bottom: 64px;
+    z-index: 1;
+    position: relative;
 
     @include tablet {
         margin-bottom: 32px;
@@ -110,6 +112,24 @@ const sliderBreakpoints = {
 }
 
 .popular-aroma {
+    position: relative;
+
+    &:after {
+        width: 100%;
+        height: 230px;
+        content: "";
+        position: absolute;
+        z-index: 0;
+        top: 0;
+        transform: translateY(-75%);
+        background: url('@/app/assets/decorations/popular-aroma/1.svg') no-repeat;
+        background-position: 31% 0;
+        background-size: auto;
+
+        @include tablet {
+            display: none;
+        }
+    }
 
     &__item {
         height: 280px;

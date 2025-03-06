@@ -41,6 +41,30 @@ const { locale } = useI18n()
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 32px;
+    position: relative;
+    z-index: 1;
+
+    &::before {
+        width: 1755px;
+        height: 554px;
+        content: "";
+        position: absolute;
+        z-index: -1;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        top: 0;
+        transform: translateY(-57%);
+        background: url('@/app/assets/decorations/products/1.svg') no-repeat;
+        background-position: 89% 54%;
+        background-size: contain;
+
+        @include tablet {
+            display: none;
+        }
+    }
+
+
 
     @include tablet {
         position: relative;
@@ -71,14 +95,14 @@ const { locale } = useI18n()
         margin-top: auto;
 
 
-        @media (max-width: 1000px){
+        @media (max-width: 1000px) {
             display: none;
         }
 
         &_mobile {
             display: none;
 
-            @media (max-width: 1000px){
+            @media (max-width: 1000px) {
                 display: inline-block;
                 width: fit-content;
             }
