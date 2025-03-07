@@ -5,6 +5,7 @@ import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
 import viteImagemin from 'vite-plugin-imagemin'
 
+
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [
@@ -43,16 +44,19 @@ export default defineConfig({
 			}
 		}
 	},
-	base: process.env.VITE_BASE_URL || '/',
+	define: {
+		'process.env.BASE_URL': JSON.stringify(process.env.NODE_ENV === 'development' ? '/asdasdasd/' : '/svechi/')
+	},
+	base: process.env.NODE_ENV === 'development' ? '/' : '/svechi/',
 	build: {
-	  outDir: 'dist', // Default output directory for the build
-	  rollupOptions: {
-		output: {
-		  // Ensure paths are correctly resolved
-		  assetFileNames: 'assets/[name].[hash][extname]',
-		  chunkFileNames: 'assets/[name].[hash].js',
-		  entryFileNames: 'assets/[name].[hash].js',
+		outDir: 'dist', // Default output directory for the build
+		rollupOptions: {
+			output: {
+				// Ensure paths are correctly resolved
+				assetFileNames: 'assets/[name].[hash][extname]',
+				chunkFileNames: 'assets/[name].[hash].js',
+				entryFileNames: 'assets/[name].[hash].js',
+			}
 		}
-	  }
 	}
 })
