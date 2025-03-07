@@ -3,40 +3,29 @@ import { fileURLToPath, URL } from 'node:url'
 import { defineConfig } from 'vite'
 import vue from '@vitejs/plugin-vue'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import imagemin from 'unplugin-imagemin/vite'
+import viteImagemin from 'vite-plugin-imagemin'
 
 // https://vite.dev/config/
 export default defineConfig({
 	plugins: [
 		vue(),
 		vueDevTools(),
-		imagemin({
-			// Default mode sharp. support squoosh and sharp
-			mode: 'sharp',
-			beforeBundle: false,
-			// Default configuration options for compressing different pictures
-			compress: {
-				jpg: {
-					quality: 80,
-				},
-				jpeg: {
-					quality: 80,
-				},
-				png: {
-					quality: 80,
-				},
-				webp: {
-					quality: 80,
-				},
+		viteImagemin({
+			mozjpeg: {
+				quality: 80,
 			},
-			conversion: [
-				{ from: 'jpeg', to: 'webp' },
-				{ from: 'JPEG', to: 'webp' },
-				{ from: 'png', to: 'webp' },
-				{ from: 'PNG', to: 'webp' },
-				{ from: 'JPG', to: 'webp' },
-				{ from: 'jpg', to: 'webp' },
-			],
+			optipng: {
+				optimizationLevel: 3,
+			},
+			pngquant: {
+				quality: [0.65, 0.9],
+			},
+			gifsicle: {
+				optimizationLevel: 3,
+			},
+			webp: {
+				quality: 80,
+			},
 		}),
 	],
 	resolve: {
@@ -54,4 +43,16 @@ export default defineConfig({
 			}
 		}
 	},
+	base: process.env.VITE_BASE_URL || '/',
+	build: {
+	  outDir: 'dist', // Default output directory for the build
+	  rollupOptions: {
+		output: {
+		  // Ensure paths are correctly resolved
+		  assetFileNames: 'assets/[name].[hash][extname]',
+		  chunkFileNames: 'assets/[name].[hash].js',
+		  entryFileNames: 'assets/[name].[hash].js',
+		}
+	  }
+	}
 })
