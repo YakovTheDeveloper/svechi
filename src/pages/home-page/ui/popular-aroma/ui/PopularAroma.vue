@@ -148,7 +148,7 @@ const sliderBreakpoints = {
     }
 
     &__content {
-        display: flex;
+        // display: flex;
 
         @include mobile {
             display: none;

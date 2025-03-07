@@ -107,6 +107,7 @@ onMounted(() => {
         ...scrollbarOptions.value,
         el: scrollbarRef.value
     }
+    console.log(`output->scrollbarRef.value`,scrollbarRef.value)
 })
 
 </script>

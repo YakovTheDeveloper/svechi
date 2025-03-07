@@ -46,7 +46,7 @@ const sliderBreakpoints = {
             </template>
         </h1>
 
-        <VSwiper :slides="slides" :slides-per-view="3" :spaceBetween="32" :breakpoints="sliderBreakpoints"
+        <VSwiper :slides="slides" :breakpoints="sliderBreakpoints"
             scroll-bar-class="gallery-scrollbar">
             <template #slide="{ slide }">
                 <div class="gallery-item">

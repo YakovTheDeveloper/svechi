@@ -185,6 +185,10 @@ const { locale } = useI18n()
             content: '';
             position: absolute;
             z-index: 1;
+
+            @include mobile {
+                display: none;
+            }
         }
 
         &:before {
@@ -194,6 +198,13 @@ const { locale } = useI18n()
             left: -382px;
             background: url('@/app/assets/decorations/unique-design/candle-line-2.svg') center no-repeat;
 
+            @include tablet {
+                background: url('@/app/assets/decorations/unique-design/candle-line-2_tablet.svg') center no-repeat;
+                width: 376px;
+                height: 266px;
+                bottom: -38px;
+                left: -150px;
+            }
         }
 
         &:after {
@@ -202,7 +213,16 @@ const { locale } = useI18n()
             top: 10px;
             right: -79px;
             background: url('@/app/assets/decorations/unique-design/candle-line-1.svg') center no-repeat;
+
+            @include tablet {
+                width: 258px;
+                height: 223px;
+                background: url('@/app/assets/decorations/unique-design/candle-line-1_tablet.svg') center no-repeat;
+                top: -40px;
+                right: -109px;
+            }
         }
+
     }
 }
 </style>

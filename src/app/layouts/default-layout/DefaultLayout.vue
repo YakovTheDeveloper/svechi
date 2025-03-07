@@ -1,10 +1,8 @@
 <script setup lang="ts">
-import { Header } from '@/widgets/header'
 import { Footer } from '@/widgets/footer'
 </script>
 <template>
 	<main class="main" ref="app">
-		<Header />
 		<div class="page">
 			<slot name="default" />
 		</div>

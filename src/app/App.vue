@@ -2,7 +2,6 @@
 import { useRoute } from 'vue-router'
 import { computed, watch } from 'vue'
 import { DefaultLayout } from '@/app/layouts'
-import { ToastProvider } from '@/shared/ui/v-toast'
 import { useI18n } from 'vue-i18n'
 const { locale } = useI18n()
 const route = useRoute()
@@ -29,7 +28,6 @@ watch(locale, (newLocale) => {
 			</template>
 		</component>
 	</transition>
-	<ToastProvider />
 </template>
 
 <style scoped></style>
