@@ -60,7 +60,7 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
         <div class="popular-aroma-mobile-inner">
             <ul class="popular-aroma-mobile__list">
                 <li class="popular-aroma-mobile-item" v-for="item in partOne" :key="item.id">
-                    <IconWithBackground :src="item.imgUrl" />
+                    <IconWithBackground :src="item.imgUrl" alt="aroma-icon"/>
                     <p class="popular-aroma-mobile-item__text">
                         {{ item.title }}
                     </p>
@@ -68,7 +68,7 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
             </ul>
             <ul class="popular-aroma-mobile__list">
                 <li class="popular-aroma-mobile-item" v-for="item in partTwo" :key="item.id">
-                    <IconWithBackground :src="item.imgUrl" />
+                    <IconWithBackground :src="item.imgUrl" alt="aroma-icon"/>
                     <p class="popular-aroma-mobile-item__text">
                         {{ item.title }}
                     </p>

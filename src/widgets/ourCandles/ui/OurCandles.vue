@@ -10,6 +10,7 @@ const { locale, t } = useI18n()
 
 const { openModal } = useStore()
 
+//@ts-ignore
 const DATA: Product[] = computed(() => ([
     {
         id: 1,

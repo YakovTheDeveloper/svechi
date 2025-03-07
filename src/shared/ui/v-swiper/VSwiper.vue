@@ -10,7 +10,7 @@ import type { SwiperOptions } from 'swiper/types'
 import { useI18n } from 'vue-i18n'
 
 const props = defineProps<{
-    slides: { imgUrl: string; id: number }[],
+    slides: { imgUrl: string; id: number, title?: string }[],
     scrollBarClass?: string
     breakpoints?: {
         [width: number]: SwiperOptions;
@@ -20,10 +20,8 @@ const props = defineProps<{
 const swiperRef = ref<{ swiper: any } | null>(null)
 const { locale } = useI18n()
 const scrollbarRef = ref(null)
-const prevButtonRef = ref(null)
+const prevButtonRef = ref<InstanceType<typeof VButtonIcon> | null>(null)
 const nextButtonRef = ref<InstanceType<typeof VButtonIcon> | null>(null)
-const prevButtonRtlRef = ref(null)
-const nextButtonRtlRef = ref<InstanceType<typeof VButtonIcon> | null>(null)
 
 // 
 
@@ -45,22 +43,18 @@ const isRtl = computed(() => locale.value === 'he')
 //     console.log(navigation.value)
 // })
 
-const navigation = ref({
+const navigation = ref<{
+    nextEl: HTMLButtonElement | null,
+    prevEl: HTMLButtonElement | null
+}>({
     nextEl: null,
     prevEl: null
 })
 
 function updateNavigation() {
-    if (isRtl.value) {
-        navigation.value = {
-            nextEl: nextButtonRtlRef.value?.getEl(),
-            prevEl: prevButtonRtlRef.value?.getEl()
-        }
-    } else {
-        navigation.value = {
-            nextEl: nextButtonRef.value?.getEl(),
-            prevEl: prevButtonRef.value?.getEl()
-        }
+    navigation.value = {
+        nextEl: nextButtonRef.value?.getEl() || null,
+        prevEl: prevButtonRef.value?.getEl() || null,
     }
 }
 
@@ -107,7 +101,7 @@ onMounted(() => {
         ...scrollbarOptions.value,
         el: scrollbarRef.value
     }
-    console.log(`output->scrollbarRef.value`,scrollbarRef.value)
+    console.log(`output->scrollbarRef.value`, scrollbarRef.value)
 })
 
 </script>
