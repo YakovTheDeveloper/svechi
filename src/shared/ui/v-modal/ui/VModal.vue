@@ -22,6 +22,9 @@ onUnmounted(() => unlock())
 	<teleport to="body">
 		<transition name="modal-animation">
 			<div v-if="isOpen" @click="isOpen = false" class="modal">
+				<button @click="isOpen = false" class="modal-close-btn-mobile">
+					<img :src="crossIcon" alt="">
+				</button>
 				<div @click.stop class="modal-content">
 					<button @click="isOpen = false" class="modal-close-btn">
 						<img :src="crossIcon" alt="">
@@ -55,10 +58,30 @@ onUnmounted(() => unlock())
 		border-radius: 64px;
 		background-color: var(--bg);
 		padding: 64px;
+		margin: 0 var(--padding-container);
+
+		@include tablet {
+			height: 90vh;
+			width: 100%;
+			padding: 48px;
+			margin: 0 var(--padding-container-tablet);
+			margin-top: 6vh;
+			border-radius: 80px;
+		}
+
+		@include mobile {
+			height: 90vh;
+			width: 100%;
+			padding: 16px;
+			margin: 0 var(--padding-container-mobile);
+			margin-top: 6vh;
+			border-radius: 32px;
+		}
 	}
 
 	&-body {
-		max-height: 90dvh;
+		height: 100%;
+		// max-height: 90vh;
 		overflow: auto;
 	}
 
@@ -67,7 +90,43 @@ onUnmounted(() => unlock())
 		background-color: transparent;
 		top: 48px;
 		right: 48px;
+
+		@include tablet {
+			display: none;
+		}
+
+		@include mobile {}
 	}
+
+	&-close-btn-mobile {
+		display: none;
+		position: fixed;
+		height: 80px;
+		width: 80px;
+		top: 2vh;
+		border-radius: 50%;
+		background-color: var(--bg);
+		align-items: center;
+		justify-content: center;
+
+		@include tablet {
+			display: flex;
+			right: var(--padding-container-tablet);
+		}
+
+		@include mobile {
+			display: flex;
+			right: var(--padding-container-mobile);
+			height: 40px;
+			width: 40px;
+
+			img{
+				width: 16px;
+				height: 16px;
+			}
+		}
+	}
+
 }
 
 .modal-overlay-enter-active,

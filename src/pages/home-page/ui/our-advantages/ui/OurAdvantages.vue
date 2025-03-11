@@ -4,39 +4,40 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 import OurAdvantagesItem from './OurAdvantagesItem.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
+import { getPublicUrl } from '@/shared/utils/getPublicUrl';
 
 const { locale, t } = useI18n()
 
 const MOCK_DATA = computed(() => {
     return [
         {
-            imgUrl: '/img/our-advantages/1.svg',
+            imgUrl: getPublicUrl('img/our-advantages/1.svg'),
             description: t('our_advantages_item_1_description'),
             title: t('our_advantages_item_1_title'),
 
         },
         {
-            imgUrl: '/img/our-advantages/2.svg',
+            imgUrl: getPublicUrl('img/our-advantages/2.svg'),
             description: t('our_advantages_item_2_description'),
             title: t('our_advantages_item_2_title'),
         },
         {
-            imgUrl: '/img/our-advantages/3.svg',
+            imgUrl: getPublicUrl('img/our-advantages/3.svg'),
             description: t('our_advantages_item_3_description'),
             title: t('our_advantages_item_3_title'),
         },
         {
-            imgUrl: '/img/our-advantages/4.svg',
+            imgUrl: getPublicUrl('img/our-advantages/4.svg'),
             description: t('our_advantages_item_4_description'),
             title: t('our_advantages_item_4_title'),
         },
         {
-            imgUrl: '/img/our-advantages/5.svg',
+            imgUrl: getPublicUrl('img/our-advantages/5.svg'),
             description: t('our_advantages_item_5_description'),
             title: t('our_advantages_item_5_title'),
         },
         {
-            imgUrl: '/img/our-advantages/6.svg',
+            imgUrl: getPublicUrl('img/our-advantages/6.svg'),
             description: t('our_advantages_item_6_description'),
             title: t('our_advantages_item_6_title'),
         },
@@ -108,14 +109,14 @@ const MOCK_DATA = computed(() => {
         flex-wrap: wrap;
         padding-left: 64px;
         justify-content: space-evenly;
-        
+
 
         @include tablet {
             overflow: auto;
             flex-wrap: nowrap;
         }
 
-        @include mobile{
+        @include mobile {
             padding-left: 0;
             gap: 8px;
         }
@@ -132,12 +133,12 @@ const MOCK_DATA = computed(() => {
         @include tablet {
             overflow: auto;
         }
-        
-        @include mobile{
+
+        @include mobile {
             padding: 8px;
             border-radius: 32px;
 
-            &:after{
+            &:after {
                 @include fade-overlay-right($width: 20%)
             }
         }

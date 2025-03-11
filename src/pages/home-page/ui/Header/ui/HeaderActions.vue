@@ -70,7 +70,7 @@ import { messages } from '@/app/assets/locales';
     overflow: hidden;
     border-bottom-left-radius: 64px;
     background:
-        url('img/header-bg.png') center no-repeat,
+        url('/img/header-bg.png') center no-repeat,
         rgba(0, 0, 0, 0.3);
     background-size: cover;
 

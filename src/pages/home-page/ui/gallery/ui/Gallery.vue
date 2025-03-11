@@ -7,15 +7,16 @@ import { Scrollbar, Navigation } from 'swiper/modules'
 import VSwiper from '@/shared/ui/v-swiper/VSwiper.vue'
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue'
 import { useI18n } from 'vue-i18n'
+import { getPublicUrl } from '@/shared/utils/getPublicUrl'
 const { locale } = useI18n()
 
 const slides = [
-    { imgUrl: '/img/gallery/1.png', id: 1 },
-    { imgUrl: '/img/gallery/2.png', id: 2 },
-    { imgUrl: '/img/gallery/3.png', id: 3 },
-    { imgUrl: '/img/gallery/3.png', id: 4 },
-    { imgUrl: '/img/gallery/2.png', id: 5 },
-    { imgUrl: '/img/gallery/1.png', id: 6 }
+    { imgUrl: getPublicUrl('img/gallery/1.png'), id: 1 },
+    { imgUrl: getPublicUrl('img/gallery/2.png'), id: 2 },
+    { imgUrl: getPublicUrl('img/gallery/3.png'), id: 3 },
+    { imgUrl: getPublicUrl('img/gallery/3.png'), id: 4 },
+    { imgUrl: getPublicUrl('img/gallery/2.png'), id: 5 },
+    { imgUrl: getPublicUrl('img/gallery/1.png'), id: 6 }
 ]
 
 const sliderBreakpoints = {
@@ -46,8 +47,7 @@ const sliderBreakpoints = {
             </template>
         </h1>
 
-        <VSwiper :slides="slides" :breakpoints="sliderBreakpoints"
-            scroll-bar-class="gallery-scrollbar">
+        <VSwiper :slides="slides" :breakpoints="sliderBreakpoints" scroll-bar-class="gallery-scrollbar">
             <template #slide="{ slide }">
                 <div class="gallery-item">
                     <img :src="slide.imgUrl" alt="gallery-image" draggable="false">
