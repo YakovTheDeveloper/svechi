@@ -54,7 +54,7 @@ const { locale } = useI18n()
                         магии вечерним моментам на улице!
                     </p>
                 </template>
-                <template v-else>
+                <template v-else-if="locale === 'en'">
                     <p>
                         Hello everyone! I’m Daria Agafonova, and I create handmade candles with unique fragrances. Each
                         candle is made with
@@ -86,6 +86,26 @@ const { locale } = useI18n()
                         your
                         home’s comfort
                         or add magic to your evening moments outdoors!
+                    </p>
+                </template>
+                <template v-else>
+                    <p>
+                        אהלן לכולם! אני, דריה אגפונוב, אני מייצרת נרות עבודת יד בעלי ניחוחים ייחודיים. כל נר מיוצר
+                        מרכיבים טבעיים בדאגה לבריאות שלכם
+                        </br>
+                        </br>
+                        אני מציעה מבחר של נרות המותא מים לכל בית ולכל העדפה.
+                        בין המוצרים ישנם ניחוחים בין קלים ומרעננים לעמוקים ומחממים.
+                        אנו מציעים נרות בעלי מגוון נפחים וזמני בעירה.
+                        <br />
+                        <br />
+                        צשלוחים לכל הארץ
+                        <br />
+                        <br />
+                        נרות עבודת יד הינם מוצרים בטוחים והם יקשטו כל חדר – חדר שינה, סלון, חדר אמבטיה או משרד.
+                        <br />
+                        <br />
+                        כתבו לי ואעזור לכם לבחור נרות שיהיו לחלק מהאווירה הביתית או יוסיפו קסם לרגעי ערב בחוץ
                     </p>
                 </template>
 

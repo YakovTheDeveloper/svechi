@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import IconArrowRight from '@/shared/icons/IconArrowRight.vue';
 import { useStore } from '@/shared/stores/store';
 import type { Product } from '@/shared/types/product';
 import { VBadge } from '@/shared/ui/v-badge';
@@ -23,7 +24,9 @@ const store = useStore()
             <p class="candleItem__text-amount" v-if="props.amount">{{ props.amount }} {{ props.unit }}</p>
         </div>
         <VBadge variant="secondary">36 {{ $t('scents') }}</VBadge>
-        <VButtonIcon @click="emits('onClick')" />
+        <VButtonIcon @click="emits('onClick')">
+            <IconArrowRight />
+        </VButtonIcon>
     </li>
 </template>
 

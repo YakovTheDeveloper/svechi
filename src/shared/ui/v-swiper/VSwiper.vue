@@ -8,6 +8,8 @@ import VButtonIcon from '../v-button/VButtonIcon.vue'
 import { computed, nextTick, onMounted, ref, useTemplateRef, watch } from 'vue'
 import type { SwiperOptions } from 'swiper/types'
 import { useI18n } from 'vue-i18n'
+import IconLeftArrow from '@/shared/icons/IconLeftArrow.vue'
+import IconArrowRight from '@/shared/icons/IconArrowRight.vue'
 
 const props = defineProps<{
     slides: { imgUrl: string; id: number, title?: string }[],
@@ -119,8 +121,12 @@ onMounted(() => {
                 </slot>
             </SwiperSlide>
         </Swiper>
-        <VButtonIcon ref="prevButtonRef" :class="['custom-prev']" :reverse="!isRtl" />
-        <VButtonIcon ref="nextButtonRef" :class="['custom-next']" :reverse="isRtl" />
+        <VButtonIcon ref="prevButtonRef" :class="['custom-prev']">
+            <IconLeftArrow />
+        </VButtonIcon>
+        <VButtonIcon ref="nextButtonRef" :class="['custom-next']">
+            <IconArrowRight />
+        </VButtonIcon>
     </div>
     <div ref="scrollbarRef" :class="[
         'custom-scrollbar',

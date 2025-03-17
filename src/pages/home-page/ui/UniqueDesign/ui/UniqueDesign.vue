@@ -7,6 +7,7 @@ import OurCandles from '@/widgets/ourCandles/ui/OurCandles.vue';
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 import { useI18n } from 'vue-i18n';
+import IconArrowRight from '@/shared/icons/IconArrowRight.vue';
 const { locale } = useI18n()
 </script>
 
@@ -56,7 +57,9 @@ const { locale } = useI18n()
                     предложим индивидуальные решения, чтобы ваша свеча стала настоящим украшением вашего пространства!
                  -->
                 </p>
-                <VButtonIcon :label="$t('our_candles')" />
+                <VButtonIcon :label="$t('our_candles')" >
+                    <IconArrowRight />
+                </VButtonIcon>
             </div>
         </section>
     </div>

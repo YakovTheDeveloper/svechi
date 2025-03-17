@@ -212,7 +212,7 @@ export const messages = {
         view_all: 'לראות יותר',
 
         unit_ml: 'מ"ל',
-        scents: 'ароматов',
+        scents: 'טעמים',
 
 
 

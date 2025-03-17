@@ -31,7 +31,7 @@ import { messages } from '@/app/assets/locales';
             <component is="button" class="header-actions__contacts-item">
                 <div class="header-actions__contacts-item-icons" :style="{ width: '100px' }">
                     <img :src="adminIcon" alt="contact-icon">
-                    <img :src="phoneIcon" alt="contact-icon" :style="{ transform: 'translateX(-17px)' }">
+                    <img :src="phoneIcon" alt="contact-icon" class="header-actions__contacts-item-icons-phone">
                 </div>
                 <div class="header-actions__contacts-item-text">
                     <p class="header-actions__contacts-item-text__title">
@@ -190,6 +190,15 @@ import { messages } from '@/app/assets/locales';
             &-icons {
                 display: flex;
                 gap: 4px;
+
+                &-phone{
+                    transform: translateX(-17px);
+
+                    html[dir="rtl"] &{
+                        transform: translateX(17px);
+                    }
+                }
+
             }
 
             &-text {
