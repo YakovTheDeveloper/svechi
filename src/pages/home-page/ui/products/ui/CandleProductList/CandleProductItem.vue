@@ -17,7 +17,12 @@ const props = defineProps<{
             <img :src="props.product.imgUrl" alt="goods-image">
         </div>
         <div class="candle-product-item__main">
-            <p class="candle-product-item__name">{{ props.product.description }}</p>
+            <p class="candle-product-item__name">
+                {{ props.product.title }},
+                <br />
+                <span v-if="props.product.amount">{{ props.product.amount }} {{ props.product.unit }}</span>
+
+            </p>
             <div class="candle-product-item__price">
                 <button>
                     <p class="text underline bold">
