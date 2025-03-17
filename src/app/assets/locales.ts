@@ -15,12 +15,18 @@ export const messages = {
         view_all: 'Посмотреть все',
 
         unit_ml: 'мл',
-        scents: ' ароматов',
+        scents: 'ароматов',
+
+
 
         product_item_1: 'Свечи в стеклянной банке',
         product_item_1_description: 'Свечи в стеклянной банке объемом 360 мл — это стильный аксессуар, который горит от 50 часов, наполняя пространство уютным светом и прекрасным ароматом. Напишите нам, и мы создадим для вас свечи, которые станут идеальным дополнением вашего дома!',
-        product_item_2: 'Свечи в металлической банке',
-        product_item_2_description: 'Свечи в металлической банке объемом 200 мл — это сочетание современного дизайна и длительного горения от 25 часов. Они идеально подойдут для создания уюта в любом уголке вашего дома. Пишите нам, и мы предложим свечи, которые гармонично впишутся в ваш интерьер!',
+        product_item_2: 'Свечи в стеклянной банке',
+        product_item_2_description: 'Свечи в стеклянной банке объемом 200 мл — это элегантное решение для создания уюта. С горением от 25 часов они долго сохраняют свой аромат, добавляя тепла и гармонии в любое пространство. Напишите нам, и мы создадим свечи, которые подчеркнут атмосферу вашего пространства!',
+        product_item_3: 'Свечи в металлической банке',
+        product_item_3_description: 'Свечи в металлической банке объемом 200 мл — это сочетание современного дизайна и длительного горения от 25 часов. Они идеально подойдут для создания уюта в любом уголке вашего дома. Пишите нам, и мы предложим свечи, которые гармонично впишутся в ваш интерьер!',
+        product_item_4: 'Свечи из вощины',
+        product_item_4_description: 'Свечи из вощины — классический выбор для создания уюта в вашем доме. Они горят до 2 часов, наполняя пространство мягким светом и легким восковым ароматом. Обратитесь к нам, и мы подберем для вас свечи, которые добавят уюта в ваш дом!',
 
         unique_design_benefits_title: 'Наши преимущества:',
         unique_design_benefits_aroma: 'Потрясающий аромат',
@@ -112,9 +118,12 @@ export const messages = {
         scents: ' scents',
         product_item_1: 'Candles in Glass Jars',
         product_item_1_description: 'Candles in glass jars, 200 ml, are an elegant solution for creating coziness. With a burn time of 25 hours, they retain their scent for a long time, adding warmth and harmony to any space. Contact us, and we will create candles that will enhance the atmosphere of your space!',
-        product_item_2: 'Candles in Metal Jars',
-        product_item_2_description: 'Candles in metal jars, 200 ml, combine modern design with a long burn time of 25 hours. They are perfect for creating comfort in any corner of your home. Write to us, and we will offer candles that will harmoniously fit into your interior!',
-
+        product_item_2: 'Candles in Glass Jars',
+        product_item_2_description: 'Candles in glass jars, 360 ml, are a stylish accessory that burns for 50 hours, filling the space with cozy light and a wonderful aroma. Contact us, and we will create candles for you that will be the perfect addition to your home!',
+        product_item_3: 'Candles in Metal Jars',
+        product_item_3_description: 'Candles in metal jars, 200 ml, combine modern design with a long burn time of 25 hours. They are perfect for creating comfort in any corner of your home. Write to us, and we will offer candles that will harmoniously fit into your interior!',
+        product_item_4: 'Beeswax Candles',
+        product_item_4_description: 'Beeswax candles are a classic choice for creating coziness in your home. They burn for up to 2 hours, filling the space with soft light and a light wax aroma. Contact us, and we will select candles for you that will add comfort to your home!',
 
         unique_design_benefits_title: 'Our Advantages:',
         unique_design_benefits_aroma: 'Stunning aroma',
@@ -181,7 +190,7 @@ export const messages = {
 
 
         footer_benefit: 'Handmade candles are not only safe and harmless products but also a great way to decorate your home. They will add coziness to any room, whether it’s a bedroom, living room, bathroom, or even an office.',
-        footer_delivery: 'Самовывоз возможен из города Бат-Ям',
+        footer_delivery: 'Pickup is possible from Bat Yam city',
         footer_about_company: 'About company',
         nav_about_us: 'About Us',
         nav_consulting: 'Consultation',

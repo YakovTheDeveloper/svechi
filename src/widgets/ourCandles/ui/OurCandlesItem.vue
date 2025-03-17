@@ -20,7 +20,7 @@ const store = useStore()
         </div>
         <div class="candleItem__text">
             <p class="text candleItem__text-title">{{ props.title }}</p>
-            <p class="candleItem__text-amount">{{ props.amount }} {{ props.unit }}</p>
+            <p class="candleItem__text-amount" v-if="props.amount">{{ props.amount }} {{ props.unit }}</p>
         </div>
         <VBadge variant="secondary">36 {{ $t('scents') }}</VBadge>
         <VButtonIcon @click="emits('onClick')" />

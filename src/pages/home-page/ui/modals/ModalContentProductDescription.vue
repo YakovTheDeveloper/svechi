@@ -12,7 +12,13 @@ const store = useStore()
     <div class="modal-content-product-description">
         <div>
             <p class="modal-content-product-description__title bold">
-                {{ store.currentModalProduct?.title }}, 360 мл.</p>
+                <template v-if="store.currentModalProduct?.amount">
+                    {{ store.currentModalProduct?.title }}, {{ store.currentModalProduct?.amount }} {{ $t('unit_ml') }}.
+                </template>
+                <template v-else>
+                    {{ store.currentModalProduct?.title }}.
+                </template>
+            </p>
             <p class="modal-content-product-description__text">{{ store.currentModalProduct?.description }}</p>
         </div>
         <p class="modal-content-product-description__price">{{ store.currentModalProduct?.price }} ₪</p>
@@ -67,7 +73,7 @@ const store = useStore()
         }
     }
 
-    &__order-button{
+    &__order-button {
         margin-top: auto;
     }
 

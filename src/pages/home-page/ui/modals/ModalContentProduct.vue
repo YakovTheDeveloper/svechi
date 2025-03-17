@@ -41,7 +41,7 @@ const setCurrentImage = (src: string) => currentImage.value = src
 .modal-product {
     display: grid;
     gap: 32px;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 5fr 4fr;
 
     @include tablet {
         grid-template-columns: 1fr;

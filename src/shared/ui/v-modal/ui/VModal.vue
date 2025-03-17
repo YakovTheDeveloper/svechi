@@ -22,9 +22,11 @@ onUnmounted(() => unlock())
 	<teleport to="body">
 		<transition name="modal-animation">
 			<div v-if="isOpen" @click="isOpen = false" class="modal">
-				<button @click="isOpen = false" class="modal-close-btn-mobile">
-					<img :src="crossIcon" alt="">
-				</button>
+				<div class="modal-top padding">
+					<button @click="isOpen = false" class="modal-close-btn-mobile">
+						<img :src="crossIcon" alt="">
+					</button>
+				</div>
 				<div @click.stop class="modal-content">
 					<button @click="isOpen = false" class="modal-close-btn">
 						<img :src="crossIcon" alt="">
@@ -49,6 +51,19 @@ onUnmounted(() => unlock())
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	flex-direction: column;
+
+	&-top {
+		width: 100%;
+
+		@include tablet {
+			margin: 24px 0;
+		}
+
+		@include mobile {
+			margin: 16px 0;
+		}
+	}
 
 	&-content {
 		position: relative;
@@ -62,19 +77,21 @@ onUnmounted(() => unlock())
 
 		@include tablet {
 			height: 90vh;
-			width: 100%;
+			// width: 100%;
+			overflow: auto;
 			padding: 48px;
-			margin: 0 var(--padding-container-tablet);
-			margin-top: 6vh;
+			margin: 0 var(--padding-container-tablet) var(--padding-container-tablet);
+			// margin-top: 6vh;
 			border-radius: 80px;
+			flex-grow: 1;
 		}
 
 		@include mobile {
 			height: 90vh;
-			width: 100%;
+			// width: 100%;
 			padding: 16px;
-			margin: 0 var(--padding-container-mobile);
-			margin-top: 6vh;
+			margin: 0 var(--padding-container-mobile) var(--padding-container-mobile);
+			// margin-top: 6vh;
 			border-radius: 32px;
 		}
 	}
@@ -100,9 +117,10 @@ onUnmounted(() => unlock())
 
 	&-close-btn-mobile {
 		display: none;
-		position: fixed;
+		// position: fixed;
 		height: 80px;
 		width: 80px;
+		margin-left: auto;
 		top: 2vh;
 		border-radius: 50%;
 		background-color: var(--bg);
@@ -120,7 +138,7 @@ onUnmounted(() => unlock())
 			height: 40px;
 			width: 40px;
 
-			img{
+			img {
 				width: 16px;
 				height: 16px;
 			}

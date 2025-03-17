@@ -13,24 +13,44 @@ const { openModal } = useStore()
 //@ts-ignore
 const DATA: Product[] = computed(() => ([
     {
+        id: 2,
+        unit: t('unit_ml'),
+        title: t('product_item_2'),
+        amount: '360',
+        imgUrl: '',
+        price: 160,
+        priceSign: t(''),
+        description: t('product_item_2_description'),
+    },
+    {
         id: 1,
         unit: t('unit_ml'),
         title: t('product_item_1'),
-        amount: 200,
-        imgUrl: '',
-        price: 0,
+        amount: '200',
+        imgUrl: '', 
+        price: 95,
         priceSign: t(''),
         description: t('product_item_1_description'),
     },
     {
-        id: 2,
+        id: 3,
         unit: t('unit_ml'),
-        title: t('product_item_2'),
-        amount: 300,
+        title: t('product_item_3'),
+        amount: '200',
         imgUrl: '',
-        price: 0,
+        price: 85,
         priceSign: t(''),
-        description: t('product_item_2_description'),
+        description: t('product_item_3_description'),
+    },
+    {
+        id: 4,
+        unit: t('unit_ml'),
+        title: t('product_item_4'),
+        amount: '',
+        imgUrl: '',
+        price: 28,
+        priceSign: t(''),
+        description: t('product_item_4_description'),
     },
 ]))
 
@@ -53,9 +73,9 @@ const DATA: Product[] = computed(() => ([
                 <OurCandlesItem :="item" @on-click="openModal(item)" />
             </template>
         </ul>
-        <p class="underline text bold">
+        <!-- <p class="underline text bold">
             {{ $t('view_all') }}
-        </p>
+        </p> -->
     </section>
 </template>
 
