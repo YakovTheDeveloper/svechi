@@ -40,25 +40,25 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 					</p>
 					<ul class="footer__contacts">
 						<li class="footer__list-item">
-							<a href="" class="footer__phone-link">
-								<img src="@/app/assets/icons/phone.svg" alt="">
-								+053-278-75-32
+							<a href="tel:+972532787532" class="footer__phone-link">
+								<img src="@/app/assets/icons/phone.svg" alt="phone-icon">
+								+972 53-278-7532
 							</a>
 						</li>
 						<li>
 							<ul class="footer__socials">
 								<li>
-									<a href="">
+									<a href="https://www.facebook.com/share/18nk6iaciF/?mibextid=LQQJ4d" target='_blank'>
 										<img src="@/app/assets/icons/fb.svg" alt="facebook-icon">
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="https://www.instagram.com/Agafonova.dari/#" target='_blank'>
 										<img src="@/app/assets/icons/inst.svg" alt="inst-icon">
 									</a>
 								</li>
 								<li>
-									<a href="">
+									<a href="" target='_blank'>
 										<img src="@/app/assets/icons/whatsapp.svg" alt="whatsapp-icon">
 									</a>
 								</li>
@@ -110,7 +110,7 @@ import IconLogo from '@/shared/icons/IconLogo.vue'
 		background: url('@/app/assets/decorations/footer/1.svg') center no-repeat;
 		z-index: 1;
 
-		@include mobile{
+		@include mobile {
 			background-size: 50%;
 		}
 	}

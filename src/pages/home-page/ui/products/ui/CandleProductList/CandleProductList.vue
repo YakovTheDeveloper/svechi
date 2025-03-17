@@ -24,7 +24,7 @@ const MOCK_PRODUCTS = [
     },
     {
         imgUrl: getPublicUrl('img/products/4.png'),
-        description: 'Свечи из ващины',
+        description: 'Свечи из вощины',
         price: 28,
         priceSign: '₪'
     },

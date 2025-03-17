@@ -94,7 +94,7 @@ export const messages = {
 
         footer_benefit: 'Свечи ручной работы — это не только безвредные и безопасные продукты, но и отличный способ украсить дом.',
         footer_delivery: 'Самовывоз возможен из города Бат-Ям',
-        footer_about_company: 'О  компании',
+        footer_about_company: 'О компании',
         nav_about_us: 'О нас',
         nav_consulting: 'Консультация',
         nav_contacts: 'Контакты',
@@ -201,6 +201,125 @@ export const messages = {
     },
 
     he: {
+        contact_write_us: 'כתבו לנו',
+        contact_write_us_2: 'כתבו לנו',
+        contact_admin: 'אדמיניסטרטור',
+        contact_join: 'הצטרפו!',
+        contact_order: 'להזמנה',
+        our_candles: 'הנרות שלנו',
+        popular: 'הכי נמכר (הנמכר ביותר)',
+        more: 'לפרטים',
+        view_all: 'לראות יותר',
+
+        unit_ml: 'מ"ל',
+        scents: 'ароматов',
+
+
+
+        product_item_1: 'נר בצנצנת זכוכית',
+        product_item_1_description: `נר בצנצנת זכוכית 360 מ"ל עם זמן בעירה 50 שעות ימלא את הבית שלכם באור חמים ובניחוח מיוחד.
+כתבו לנו ונייצר עבורכם נרות שתמיד יהיו חלק מהבית שלכם
+`,
+        product_item_2: 'נר בצנצנת זכוכית',
+        product_item_2_description: `
+נר בצנצנת זכוכית 200 מ"ל עם זמן בעירה 25 שעות זהו נר אידיאלי ליצירת אווירת ביתיות 
+כתבו לנו ונייצר עבורכם נרות אשר ידגישו את האווירה המיוחדת של הבית שלכם
+`,
+        product_item_3: 'נר בצנצנת מתכת ',
+        product_item_3_description: `
+נר בצנצנת זכוכית 200 מ"ל  זהו שילוב של עיצוב מודרני עם זמן בעירה יותר מ־25 שעות. מתאימים ליצירה הרגשת ביתיות. 
+כתבו לנו ונציע לכם נרות שתמיד יהיו חלק מהבית שלכם
+
+        `,
+        product_item_4: 'נרות קרן',
+        product_item_4_description: `
+נרות מסוג זה הינם פתרון קלסי ליצירת אווירה ביתית. הנרות בעלי זמן בעירה עד שעתיים ימלאו את הבית שלכם באור רך ובריח דונג קל. 
+כתבו לנו ונציע לכם נרות שיבטיחו אווירה ביתית ומיוחדת
+
+        `,
+
+        unique_design_benefits_title: 'היתרונות שלנו',
+        unique_design_benefits_aroma: 'ניחוח ייחודי',
+        unique_design_benefits_unique_design: 'עיצוב מיוחד',
+        unique_design_benefits_individual_solutions: 'התאמה אישית',
+        unique_design_text: `אנו מייצרים נרות עבודת יד ייחודיים המתאים לכל בית. נעזור לכם בבחירת ניחוח, צורה ועיצוב של נרות לפי הסגנון האינדיבידואלי שלכם. 
+צרו איתנו קשר ואנו נשמח להציע לכם פתרונות לקישוט הייחודי של הבית שלכם.
+`,
+        unique_design_our_candles_list: 'הנרות שלנו',
+
+        customer_profit_text: `
+הנחות להזמנות בסיטונאות
+כתבו לנו ונציע לכם פתרון אידיאלי לעסק שלכם
+
+        `,
+        description: 'Discover amazing products and offers.',
+
+        our_advantages_item_1_title: 'רק רכיבים טבעיים וביטחון',
+        our_advantages_item_1_description: `הנרות שלנו מיוצרים מחומרים טבעיים בלבד, לא כוללים חומרים מזיקים ובטוחים לבריאות`,
+
+        our_advantages_item_2_title: 'ניחוחים ייחודיים ויחס אישי לכל לקוח',
+        our_advantages_item_2_description: `אנו יוצרים ניחוחים אשר ידגישו את הסיגנון שלכם ואת האווירה בביתכם. 
+
+אנו יוצרים ניחוחים לפי העדיפויות שלכם
+`,
+
+        our_advantages_item_3_title: 'מגוון צורות וגדלים',
+        our_advantages_item_3_description: 'אנו מציעים טרות בגדלים ובזמני בעירה שונים המתאימים לכל אירוע',
+
+        our_advantages_item_4_title: 'משלוח מהיר בכל הארץ',
+        our_advantages_item_4_description: 'הנרות שלנו יגיעו לביתכם בתוך פרק זמן קצר במיוחד ויביאו שמחה המגיעה לכם',
+
+        our_advantages_item_5_title: 'מתנה אידיאלית ועיצוב אופנתי',
+        our_advantages_item_5_description: 'הנרות שלנו הם לא רק ניחוח וביתיות אלא גם תוספת יפה לעיצוב הפנימי של ביתכם או מתנה נבונה',
+
+        our_advantages_item_6_title: 'מחירים חסרי תחרות ומבצעים לחגים',
+        our_advantages_item_6_description: 'אנו שמחים להציע לכם מבצעים שונים ומבטיחים את המחירים הנמוכים ביותר בשוק נרות עבודת יד',
+
+        popular_aroma_item_1: 'לבונה',
+        popular_aroma_item_2: 'עור ועץ',
+        popular_aroma_item_3: 'קשמיר מרוקאי',
+        popular_aroma_item_4: 'עץ אלגום ויסמין',
+        popular_aroma_item_5: 'האנבר האפור וטבק',
+        popular_aroma_item_6: 'בושם Santal 33',
+        popular_aroma_item_7: 'עץ עוד, ברגמוט',
+        popular_aroma_item_8: 'טבק, וניל',
+        popular_aroma_item_9: 'ברגמוט, נרולי, תפוז',
+        popular_aroma_item_10: 'עוגיות זנגביל',
+        popular_aroma_item_11: 'ביסקביט צרפתי',
+        popular_aroma_item_12: 'ברגמוט',
+        popular_aroma_item_13: 'לחם בננה ואגוז',
+        popular_aroma_item_14: `לבונה, פצ'ולי`,
+        popular_aroma_item_15: 'פשתן לבן',
+        popular_aroma_item_16: 'גומי לעיסה',
+        popular_aroma_item_17: 'ויסקי, קרמל',
+        popular_aroma_item_18: ' עור',
+        popular_aroma_item_19: 'תאנה',
+        popular_aroma_item_20: 'בושם very good girl',
+        popular_aroma_item_21: 'משפחת קוניאק',
+        popular_aroma_item_22: 'קקאו',
+        popular_aroma_item_23: 'טחב עץ אלון',
+        popular_aroma_item_24: 'תפוז',
+        popular_aroma_item_25: 'ארז, עץ אלגום',
+        popular_aroma_item_26: 'יין שמפניה',
+        popular_aroma_item_27: 'קינמון',
+        popular_aroma_item_28: 'קרמל מלוח',
+        popular_aroma_item_29: 'יער חורפי',
+        popular_aroma_item_30: 'מאטה, ברגמוט',
+        popular_aroma_item_31: 'עץ אשוח',
+        popular_aroma_item_32: 'אשכולית, בזיליקום, פלפל',
+        popular_aroma_item_33: 'סחלב שחור',
+        popular_aroma_item_34: 'רימון',
+
+
+        footer_benefit: 'נרות עבודת יד הינם מוצרים בטוחים והם יקשטו כל חדר – חדר ',
+        footer_delivery: 'Самовывоз возможен из города Бат-Ям',
+        footer_about_company: 'על החברה',
+        nav_about_us: 'עלינו',
+        nav_consulting: 'רוצים להתייעץ',
+        nav_contacts: 'צרו קשר',
+        nav_main: 'ראשי',
+        nav_promotions: 'מבמעים',
+
 
     }
 }

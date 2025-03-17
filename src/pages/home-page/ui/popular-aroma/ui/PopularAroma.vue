@@ -17,24 +17,25 @@ import icon12 from '@/app/assets/icons/aroma/12.svg'
 import icon13 from '@/app/assets/icons/aroma/13.svg'
 import icon14 from '@/app/assets/icons/aroma/14.svg'
 import icon15 from '@/app/assets/icons/aroma/15.svg'
-import icon16 from '@/app/assets/icons/aroma/16.svg'
-import icon17 from '@/app/assets/icons/aroma/17.svg'
-import icon18 from '@/app/assets/icons/aroma/18.svg'
-import icon19 from '@/app/assets/icons/aroma/19.svg'
-import icon20 from '@/app/assets/icons/aroma/20.svg'
-import icon21 from '@/app/assets/icons/aroma/21.svg'
-import icon22 from '@/app/assets/icons/aroma/22.svg'
-import icon23 from '@/app/assets/icons/aroma/23.svg'
-import icon24 from '@/app/assets/icons/aroma/24.svg'
-import icon25 from '@/app/assets/icons/aroma/25.svg'
-import icon26 from '@/app/assets/icons/aroma/26.svg'
-import icon27 from '@/app/assets/icons/aroma/27.svg'
-import icon28 from '@/app/assets/icons/aroma/28.svg'
-import icon29 from '@/app/assets/icons/aroma/29.svg'
-import icon30 from '@/app/assets/icons/aroma/30.svg'
-import icon31 from '@/app/assets/icons/aroma/31.svg'
-import icon32 from '@/app/assets/icons/aroma/32.svg'
-import icon33 from '@/app/assets/icons/aroma/33.svg'
+import icon16 from '@/app/assets/icons/aroma/15_1.svg'
+import icon17 from '@/app/assets/icons/aroma/16.svg'
+import icon18 from '@/app/assets/icons/aroma/17.svg'
+import icon19 from '@/app/assets/icons/aroma/18.svg'
+import icon20 from '@/app/assets/icons/aroma/19.svg'
+import icon21 from '@/app/assets/icons/aroma/20.svg'
+import icon22 from '@/app/assets/icons/aroma/21.svg'
+import icon23 from '@/app/assets/icons/aroma/22.svg'
+import icon24 from '@/app/assets/icons/aroma/23.svg'
+import icon25 from '@/app/assets/icons/aroma/24.svg'
+import icon26 from '@/app/assets/icons/aroma/25.svg'
+import icon27 from '@/app/assets/icons/aroma/26.svg'
+import icon28 from '@/app/assets/icons/aroma/27.svg'
+import icon29 from '@/app/assets/icons/aroma/28.svg'
+import icon30 from '@/app/assets/icons/aroma/29.svg'
+import icon31 from '@/app/assets/icons/aroma/30.svg'
+import icon32 from '@/app/assets/icons/aroma/31.svg'
+import icon33 from '@/app/assets/icons/aroma/32.svg'
+import icon34 from '@/app/assets/icons/aroma/33.svg'
 
 
 
@@ -78,7 +79,7 @@ const slides = computed(() => ([
     { imgUrl: icon31, id: 31, title: t('popular_aroma_item_31') },
     { imgUrl: icon32, id: 32, title: t('popular_aroma_item_32') },
     { imgUrl: icon33, id: 33, title: t('popular_aroma_item_33') },
-    { imgUrl: icon33, id: 34, title: t('popular_aroma_item_34') }
+    { imgUrl: icon34, id: 34, title: t('popular_aroma_item_34') }
 ]))
 
 
