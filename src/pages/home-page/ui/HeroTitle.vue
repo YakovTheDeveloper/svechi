@@ -19,6 +19,10 @@ Best practice way to do specific wraps in landing -->
             <span class='line-break'> с <VSpan variant="underlined">уникальными </VSpan> </span>
             <span class='line-break'>ароматами</span>
         </template>
+        <template v-else-if="locale === 'he'">
+            <span class='line-break'>נרות עבודת <VSpan variant="fill">יד</VSpan> בעלי ניחוחים </span>
+            <span class='line-break'><VSpan variant="underlined">ייחודים </VSpan></span>
+        </template>
         <template v-else>
             <span class='line-break'>
                 <VSpan variant="fill">Handmade</VSpan> candles

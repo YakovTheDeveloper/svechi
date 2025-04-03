@@ -9,3 +9,35 @@
     pointer-events: none; // Don’t block interaction with slides
     background: linear-gradient(270deg, #FEFBF2 3.72%, rgba(254, 251, 242, 0) 100%);
 }
+
+@mixin fade-overlay-left($width: 390px) {
+    content: ''; // Required for pseudo-elements
+    position: absolute; // Place over the swiper
+    top: -2px;
+    left: -4px;
+    z-index: 2;
+    height: 102%;
+    width: $width; // Dynamic width
+    pointer-events: none; // Don’t block interaction with slides
+    background: linear-gradient(90deg, #FEFBF2 3.72%, rgba(254, 251, 242, 0) 100%);
+}
+
+@mixin rtl-flip {
+    [dir="rtl"] & {
+        transform: scaleX(-1);
+    }
+}
+
+@mixin rtl-and-translateY($value) {
+    html[dir="rtl"] & {
+        transform: scaleX(-1) translateY($value);
+    }
+
+    transform: translateY($value);
+}
+
+@mixin rtl {
+    [dir="rtl"] & {
+        @content;
+    }
+}

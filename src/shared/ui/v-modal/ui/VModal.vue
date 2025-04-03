@@ -19,28 +19,26 @@ onUnmounted(() => unlock())
 </script>
 
 <template>
-	<teleport to="body">
-		<transition name="modal-animation">
-			<div v-if="isOpen" @click="isOpen = false" class="modal">
-				<div class="modal-top padding">
-					<button @click="isOpen = false" class="modal-close-btn-mobile">
-						<img :src="crossIcon" alt="">
-					</button>
-				</div>
-				<div @click.stop class="modal-content">
-					<button @click="isOpen = false" class="modal-close-btn">
-						<img :src="crossIcon" alt="">
-					</button>
-					<div class="modal-body">
-						<slot></slot>
-					</div>
+	<transition name="modal-animation">
+		<div v-if="isOpen" @click="isOpen = false" class="modal">
+			<div class="modal-top padding">
+				<button @click="isOpen = false" class="modal-close-btn-mobile">
+					<img :src="crossIcon" alt="">
+				</button>
+			</div>
+			<div @click.stop class="modal-content">
+				<button @click="isOpen = false" class="modal-close-btn">
+					<img :src="crossIcon" alt="">
+				</button>
+				<div class="modal-body">
+					<slot></slot>
 				</div>
 			</div>
-		</transition>
-		<transition name="modal-overlay">
-			<VOverlay v-if="isOpen" />
-		</transition>
-	</teleport>
+		</div>
+	</transition>
+	<transition name="modal-overlay">
+		<VOverlay v-if="isOpen" />
+	</transition>
 </template>
 
 <style scoped lang="scss">
@@ -102,17 +100,28 @@ onUnmounted(() => unlock())
 		overflow: auto;
 	}
 
+
 	&-close-btn {
 		position: absolute;
 		background-color: transparent;
 		top: 48px;
 		right: 48px;
 
+		html[dir="rtl"] & {
+			right: unset;
+			left: 48px;
+		}
+
 		@include tablet {
 			display: none;
 		}
 
 		@include mobile {}
+
+		html[dir="rtl"] & {
+			right: unset;
+			left: 48px;
+		}
 	}
 
 	&-close-btn-mobile {
@@ -126,6 +135,11 @@ onUnmounted(() => unlock())
 		background-color: var(--bg);
 		align-items: center;
 		justify-content: center;
+
+		html[dir="rtl"] & {
+			margin-right: auto;
+			margin-left: unset;
+		}
 
 		@include tablet {
 			display: flex;

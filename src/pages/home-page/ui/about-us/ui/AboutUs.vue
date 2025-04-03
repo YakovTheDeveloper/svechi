@@ -19,6 +19,9 @@ const { locale } = useI18n()
                     <template v-if="locale === 'ru'">
                         О нашей <VSpan variant="fill">мастерской</VSpan>
                     </template>
+                    <template v-else-if="locale === 'he'">
+                        על <VSpan variant="fill">המפעל</VSpan>שלנו
+                    </template>
                     <template v-else>
                         About Our <VSpan variant="fill">Workshop</VSpan>
                     </template>

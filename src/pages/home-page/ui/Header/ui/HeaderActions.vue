@@ -9,6 +9,11 @@ import instIcon from '@/app/assets/icons/inst-2.svg'
 import menuIcon from '@/app/assets/icons/burger.svg'
 import HeroTitle from '../../HeroTitle.vue';
 import { messages } from '@/app/assets/locales';
+import { contact } from '@/shared/utils/contact';
+
+const onWriteUs = () => {
+    contact()
+}
 
 </script>
 
@@ -33,7 +38,7 @@ import { messages } from '@/app/assets/locales';
                     <img :src="adminIcon" alt="contact-icon">
                     <img :src="phoneIcon" alt="contact-icon" class="header-actions__contacts-item-icons-phone">
                 </div>
-                <div class="header-actions__contacts-item-text">
+                <div class="header-actions__contacts-item-text" @click="onWriteUs">
                     <p class="header-actions__contacts-item-text__title">
                         {{ $t('contact_write_us_2') }}
                     </p>
@@ -109,7 +114,7 @@ import { messages } from '@/app/assets/locales';
 
     &__header {
         display: flex;
-        z-index: 1;
+        z-index: 2;
         align-items: center;
     }
 
@@ -162,6 +167,11 @@ import { messages } from '@/app/assets/locales';
         margin-left: auto;
         flex-wrap: wrap;
 
+        html[dir='rtl'] & {
+            margin-left: unset;
+            margin-right: auto;
+        }
+
         @include mobile {
             gap: 7px;
         }
@@ -191,10 +201,10 @@ import { messages } from '@/app/assets/locales';
                 display: flex;
                 gap: 4px;
 
-                &-phone{
+                &-phone {
                     transform: translateX(-17px);
 
-                    html[dir="rtl"] &{
+                    html[dir="rtl"] & {
                         transform: translateX(17px);
                     }
                 }

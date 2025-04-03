@@ -15,7 +15,7 @@ function scrollToSection(id: string) {
                 <a>{{ $t('nav_main') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a>{{ $t('nav_contacts') }}</a>
+                <a @click.prevent="scrollToSection('footer')">{{ $t('nav_contacts') }}</a>
             </li>
             <li class="navbar-list__item">
                 <a @click.prevent="scrollToSection('about-us')">{{ $t('nav_about_us') }}</a>

@@ -18,7 +18,7 @@ const DATA: Product[] = computed(() => ([
         amount: '360',
         imgUrl: getPublicUrl('img/products/1.png'),
         price: 160,
-        priceSign: t(''),
+        priceSign: '₪',
         description: t('product_item_2_description'),
     },
     {
@@ -28,7 +28,7 @@ const DATA: Product[] = computed(() => ([
         amount: '200',
         imgUrl: getPublicUrl('img/products/2.png'),
         price: 95,
-        priceSign: t(''),
+        priceSign: '₪',
         description: t('product_item_1_description'),
     },
     {
@@ -38,7 +38,7 @@ const DATA: Product[] = computed(() => ([
         amount: '200',
         imgUrl: getPublicUrl('img/products/3.png'),
         price: 85,
-        priceSign: t(''),
+        priceSign: '₪',
         description: t('product_item_3_description'),
     },
     {
@@ -48,7 +48,7 @@ const DATA: Product[] = computed(() => ([
         amount: '',
         imgUrl: getPublicUrl('img/products/4.png'),
         price: 28,
-        priceSign: t(''),
+        priceSign: '₪',
         description: t('product_item_4_description'),
     },
 ]))
@@ -76,9 +76,9 @@ const DATA: Product[] = computed(() => ([
     gap: 16px;
 
     @include mobile {
-        // display: grid;
-        // grid-template-columns: 1fr 1fr;
-        flex-wrap: wrap;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(2, 300px);
     }
 }
 </style>

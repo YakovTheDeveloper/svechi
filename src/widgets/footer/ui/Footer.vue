@@ -2,7 +2,7 @@
 </script>
 
 <template>
-	<footer class="footer">
+	<footer class="footer" id="footer">
 		<div class="footer__inner">
 			<div class="footer__content">
 				<div class="footer__content-part">
@@ -12,7 +12,7 @@
 					<div class="footer__content-part__delivery">
 						<img src="@/app/assets/icons/delivery.svg" alt="delivery-icon" />
 						<p class="bold text">
-							Самовывоз возможен из города Бат-Ям
+							{{ $t('footer_delivery') }}
 						</p>
 					</div>
 				</div>
@@ -47,7 +47,8 @@
 						<li>
 							<ul class="footer__socials">
 								<li>
-									<a href="https://www.facebook.com/share/18nk6iaciF/?mibextid=LQQJ4d" target='_blank'>
+									<a href="https://www.facebook.com/share/18nk6iaciF/?mibextid=LQQJ4d"
+										target='_blank'>
 										<img src="@/app/assets/icons/fb.svg" alt="facebook-icon">
 									</a>
 								</li>
@@ -118,6 +119,10 @@
 	&:before {
 		left: -150px;
 		bottom: -192px;
+
+		@include mobile {
+			bottom: -92px;
+		}
 	}
 
 
@@ -200,6 +205,12 @@
 			gap: var(--gap);
 			max-width: 365px;
 
+			.text-s {
+				@include mobile {
+					font-size: 14px;
+				}
+			}
+
 			&__delivery {
 				display: flex;
 				gap: 6px;
@@ -211,6 +222,10 @@
 
 				img {
 					margin-top: 6px;
+
+					html[dir='rtl'] & {
+						transform: scale(-1, 1);
+					}
 
 					@include mobile {
 						margin-top: 0;
@@ -237,7 +252,7 @@
 		@include mobile {
 			margin-top: 16px;
 			padding-top: 16px;
-
+			font-size: 12px;
 		}
 	}
 

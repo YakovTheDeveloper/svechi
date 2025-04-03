@@ -143,8 +143,28 @@ onMounted(() => {
 .swiper-wrapper {
     position: relative;
 
-    &:before {
-        @include fade-overlay-right($width: 20%);
+    &:has(button.custom-next.swiper-button-disabled) {
+        &:before {
+            content: none;
+        }
+    }
+
+    &:not(:has(button.custom-next.swiper-button-disabled)) {
+        &:before {
+            @include fade-overlay-right($width: 20%);
+        }
+    }
+
+    &:has(button.custom-prev.swiper-button-disabled) {
+        &:after {
+            content: none;
+        }
+    }
+
+    &:not(:has(button.custom-prev.swiper-button-disabled)) {
+        &:after {
+            @include fade-overlay-left($width: 20%);
+        }
     }
 }
 

@@ -19,6 +19,9 @@ const { locale } = useI18n()
                     <template v-if="locale === 'ru'">
                         <VSpan variant="fill">Уникальный</VSpan> дизайн
                     </template>
+                    <template v-else-if="locale === 'he'">
+                        <VSpan variant="fill">מיוחד</VSpan> עיצוב
+                    </template>
                     <template v-else>
                         <VSpan variant="fill">Unique</VSpan> Design
                     </template>
@@ -57,7 +60,7 @@ const { locale } = useI18n()
                     предложим индивидуальные решения, чтобы ваша свеча стала настоящим украшением вашего пространства!
                  -->
                 </p>
-                <VButtonIcon :label="$t('our_candles')" >
+                <VButtonIcon :label="$t('our_candles')">
                     <IconArrowRight />
                 </VButtonIcon>
             </div>
@@ -66,6 +69,9 @@ const { locale } = useI18n()
 </template>
 
 <style lang="scss" scoped>
+.container{
+    z-index: 2;
+}
 .title {
     margin-bottom: 40px;
     position: relative;
@@ -88,6 +94,12 @@ const { locale } = useI18n()
         background: url('@/app/assets/decorations/unique-design/1.svg') center no-repeat;
         width: 560px;
         height: 93px;
+
+        @include rtl-flip;
+
+        @include rtl {
+            right: 248px;
+        }
 
         @media (max-width: 1400px) {
             display: none;
@@ -175,6 +187,7 @@ const { locale } = useI18n()
             max-width: 159px;
         }
 
+
         img {
             width: 100%;
             aspect-ratio: 1;
@@ -201,6 +214,12 @@ const { locale } = useI18n()
             left: -382px;
             background: url('@/app/assets/decorations/unique-design/candle-line-2.svg') center no-repeat;
 
+            @include rtl-flip;
+
+            @include rtl {
+               left: 342px;
+            }
+
             @include tablet {
                 background: url('@/app/assets/decorations/unique-design/candle-line-2_tablet.svg') center no-repeat;
                 width: 376px;
@@ -216,6 +235,12 @@ const { locale } = useI18n()
             top: 10px;
             right: -79px;
             background: url('@/app/assets/decorations/unique-design/candle-line-1.svg') center no-repeat;
+
+            @include rtl-flip;
+
+            @include rtl {
+                right: 200px;
+            }
 
             @include tablet {
                 width: 258px;

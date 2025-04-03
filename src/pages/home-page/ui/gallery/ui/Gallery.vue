@@ -42,6 +42,9 @@ const sliderBreakpoints = {
             <template v-if="locale === 'ru'">
                 Галерея <VSpan variant="fill">тепла и уюта</VSpan>
             </template>
+            <template v-else-if="locale === 'he'">
+                גלריה של <VSpan variant="fill">חום וביתיות</VSpan>
+            </template>
             <template v-else>
                 Gallery of <VSpan variant="fill">Warmth and Comfort</VSpan>
             </template>

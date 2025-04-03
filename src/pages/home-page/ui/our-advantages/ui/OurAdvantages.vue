@@ -55,13 +55,17 @@ const MOCK_DATA = computed(() => {
 
                 <template v-if="locale === 'ru'">
                     <VSpan variant="underlined" class="subtitle-span">Мы заботимся</VSpan>
-                    <span class="subtitle-span_mobile">Мы заботимся</span>
+
                     о вашем уюте — вот почему <VSpan variant="fill">нам
                         доверяют</VSpan>
                 </template>
+                <template v-else-if="locale === 'he'">
+                    <VSpan variant="underlined" class="subtitle-span">אנו דואגים</VSpan>
+                    לאווירה המיוחדת בבית שלכם – לכן <VSpan variant="fill">בוטחים בנו</VSpan>
+                </template>
                 <template v-else>
                     <VSpan variant="underlined" class="subtitle-span">We care</VSpan>
-                    <span class="subtitle-span_mobile">We care</span>
+
                     about your comfort — that's why you <VSpan variant="fill">trust us</VSpan>
                 </template>
             </h2>
@@ -80,24 +84,25 @@ const MOCK_DATA = computed(() => {
 .subtitle {
     margin-bottom: 64px;
     color: var(--black-primary);
+    line-height: 170%;
 
     @include tablet {
         margin-bottom: 32px;
+        line-height: 150%;
     }
 
     &-span {
+        // @include tablet {
+        //     display: none;
+        // }
 
-        @include tablet {
-            display: none;
-        }
+        // &_mobile {
+        //     display: none;
 
-        &_mobile {
-            display: none;
-
-            @include tablet {
-                display: inline-block;
-            }
-        }
+        //     @include tablet {
+        //         display: inline-block;
+        //     }
+        // }
     }
 }
 

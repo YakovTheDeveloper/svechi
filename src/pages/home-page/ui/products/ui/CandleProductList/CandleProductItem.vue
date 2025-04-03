@@ -19,8 +19,7 @@ const props = defineProps<{
         <div class="candle-product-item__main">
             <p class="candle-product-item__name">
                 {{ props.product.title }},
-                <br />
-                <span v-if="props.product.amount">{{ props.product.amount }} {{ props.product.unit }}</span>
+                <span v-if="props.product.amount" class="candle-product-item__amount">{{ props.product.amount }} {{ props.product.unit }}</span>
 
             </p>
             <div class="candle-product-item__price">
@@ -53,8 +52,8 @@ const props = defineProps<{
     border-radius: 32px;
 
     @include mobile {
-        max-width: 156px;
-        height: 293px;
+        max-width: 100%;
+        height: 100%;
     }
 
     &__name {
@@ -74,7 +73,8 @@ const props = defineProps<{
         }
 
         img {
-            max-width: 100%;
+            width: 100%;
+            height: 100%;
             object-fit: contain;
         }
     }
@@ -88,6 +88,14 @@ const props = defineProps<{
 
         @include mobile {
             padding: 24px 8px 16px;
+        }
+    }
+
+    &__amount{
+        display: block;
+
+        @include mobile {
+            display: inline;
         }
     }
 

@@ -108,6 +108,9 @@ const sliderBreakpoints = {
                 <template v-if="locale === 'ru'">
                     Самые <VSpan variant="fill">популярные</VSpan> ароматы
                 </template>
+                <template v-else-if="locale === 'he'">
+                    הניחוחים <VSpan variant="fill">הנמכרים</VSpan> ביותר:
+                </template>
                 <template v-else>
                     Most <VSpan variant="fill">Popular</VSpan> Fragrances
                 </template>

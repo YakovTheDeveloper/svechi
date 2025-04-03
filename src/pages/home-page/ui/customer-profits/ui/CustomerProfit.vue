@@ -21,6 +21,10 @@ const { locale } = useI18n()
                         <VSpan variant="fill">условия</VSpan> для
                         <VSpan variant="underlined">постоянных</VSpan> клиентов
                     </template>
+                    <template v-else-if="locale === 'he'">
+                        <VSpan variant="fill">תנאים</VSpan> מיוחדים ללקוחות
+                        <VSpan variant="underlined">קבועים</VSpan>
+                    </template>
                     <template v-else>
                         Favorable <VSpan variant="fill">Conditions</VSpan> for <VSpan variant="underlined">Regular
                         </VSpan> Customers
@@ -88,6 +92,11 @@ const { locale } = useI18n()
         left: 26%;
         background: url('@/app/assets/decorations/customer-profit/1.svg') center no-repeat;
 
+        @include rtl-flip;
+        @include rtl{
+            left: 47%;
+            top: -48%;
+        }
     }
 
     &:after {

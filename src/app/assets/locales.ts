@@ -312,7 +312,7 @@ export const messages = {
 
 
         footer_benefit: 'נרות עבודת יד הינם מוצרים בטוחים והם יקשטו כל חדר – חדר ',
-        footer_delivery: 'Самовывоз возможен из города Бат-Ям',
+        footer_delivery: 'איסוף עצמי מבת ים',
         footer_about_company: 'על החברה',
         nav_about_us: 'עלינו',
         nav_consulting: 'רוצים להתייעץ',

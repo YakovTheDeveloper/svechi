@@ -20,6 +20,9 @@ const { locale } = useI18n()
                     <template v-if="locale === 'ru'">
                         Свечи, согревающие <VSpan variant="fill">сердца</VSpan>
                     </template>
+                    <template v-else-if="locale === 'he'">
+                        נרות המחממים את <VSpan variant="fill">הלבבות</VSpan>
+                    </template>
                     <template v-else>
                         Candles that Warm <VSpan variant="fill">Hearts</VSpan>
                     </template>
@@ -54,10 +57,13 @@ const { locale } = useI18n()
         right: 0;
         left: 0;
         top: 0;
-        transform: translateY(-57%);
+        // transform: translateY(-57%);
+        // --original-transform: translateY(-57%);
         background: url('@/app/assets/decorations/products/1.svg') no-repeat;
         background-position: 89% 54%;
         background-size: contain;
+
+        @include rtl-and-translateY(-57%);
 
         @include tablet {
             display: none;

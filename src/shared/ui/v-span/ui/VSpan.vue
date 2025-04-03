@@ -31,7 +31,7 @@ const props = withDefaults(defineProps<{
         transform: rotate(-2.4deg);
         position: absolute;
         content: '';
-        background-color: red;
+        background-color: var(--red-accent);
         width: 106%;
         height: 105%;
         z-index: -1;
