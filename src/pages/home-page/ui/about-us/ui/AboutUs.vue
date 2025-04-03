@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import VButton from '@/shared/ui/v-button/VButton.vue';
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
+import { contact } from '@/shared/utils/contact';
 import { useI18n } from 'vue-i18n';
 const { locale } = useI18n()
 
@@ -112,7 +113,7 @@ const { locale } = useI18n()
                     </p>
                 </template>
 
-                <VButton class="about-us__order-btn">
+                <VButton class="about-us__order-btn" @click="contact">
                     {{ $t('contact_order') }}
                 </VButton>
             </div>

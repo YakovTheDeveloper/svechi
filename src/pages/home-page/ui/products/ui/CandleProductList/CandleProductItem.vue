@@ -1,13 +1,13 @@
 <script setup lang="ts">
+import { useStore } from '@/shared/stores/store';
+import type { Product } from '@/shared/types/product';
+
 
 const props = defineProps<{
-    product: {
-        imgUrl: string
-        description: string
-        price: number
-        priceSign: string
-    }
+    product: Product
 }>()
+
+const { openModal } = useStore()
 
 </script>
 
@@ -19,11 +19,12 @@ const props = defineProps<{
         <div class="candle-product-item__main">
             <p class="candle-product-item__name">
                 {{ props.product.title }},
-                <span v-if="props.product.amount" class="candle-product-item__amount">{{ props.product.amount }} {{ props.product.unit }}</span>
+                <span v-if="props.product.amount" class="candle-product-item__amount">{{ props.product.amount }} {{
+                    props.product.unit }}</span>
 
             </p>
             <div class="candle-product-item__price">
-                <button>
+                <button @click="openModal(props.product)">
                     <p class="text underline bold">
                         {{ $t('more') }}
                         <svg class="candle-product-item__plus-icon" width="12" height="13" viewBox="0 0 12 13"
@@ -91,7 +92,7 @@ const props = defineProps<{
         }
     }
 
-    &__amount{
+    &__amount {
         display: block;
 
         @include mobile {

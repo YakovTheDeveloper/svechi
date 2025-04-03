@@ -1,11 +1,15 @@
 <script setup lang="ts">
+import { contact } from '@/shared/utils/contact';
+import { scrollToId } from '@/shared/utils/scrollToId';
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
-function scrollToSection(id: string) {
-    const section = document.getElementById(id)
-    section?.scrollIntoView({ behavior: 'smooth' })
-}
+
+const props = defineProps<{
+    onAfterNav?: () => void
+}>()
+
+
 </script>
 
 <template>
@@ -15,16 +19,16 @@ function scrollToSection(id: string) {
                 <a>{{ $t('nav_main') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a @click.prevent="scrollToSection('footer')">{{ $t('nav_contacts') }}</a>
+                <a @click.prevent="scrollToId('footer'); props.onAfterNav?.()">{{ $t('nav_contacts') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a @click.prevent="scrollToSection('about-us')">{{ $t('nav_about_us') }}</a>
+                <a @click.prevent="scrollToId('about-us'); props.onAfterNav?.()">{{ $t('nav_about_us') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a>{{ $t('nav_consulting') }}</a>
+                <a @click.prevent="contact(); props.onAfterNav?.()">{{ $t('nav_consulting') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a>{{ $t('nav_promotions') }}</a>
+                <a @click.prevent="scrollToId('promotions'); props.onAfterNav?.()">{{ $t('nav_promotions') }}</a>
             </li>
         </ul>
     </nav>

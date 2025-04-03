@@ -21,3 +21,13 @@ export const useStore = defineStore('store', () => {
 
 	return { showModal, openModal, closeModal, clearModalContent, currentModalProduct }
 })
+
+
+export const useMobileMenuStore = defineStore('mobile-menu-store', () => {
+
+	const show = ref(false)
+	const openModal = () => show.value = true
+	const closeModal = () => show.value = false
+
+	return { show, openModal, closeModal }
+})

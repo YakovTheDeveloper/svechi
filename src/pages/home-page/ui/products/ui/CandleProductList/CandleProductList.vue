@@ -5,6 +5,7 @@ import icon1 from '@/app/assets/icons/aroma/1.svg'
 
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
+import { useScrollFade } from '../../../our-advantages/ui/useScrollFade';
 const { t } = useI18n()
 
 
@@ -12,7 +13,7 @@ const { t } = useI18n()
 //@ts-ignore
 const DATA: Product[] = computed(() => ([
     {
-        id: 2,
+        id: 'glass360',
         unit: t('unit_ml'),
         title: t('product_item_2'),
         amount: '360',
@@ -22,7 +23,7 @@ const DATA: Product[] = computed(() => ([
         description: t('product_item_2_description'),
     },
     {
-        id: 1,
+        id: 'glass200',
         unit: t('unit_ml'),
         title: t('product_item_1'),
         amount: '200',
@@ -32,7 +33,7 @@ const DATA: Product[] = computed(() => ([
         description: t('product_item_1_description'),
     },
     {
-        id: 3,
+        id: 'metal360',
         unit: t('unit_ml'),
         title: t('product_item_3'),
         amount: '200',
@@ -42,7 +43,7 @@ const DATA: Product[] = computed(() => ([
         description: t('product_item_3_description'),
     },
     {
-        id: 4,
+        id: 'wax',
         unit: t('unit_ml'),
         title: t('product_item_4'),
         amount: '',
@@ -53,11 +54,14 @@ const DATA: Product[] = computed(() => ([
     },
 ]))
 
+const { containerRef, fadeClasses } = useScrollFade();
+
+
 </script>
 
 <template>
     <div class="candle-product-list-container">
-        <ul class="candle-product-list">
+        <ul class="candle-product-list" ref="containerRef" :class="fadeClasses">
             <template v-for="product in DATA">
                 <CandleProductItem :product="product" />
             </template>
@@ -69,11 +73,30 @@ const DATA: Product[] = computed(() => ([
 .candle-product-list-container {
     position: relative;
     overflow-x: auto;
+    overflow-y: hidden;
+
+}
+
+.fade-left {
+    @include tablet {
+        &:before {
+            @include fade-overlay-left($width: 15%);
+        }
+    }
+}
+
+.fade-right {
+    @include tablet {
+        &:after {
+            @include fade-overlay-right($width: 15%);
+        }
+    }
 }
 
 .candle-product-list {
     display: flex;
     gap: 16px;
+    overflow-x: auto;
 
     @include mobile {
         display: grid;

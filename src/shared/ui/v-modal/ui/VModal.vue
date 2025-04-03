@@ -13,8 +13,6 @@ watchEffect(() => {
 	else unlock()
 })
 
-
-
 onUnmounted(() => unlock())
 </script>
 

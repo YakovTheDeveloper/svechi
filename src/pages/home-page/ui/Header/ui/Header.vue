@@ -5,6 +5,7 @@ import Navbar from '../../Navbar.vue';
 import HeroTitle from '../../HeroTitle.vue';
 import OurCandles from '@/widgets/ourCandles/ui/OurCandles.vue';
 import HeaderActions from './HeaderActions.vue';
+import MenuMobile from './menu-mobile/MenuMobile.vue';
 
 </script>
 
@@ -16,6 +17,7 @@ import HeaderActions from './HeaderActions.vue';
             <OurCandles />
         </div>
         <HeaderActions />
+        <MenuMobile />
     </header>
 </template>
 

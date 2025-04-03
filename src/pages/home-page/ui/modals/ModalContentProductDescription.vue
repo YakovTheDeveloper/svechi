@@ -2,6 +2,7 @@
 
 import { useStore } from '@/shared/stores/store';
 import VButton from '@/shared/ui/v-button/VButton.vue';
+import { contact } from '@/shared/utils/contact';
 import { ref } from 'vue'
 
 const store = useStore()
@@ -22,7 +23,7 @@ const store = useStore()
             <p class="modal-content-product-description__text">{{ store.currentModalProduct?.description }}</p>
         </div>
         <p class="modal-content-product-description__price">{{ store.currentModalProduct?.price }} ₪</p>
-        <VButton class="modal-content-product-description__order-button">
+        <VButton class="modal-content-product-description__order-button" @click="contact">
             {{ $t('contact_write_us') }}
         </VButton>
     </div>

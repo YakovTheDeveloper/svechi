@@ -5,7 +5,9 @@ import OurAdvantagesItem from './OurAdvantagesItem.vue';
 import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import { getPublicUrl } from '@/shared/utils/getPublicUrl';
+import { useScrollFade } from './useScrollFade';
 
+const { containerRef, fadeClasses } = useScrollFade();
 const { locale, t } = useI18n()
 
 const MOCK_DATA = computed(() => {
@@ -70,8 +72,8 @@ const MOCK_DATA = computed(() => {
                 </template>
             </h2>
         </section>
-        <div class="our-advantages__list-container">
-            <ul class="our-advantages__list">
+        <div class="our-advantages__list-container" :class="fadeClasses">
+            <ul class="our-advantages__list" ref="containerRef">
                 <template v-for="data in MOCK_DATA">
                     <OurAdvantagesItem :='data' />
                 </template>
@@ -106,13 +108,33 @@ const MOCK_DATA = computed(() => {
     }
 }
 
+.fade-left {
+    @include tablet {
+        &:before {
+            @include fade-overlay-left($width: 15%);
+        }
+    }
+}
+
+.fade-right {
+    @include tablet {
+        &:after {
+            @include fade-overlay-right($width: 15%);
+        }
+    }
+}
+
 .our-advantages {
+    position: relative;
+
+
 
     &__list {
         display: flex;
         gap: 32px;
         flex-wrap: wrap;
         padding-left: 64px;
+        padding-right: 64px;
         justify-content: space-evenly;
 
 
@@ -122,7 +144,7 @@ const MOCK_DATA = computed(() => {
         }
 
         @include mobile {
-            padding-left: 0;
+           padding: 0;
             gap: 8px;
         }
 
@@ -137,15 +159,14 @@ const MOCK_DATA = computed(() => {
 
         @include tablet {
             overflow: auto;
+            padding-right: unset;
+            border-radius: 64px;
+            overflow-y: hidden;
         }
 
         @include mobile {
             padding: 8px;
             border-radius: 32px;
-
-            &:after {
-                @include fade-overlay-right($width: 20%)
-            }
         }
     }
 }

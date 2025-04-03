@@ -5,6 +5,10 @@ import { useI18n } from 'vue-i18n';
 import { computed } from 'vue';
 import { useStore } from '@/shared/stores/store';
 import type { Product } from '@/shared/types/product';
+import glass360img from "@/app/assets/img/candles/glass360/1.png"
+import glass200img from "@/app/assets/img/candles/glass200/1.png"
+import metal360img from "@/app/assets/img/candles/metal/1.png"
+import waxImg from "@/app/assets/img/candles/wax/1.png"
 
 const { locale, t } = useI18n()
 
@@ -13,41 +17,41 @@ const { openModal } = useStore()
 //@ts-ignore
 const DATA: Product[] = computed(() => ([
     {
-        id: 2,
+        id: 'glass360',
         unit: t('unit_ml'),
         title: t('product_item_2'),
         amount: '360',
-        imgUrl: '',
+        imgUrl: glass360img,
         price: 160,
         priceSign: t(''),
         description: t('product_item_2_description'),
     },
     {
-        id: 1,
+        id: 'glass200',
         unit: t('unit_ml'),
         title: t('product_item_1'),
         amount: '200',
-        imgUrl: '', 
+        imgUrl: glass200img,
         price: 95,
         priceSign: t(''),
         description: t('product_item_1_description'),
     },
     {
-        id: 3,
+        id: 'metal360',
         unit: t('unit_ml'),
         title: t('product_item_3'),
         amount: '200',
-        imgUrl: '',
+        imgUrl: metal360img,
         price: 85,
         priceSign: t(''),
         description: t('product_item_3_description'),
     },
     {
-        id: 4,
+        id: 'wax',
         unit: t('unit_ml'),
         title: t('product_item_4'),
         amount: '',
-        imgUrl: '',
+        imgUrl: waxImg,
         price: 28,
         priceSign: t(''),
         description: t('product_item_4_description'),

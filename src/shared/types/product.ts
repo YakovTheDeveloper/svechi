@@ -1,5 +1,8 @@
 export type Product = {
-    id: number
+    id: 'glass360' |
+    'glass200' |
+    'metal360' |
+    'wax'
     unit: string
     title: string
     amount: number

@@ -1,4 +1,7 @@
 <script setup lang="ts">
+import { contact } from '@/shared/utils/contact';
+import { scrollToId } from '@/shared/utils/scrollToId';
+
 </script>
 
 <template>
@@ -22,12 +25,12 @@
 					</p>
 					<ul class="footer__about-list">
 						<li class="footer__list-item">
-							<a href="">
+							<a href="" @click.prevent="scrollToId('about-us')">
 								{{ $t('nav_about_us') }}
 							</a>
 						</li>
 						<li class="footer__list-item">
-							<a href="">
+							<a href="" @click.prevent="contact">
 								{{ $t('nav_consulting') }}
 							</a>
 						</li>
@@ -58,7 +61,7 @@
 									</a>
 								</li>
 								<li>
-									<a href="" target='_blank'>
+									<a href="https://wa.me/+972532787532" target='_blank'>
 										<img src="@/app/assets/icons/whatsapp.svg" alt="whatsapp-icon">
 									</a>
 								</li>
@@ -86,8 +89,10 @@
 	background-color: var(--green-accent-2);
 	color: white;
 	overflow: hidden;
+	line-height: normal;
 
 	@include tablet {
+		margin-top: 16px;
 		padding: 32px;
 		border-top-left-radius: 64px;
 		border-top-right-radius: 64px;
@@ -197,6 +202,7 @@
 
 		@include mobile {
 			flex-direction: column;
+			gap: 24px;
 		}
 
 		&-part {
@@ -204,6 +210,7 @@
 			flex-direction: column;
 			gap: var(--gap);
 			max-width: 365px;
+			z-index: 2;
 
 			.text-s {
 				@include mobile {

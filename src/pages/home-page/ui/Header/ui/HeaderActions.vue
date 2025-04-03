@@ -10,22 +10,25 @@ import menuIcon from '@/app/assets/icons/burger.svg'
 import HeroTitle from '../../HeroTitle.vue';
 import { messages } from '@/app/assets/locales';
 import { contact } from '@/shared/utils/contact';
+import { useMobileMenuStore } from '@/shared/stores/store';
 
 const onWriteUs = () => {
     contact()
 }
+
+const { openModal } = useMobileMenuStore()
 
 </script>
 
 <template>
     <div class="header-actions">
         <div class="header-actions__header">
-            <div class="header-actions__burger">
+            <button class="header-actions__burger" @click="openModal">
                 <img :src=menuIcon alt="menu">
-            </div>
+            </button>
             <div class="header-actions__header-side">
                 <!-- Оформить заказ -->
-                <VButton variant="primary">
+                <VButton variant="primary" @click="onWriteUs">
                     {{ $t('contact_order') }}
                 </VButton>
                 <LanguageSwitch />

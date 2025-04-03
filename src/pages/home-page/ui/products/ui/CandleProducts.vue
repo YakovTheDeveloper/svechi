@@ -8,11 +8,14 @@ import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
 import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 import CandleProductList from './CandleProductList/CandleProductList.vue';
 import { useI18n } from 'vue-i18n';
+import { contact } from '@/shared/utils/contact';
+import { useScrollFade } from '../../our-advantages/ui/useScrollFade';
 const { locale } = useI18n()
+
 </script>
 
 <template>
-    <div class="container padding">
+    <div class="container padding" id="candle-products">
         <section class="candle-products">
             <div class="candle-products__description">
 
@@ -27,12 +30,12 @@ const { locale } = useI18n()
                         Candles that Warm <VSpan variant="fill">Hearts</VSpan>
                     </template>
                 </h1>
-                <VButton class="candle-products__contact-btn">
+                <VButton class="candle-products__contact-btn" @click="contact">
                     {{ $t('contact_write_us') }}
                 </VButton>
             </div>
-            <CandleProductList />
-            <VButton class="candle-products__contact-btn_mobile">
+            <CandleProductList ref="containerRef"/>
+            <VButton class="candle-products__contact-btn_mobile" @click="contact">
                 {{ $t('contact_write_us') }}
             </VButton>
         </section>
@@ -70,14 +73,8 @@ const { locale } = useI18n()
         }
     }
 
-
-
     @include tablet {
         position: relative;
-
-        &::after {
-            @include fade-overlay-right(120px); // Apply with default or custom width
-        }
     }
 
     @media (max-width: 1000px) {

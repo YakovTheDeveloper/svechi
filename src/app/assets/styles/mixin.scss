@@ -1,8 +1,8 @@
-@mixin fade-overlay-right($width: 390px) {
+@mixin fade-overlay-right($width: 390px, $right: -5px) {
     content: ''; // Required for pseudo-elements
     position: absolute; // Place over the swiper
     top: -2px;
-    right: -4px;
+    right: $right;
     z-index: 2;
     height: 102%;
     width: $width; // Dynamic width
@@ -10,11 +10,11 @@
     background: linear-gradient(270deg, #FEFBF2 3.72%, rgba(254, 251, 242, 0) 100%);
 }
 
-@mixin fade-overlay-left($width: 390px) {
+@mixin fade-overlay-left($width: 390px, $left: -5px) {
     content: ''; // Required for pseudo-elements
     position: absolute; // Place over the swiper
     top: -2px;
-    left: -4px;
+    left: $left;
     z-index: 2;
     height: 102%;
     width: $width; // Dynamic width
