@@ -17,6 +17,7 @@ const { locale } = useI18n()
                     </template>
                     <template v-else-if="locale === 'he'">
                         <VSpan variant="fill">תנאים</VSpan> מיוחדים ללקוחות
+                        <br />
                         <VSpan variant="underlined">קבועים</VSpan>
                     </template>
                     <template v-else>
@@ -67,6 +68,10 @@ const { locale } = useI18n()
     background-color: var(--bg-2);
     border-radius: 64px;
     position: relative;
+
+    @include mobile {
+        border-radius: 28px;
+    }
 
     &:before,
     &:after {
@@ -153,7 +158,7 @@ const { locale } = useI18n()
             object-fit: cover;
             position: absolute;
             right: 37%;
-            top: 40%;
+            top: 48%;
             transform: translate(50%, -50%);
 
             @include tablet {

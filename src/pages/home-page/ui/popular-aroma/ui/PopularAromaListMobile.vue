@@ -15,7 +15,7 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
 
 <template>
     <div class="popular-aroma-mobile" :class="fadeClasses">
-        <div class="popular-aroma-mobile-inner"  ref="containerRef">
+        <div class="popular-aroma-mobile-inner" ref="containerRef">
             <ul class="popular-aroma-mobile__list">
                 <li class="popular-aroma-mobile-item" v-for="item in partOne" :key="item.id">
                     <IconWithBackground :src="item.imgUrl" alt="aroma-icon" />
@@ -42,7 +42,7 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
     width: 100%;
     position: relative;
 
-    @include mobile {
+    @include popular-aroma-breakpoint {
         display: block;
     }
 
@@ -54,7 +54,7 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
 
 
 .fade-left {
-    @include tablet {
+    @include popular-aroma-breakpoint {
         &:before {
             @include fade-overlay-left($width: 15%);
         }
@@ -62,7 +62,7 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
 }
 
 .fade-right {
-    @include tablet {
+    @include popular-aroma-breakpoint {
         &:after {
             @include fade-overlay-right($width: 15%);
         }
@@ -80,20 +80,33 @@ const partTwo = computed(() => slides.value.slice(Math.ceil(slides.value.length 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10px;
-    padding: 8px 8px 10px;
-    width: 105px;
-    height: 105px;
+    gap: 24px;
+    padding: 32px;
+    width: 275px;
+    height: 280px;
     flex-shrink: 0;
     background-color: var(--bg-2);
-    border-radius: 24px;
+    border-radius: 64px;
 
     &__text {
-        font-size: 10px;
+        font-size: 24px;
         font-weight: 700;
         text-align: center;
     }
 
+    @include mobile {
+        gap: 10px;
+        padding: 8px 8px 10px;
+        width: 105px;
+        height: 105px;
+        border-radius: 24px;
+
+        &__text {
+            font-size: 10px;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
 
 }
 </style>

@@ -1,15 +1,9 @@
 <script setup lang="ts">
-import VBadge from '@/shared/ui/v-badge/ui/VBadge.vue';
 import VButton from '@/shared/ui/v-button/VButton.vue';
-import Navbar from '../../Navbar.vue';
-import HeroTitle from '../../HeroTitle.vue';
-import OurCandles from '@/widgets/ourCandles/ui/OurCandles.vue';
 import VSpan from '@/shared/ui/v-span/ui/VSpan.vue';
-import VButtonIcon from '@/shared/ui/v-button/VButtonIcon.vue';
 import CandleProductList from './CandleProductList/CandleProductList.vue';
 import { useI18n } from 'vue-i18n';
 import { contact } from '@/shared/utils/contact';
-import { useScrollFade } from '../../our-advantages/ui/useScrollFade';
 const { locale } = useI18n()
 
 </script>

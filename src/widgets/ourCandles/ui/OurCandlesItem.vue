@@ -19,14 +19,16 @@ const store = useStore()
         <div class="candleItem__image-container">
             <img :src="props.imgUrl" alt="">
         </div>
-        <div class="candleItem__text">
+        <div class="candleItem__text" @click="emits('onClick')">
             <p class="text candleItem__text-title">{{ props.title }}</p>
             <p class="candleItem__text-amount" v-if="props.amount">{{ props.amount }} {{ props.unit }}</p>
         </div>
-        <VBadge variant="secondary">36 {{ $t('scents') }}</VBadge>
-        <VButtonIcon @click="emits('onClick')">
-            <IconArrowRight />
-        </VButtonIcon>
+        <div class="candleItem__last">
+            <VBadge variant="secondary">36 {{ $t('scents') }}</VBadge>
+            <VButtonIcon @click="emits('onClick')" class="candleItem__button">
+                <IconArrowRight />
+            </VButtonIcon>
+        </div>
     </li>
 </template>
 
@@ -37,8 +39,12 @@ const store = useStore()
     padding: 12px 0;
     align-items: center;
     justify-content: space-between;
-    grid-template-columns: auto 50% 1fr auto;
+    grid-template-columns: auto 1fr auto;
     border-bottom: 1px solid var(--black-third);
+
+    @media (max-width: 1800px) {
+        gap: 8px;
+    }
 
     @media (max-width: 850px) {
         gap: 4px;
@@ -49,6 +55,8 @@ const store = useStore()
         flex-direction: column;
         font-weight: 500;
         color: var(--black-primary);
+        cursor: pointer;
+        width: fit-content;
 
         @include mobile {
             font-size: 12px;
@@ -78,6 +86,19 @@ const store = useStore()
             height: 100%;
             object-fit: cover;
         }
+    }
+
+    &__button {
+        @media (max-width: 1400px) {
+            gap: 8px;
+        }
+    }
+
+    &__last{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
     }
 
 

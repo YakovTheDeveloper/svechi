@@ -92,20 +92,6 @@ const MOCK_DATA = computed(() => {
         margin-bottom: 32px;
         line-height: 150%;
     }
-
-    &-span {
-        // @include tablet {
-        //     display: none;
-        // }
-
-        // &_mobile {
-        //     display: none;
-
-        //     @include tablet {
-        //         display: inline-block;
-        //     }
-        // }
-    }
 }
 
 .fade-left {
@@ -127,24 +113,30 @@ const MOCK_DATA = computed(() => {
 .our-advantages {
     position: relative;
 
-
-
     &__list {
-        display: flex;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
         gap: 32px;
-        flex-wrap: wrap;
-        padding-left: 64px;
-        padding-right: 64px;
+        padding: 0 64px;
         justify-content: space-evenly;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width: 1400px) {
+            grid-template-columns: 1fr 1fr;
+        }
 
 
         @include tablet {
-            overflow: auto;
+            display: flex;
             flex-wrap: nowrap;
+            overflow: auto;
+
         }
 
         @include mobile {
-           padding: 0;
+            padding: 0;
             gap: 8px;
         }
 
@@ -153,13 +145,12 @@ const MOCK_DATA = computed(() => {
     &__list-container {
         border-radius: 64px;
         background-color: var(--bg-2);
-        padding: 64px;
-        padding-left: unset;
+        padding: 64px 0;
         position: relative;
 
         @include tablet {
             overflow: auto;
-            padding-right: unset;
+            // padding-right: unset;
             border-radius: 64px;
             overflow-y: hidden;
         }

@@ -1,4 +1,7 @@
-export function scrollToId(id: string) {
+export function scrollToId(id: string, offset = 100) {
     const section = document.getElementById(id);
-    section?.scrollIntoView({ behavior: 'smooth'});
+    if (section) {
+        const top = section.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+    }
 }

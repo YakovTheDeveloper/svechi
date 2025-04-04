@@ -78,17 +78,21 @@ const { containerRef, fadeClasses } = useScrollFade();
 }
 
 .fade-left {
-    @include tablet {
-        &:before {
-            @include fade-overlay-left($width: 15%);
+    &:before {
+        @include fade-overlay-left($width: 15%);
+
+        @include mobile {
+            content: none;
         }
     }
 }
 
 .fade-right {
-    @include tablet {
-        &:after {
-            @include fade-overlay-right($width: 15%);
+    &:after {
+        @include fade-overlay-right($width: 15%);
+
+        @include mobile {
+            content: none;
         }
     }
 }

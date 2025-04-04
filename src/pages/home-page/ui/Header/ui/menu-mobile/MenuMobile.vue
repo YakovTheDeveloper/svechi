@@ -3,10 +3,10 @@
         <button class="menu-mobile-close-btn" @click="closeModal">
             <img :src="crossIcon" alt="">
         </button>
-        <Navbar class="menu-mobile-navbar" v-on:after-nav="closeModal"/>
+        <Navbar class="menu-mobile-navbar" v-on:after-nav="closeModal" />
         <Teleport to="body">
             <transition name="modal-overlay">
-                <VOverlay v-show="show"/>
+                <VOverlay v-show="show" />
             </transition>
         </Teleport>
     </div>
@@ -31,7 +31,6 @@ const show = computed(() => store.show.value)
     top: 0;
     left: 0;
     width: 100%;
-    height: 624px;
     padding: 80px 32px 48px;
     border-bottom-left-radius: 80px;
     border-bottom-right-radius: 80px;
@@ -40,6 +39,15 @@ const show = computed(() => store.show.value)
 
     &-close-btn {
         margin-bottom: 48px;
+        padding: 16px;
+        width: 64px;
+        height: 64px;
+
+
+        img{
+            width: 100%;
+            height: 100%;
+        }
     }
 
     &-navbar {
@@ -50,6 +58,19 @@ const show = computed(() => store.show.value)
             flex-direction: column;
             text-align: center;
             padding: 0;
+        }
+    }
+
+    @include mobile {
+        padding: 16px;
+        border-bottom-left-radius: 32px;
+        border-bottom-right-radius: 32px;
+
+        &-close-btn {
+            padding: 9px;
+            height: 36px;
+            width: 36px;
+            margin-bottom: 25px;
         }
     }
 }

@@ -27,7 +27,7 @@ const props = defineProps<{
 
 <style lang="scss" scoped>
 .our-advantages-item {
-    width: 533px;
+    max-width: 533px;
     height: 400px;
     padding: 32px;
     display: flex;
@@ -37,6 +37,12 @@ const props = defineProps<{
     border-radius: 64px;
     flex-shrink: 0;
     background-color: var(--bg);
+
+
+    @include laptop {
+        height: auto;
+    }
+
 
     @include mobile {
         padding: 12px;
@@ -71,5 +77,6 @@ const props = defineProps<{
             font-size: 12px;
         }
     }
+
 }
 </style>

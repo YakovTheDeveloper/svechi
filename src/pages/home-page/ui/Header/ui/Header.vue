@@ -10,7 +10,7 @@ import MenuMobile from './menu-mobile/MenuMobile.vue';
 </script>
 
 <template>
-    <header class="container header">
+    <header class="container header" id="header">
         <div class="header__content padding-left">
             <Navbar class="header__navbar" />
             <HeroTitle class="header__title" />
@@ -27,20 +27,27 @@ import MenuMobile from './menu-mobile/MenuMobile.vue';
 .header {
     display: flex;
     gap: 32px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-    // @media (max-width: 1400px) {
+    @media (max-width: 1200px) {
+        // flex-direction: column-reverse;
+        grid-template-columns: 1fr
+    }
+
+    // @include tablet {
     //     flex-direction: column-reverse;
     // }
-
-    @include tablet {
-        flex-direction: column-reverse;
-    }
 
     &__content {
         display: flex;
         gap: 70px;
         flex-grow: 1;
         flex-direction: column;
+
+        @media (max-width: 1200px) {
+            order: 1;
+        }
 
         @include tablet {
             padding-right: var(--padding-container-tablet);

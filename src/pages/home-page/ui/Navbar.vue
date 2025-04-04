@@ -40,12 +40,21 @@ const props = defineProps<{
     gap: 16px;
     padding-top: 68px;
     flex-wrap: wrap;
+    line-height: normal;
+
+    @include mobile {
+        font-size: 14px;
+    }
 
 
     &__item {
         color: rgba(79, 79, 79, 1);
         padding: 16px 24px;
         border-radius: 32px;
+
+        @include mobile {
+            padding: 10px;
+        }
 
         &_active {
             background-color: var(--red-accent);

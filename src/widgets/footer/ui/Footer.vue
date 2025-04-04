@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { SocialLinks } from '@/shared/constants/socials';
 import { contact } from '@/shared/utils/contact';
 import { scrollToId } from '@/shared/utils/scrollToId';
 
@@ -42,7 +43,7 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 					</p>
 					<ul class="footer__contacts">
 						<li class="footer__list-item">
-							<a href="tel:+972532787532" class="footer__phone-link">
+							<a href="tel:+972532787532" class="footer__phone-link" dir="ltr">
 								<img src="@/app/assets/icons/phone.svg" alt="phone-icon">
 								+972 53-278-7532
 							</a>
@@ -50,13 +51,12 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 						<li>
 							<ul class="footer__socials">
 								<li>
-									<a href="https://www.facebook.com/share/18nk6iaciF/?mibextid=LQQJ4d"
-										target='_blank'>
+									<a :href="SocialLinks.Fb" target='_blank'>
 										<img src="@/app/assets/icons/fb.svg" alt="facebook-icon">
 									</a>
 								</li>
 								<li>
-									<a href="https://www.instagram.com/Agafonova.dari/#" target='_blank'>
+									<a :href="SocialLinks.Inst" target='_blank'>
 										<img src="@/app/assets/icons/inst.svg" alt="inst-icon">
 									</a>
 								</li>
@@ -71,7 +71,7 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 				</div>
 			</div>
 			<p class="footer__copyright">
-				Copyright @ 2025. All right reserved.
+				<span dir="ltr">Copyright @ 2025. All rights reserved.</span>
 			</p>
 		</div>
 	</footer>
@@ -199,11 +199,11 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 		justify-content: space-between;
 		gap: 16px;
 
-
-		@include mobile {
+		@media (max-width: 800px) {
 			flex-direction: column;
 			gap: 24px;
 		}
+
 
 		&-part {
 			display: flex;

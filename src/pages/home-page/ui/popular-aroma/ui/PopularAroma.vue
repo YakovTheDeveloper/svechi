@@ -14,10 +14,10 @@ const sliderBreakpoints = {
         spaceBetween: 16
     },
     960: {
-        slidesPerView: 5,
+        slidesPerView: 4,
         spaceBetween: 32
     },
-    1500: {
+    1800: {
         slidesPerView: 6,
         spaceBetween: 32
     }
@@ -45,7 +45,7 @@ const sliderBreakpoints = {
                     <template #slide="{ slide }">
                         <div class="popular-aroma__item">
                             <IconWithBackground :src="slide.imgUrl" alt="aroma-icon" />
-                            <p class="bold">{{ slide.title }}</p>
+                            <p class="bold popular-aroma__item-text">{{ slide.title }}</p>
                         </div>
                     </template>
                 </VSwiper>
@@ -66,7 +66,7 @@ const sliderBreakpoints = {
     }
 
     @include mobile {
-        margin-bottom: 32px;
+        margin-bottom: 16px;
     }
 }
 
@@ -85,7 +85,7 @@ const sliderBreakpoints = {
         background-position: 31% 0;
         background-size: auto;
 
-        @include tablet {
+        @include popular-aroma-breakpoint {
             display: none;
         }
     }
@@ -100,6 +100,7 @@ const sliderBreakpoints = {
         text-align: center;
         background-color: var(--bg-2);
         border-radius: 64px;
+        line-height: normal;
 
         img {
             width: 100%;
@@ -109,7 +110,7 @@ const sliderBreakpoints = {
     &__content {
         // display: flex;
 
-        @include mobile {
+        @include popular-aroma-breakpoint {
             display: none;
         }
     }

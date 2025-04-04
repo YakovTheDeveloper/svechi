@@ -2,7 +2,7 @@
 import VBadge from '@/shared/ui/v-badge/ui/VBadge.vue';
 import VButton from '@/shared/ui/v-button/VButton.vue';
 import LanguageSwitch from './language-switch';
-import adminIcon from '@/app/assets/icons/admin.png'
+import adminIcon from '@/app/assets/icons/admin.jpg'
 import phoneIcon from '@/app/assets/icons/contact-phone.svg'
 import fbIcon from '@/app/assets/icons/fb-2.svg'
 import instIcon from '@/app/assets/icons/inst-2.svg'
@@ -11,6 +11,7 @@ import HeroTitle from '../../HeroTitle.vue';
 import { messages } from '@/app/assets/locales';
 import { contact } from '@/shared/utils/contact';
 import { useMobileMenuStore } from '@/shared/stores/store';
+import { SocialLinks } from '@/shared/constants/socials';
 
 const onWriteUs = () => {
     contact()
@@ -36,12 +37,12 @@ const { openModal } = useMobileMenuStore()
         </div>
         <HeroTitle class="header-actions__title-center" />
         <div class="header-actions__contacts">
-            <component is="button" class="header-actions__contacts-item">
+            <component is="button" class="header-actions__contacts-item" @click="onWriteUs">
                 <div class="header-actions__contacts-item-icons" :style="{ width: '100px' }">
                     <img :src="adminIcon" alt="contact-icon">
                     <img :src="phoneIcon" alt="contact-icon" class="header-actions__contacts-item-icons-phone">
                 </div>
-                <div class="header-actions__contacts-item-text" @click="onWriteUs">
+                <div class="header-actions__contacts-item-text">
                     <p class="header-actions__contacts-item-text__title">
                         {{ $t('contact_write_us_2') }}
                     </p>
@@ -50,10 +51,14 @@ const { openModal } = useMobileMenuStore()
                     </p>
                 </div>
             </component>
-            <component is="a" class="header-actions__contacts-item">
+            <component is="div" class="header-actions__contacts-item">
                 <div class="header-actions__contacts-item-icons">
-                    <img :src="fbIcon" alt="contact-icon">
-                    <img :src="instIcon" alt="contact-icon">
+                    <a :href="SocialLinks.Fb" target='_blank'>
+                        <img :src="fbIcon" alt="contact-icon">
+                    </a>
+                    <a :href="SocialLinks.Inst" target='_blank'>
+                        <img :src="instIcon" alt="contact-icon">
+                    </a>
                 </div>
                 <div class="header-actions__contacts-item-text">
                     <p class="header-actions__contacts-item-text__title">
@@ -68,7 +73,7 @@ const { openModal } = useMobileMenuStore()
 <style lang="scss" scoped>
 .header-actions {
     padding: 64px;
-    height: 944px;
+    // height: 944px;
     max-width: 944px;
     flex-grow: 1;
     display: flex;
@@ -82,9 +87,20 @@ const { openModal } = useMobileMenuStore()
         rgba(0, 0, 0, 0.3);
     background-size: cover;
 
-    @include tablet {
-        padding: 40px 32px;
+    html[dir='rtl'] & {
         border-bottom-right-radius: 64px;
+        border-bottom-left-radius: unset;
+    }
+
+    @media (max-width: 1600px) {
+        padding: 64px 16px;
+    }
+
+    @include header-breakpoint {
+        height: 960px;
+        min-width: 100%;
+        padding: 40px 32px;
+        border-radius: 0 !important;
     }
 
     @include mobile {
@@ -92,7 +108,7 @@ const { openModal } = useMobileMenuStore()
     }
 
     &::before {
-        @include tablet {
+        @include header-breakpoint {
             content: "";
             position: absolute;
             top: 0;
@@ -104,12 +120,6 @@ const { openModal } = useMobileMenuStore()
             pointer-events: none;
         }
     }
-
-    @include tablet {
-        height: 960px;
-        min-width: 100%;
-    }
-
 
     @include mobile {
         height: 360px;
@@ -131,7 +141,7 @@ const { openModal } = useMobileMenuStore()
         justify-content: center;
         border-radius: 50%;
 
-        @include tablet {
+        @include header-breakpoint {
             display: flex;
         }
 
@@ -158,7 +168,7 @@ const { openModal } = useMobileMenuStore()
         // word-break: break-all;
         color: var(--white);
 
-        @include tablet {
+        @include header-breakpoint {
             display: inline-block;
         }
     }
@@ -212,6 +222,12 @@ const { openModal } = useMobileMenuStore()
                     }
                 }
 
+                a {
+                    &:hover {
+                        opacity: 0.7;
+                    }
+                }
+
             }
 
             &-text {
@@ -224,6 +240,7 @@ const { openModal } = useMobileMenuStore()
                     color: var(--black-primary);
                     font-size: 18px;
                     font-weight: 700;
+                    pointer-events: none;
                 }
 
                 &__sub {

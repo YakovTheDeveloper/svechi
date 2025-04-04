@@ -18,6 +18,7 @@ import VModal from '@/shared/ui/v-modal/ui/VModal.vue';
 import ModalContentProduct from './ui/modals/ModalContentProduct.vue';
 import { storeToRefs } from 'pinia';
 import { useStore } from '@/shared/stores/store';
+import ToTheBeginnigButton from './ui/to-the-beginning-button/ToTheBeginnigButton.vue';
 
 // const store = useStore()
 const store = storeToRefs(useStore())
@@ -44,6 +45,7 @@ watch(store.showModal, (isShow) => !isShow && clearModalContent())
 	<VModal v-model="store.showModal.value">
 		<ModalContentProduct />
 	</VModal>
+	<ToTheBeginnigButton/>
 </template>
 
 <style lang="scss" scoped>

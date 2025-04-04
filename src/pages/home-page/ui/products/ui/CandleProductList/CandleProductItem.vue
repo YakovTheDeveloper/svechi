@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { useStore } from '@/shared/stores/store';
 import type { Product } from '@/shared/types/product';
-
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n'
+const { locale } = useI18n()
 
 const props = defineProps<{
     product: Product
@@ -9,22 +11,34 @@ const props = defineProps<{
 
 const { openModal } = useStore()
 
+const onClick = () => openModal(props.product)
+
+const shouldHaveComma = computed(() => {
+    if (locale.value === 'he') {
+        return false
+    }
+    return !!props.product.amount
+})
+
 </script>
 
 <template>
-    <li class="candle-product-item">
+    <li class="candle-product-item" @click="onClick">
         <div class="candle-product-item__img">
             <img :src="props.product.imgUrl" alt="goods-image">
         </div>
         <div class="candle-product-item__main">
             <p class="candle-product-item__name">
-                {{ props.product.title }},
-                <span v-if="props.product.amount" class="candle-product-item__amount">{{ props.product.amount }} {{
-                    props.product.unit }}</span>
+                <span>{{ props.product.title }}<span v-if="shouldHaveComma">,</span>
+                </span>
+                <span v-if="props.product.amount" class="candle-product-item__amount"> {{
+                    props.product.amount }} {{
+                        props.product.unit }}
+                </span>
 
             </p>
             <div class="candle-product-item__price">
-                <button @click="openModal(props.product)">
+                <button @click="onClick">
                     <p class="text underline bold">
                         {{ $t('more') }}
                         <svg class="candle-product-item__plus-icon" width="12" height="13" viewBox="0 0 12 13"
@@ -51,6 +65,7 @@ const { openModal } = useStore()
     height: 442px;
     background-color: var(--bg-2);
     border-radius: 32px;
+    cursor: pointer;
 
     @include mobile {
         max-width: 100%;
@@ -58,6 +73,8 @@ const { openModal } = useStore()
     }
 
     &__name {
+        display: flex;
+        flex-direction: column;
         font-size: 18px;
 
         @include mobile {

@@ -19,6 +19,22 @@ defineExpose({
 </template>
 
 <style lang="scss" scoped>
+.btn-container {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+
+    &:disabled .btn-icon {
+        background-color: rgba(254, 227, 223, 1);
+        cursor: not-allowed;
+    }
+
+    @include mobile {
+        gap: 6px;
+    }
+
+}
+
 .btn-icon {
     height: 56px;
     width: 56px;
@@ -32,16 +48,12 @@ defineExpose({
     @include mobile {
         height: 28px;
         width: 28px;
+        padding: 11px;
     }
 
     svg {
         width: 12px;
         height: 20px;
-
-        @include mobile {
-            height: 9px;
-            width: 5px;
-        }
     }
 
     &_reverse {
@@ -58,22 +70,6 @@ defineExpose({
         -o-transform: scale(-1, 1);
         -ms-transform: scale(-1, 1);
         transform: scale(-1, 1);
-    }
-
-}
-
-.btn-container {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-
-    &:disabled .btn-icon {
-        background-color: rgba(254, 227, 223, 1);
-        cursor: not-allowed;
-    }
-
-    @include mobile {
-        gap: 6px;
     }
 
 }
