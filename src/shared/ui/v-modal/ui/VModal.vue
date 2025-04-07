@@ -8,6 +8,8 @@ import { useStore } from '@/shared/stores/store'
 const isOpen = defineModel({ type: Boolean, required: true })
 const { lock, unlock } = useBodyLock()
 
+
+
 watchEffect(() => {
 	if (isOpen.value) lock()
 	else unlock()
@@ -18,7 +20,7 @@ onUnmounted(() => unlock())
 
 <template>
 	<transition name="modal-animation">
-		<div v-if="isOpen" @click="isOpen = false" class="modal">
+		<div v-if="isOpen" @click="isOpen = false" :class="['modal', $attrs.class]">
 			<div class="modal-top padding">
 				<button @click="isOpen = false" class="modal-close-btn-mobile">
 					<img :src="crossIcon" alt="">
@@ -38,6 +40,27 @@ onUnmounted(() => unlock())
 		<VOverlay v-if="isOpen" />
 	</transition>
 </template>
+
+<style lang="scss">
+.modal.modals-welcome {
+
+	@include tablet {
+		align-items: stretch !important;
+	}
+
+	@media (max-width: 900px) {
+		padding-top: 32px;
+	}
+
+	.modal-content {
+		flex-grow: 0;
+
+		@media (max-width: 900px) {
+			flex-grow: 1;
+		}
+	}
+}
+</style>
 
 <style scoped lang="scss">
 .modal {
@@ -59,12 +82,11 @@ onUnmounted(() => unlock())
 		@include mobile {
 			margin: 16px 0;
 		}
+		
 	}
 
 	&-content {
 		position: relative;
-		// width: 100%;
-		// max-width: 800px;
 		max-width: 1792px;
 		border-radius: 64px;
 		background-color: var(--bg);
@@ -72,7 +94,7 @@ onUnmounted(() => unlock())
 		margin: 0 var(--padding-container);
 
 		@include tablet {
-			height: 90vh;
+			height: fit-content;
 			// width: 100%;
 			overflow: auto;
 			padding: 48px;
@@ -83,7 +105,7 @@ onUnmounted(() => unlock())
 		}
 
 		@include mobile {
-			height: 90vh;
+			height: fit-content;
 			// width: 100%;
 			padding: 16px;
 			margin: 0 var(--padding-container-mobile) var(--padding-container-mobile);

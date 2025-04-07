@@ -11,7 +11,7 @@ defineExpose({
 
 <template>
     <button ref="buttonEl" class="btn-container">
-        <p v-if="props.label" class="text bold btn-label">{{ props.label }}</p>
+        <p v-if="props.label" class="text bold btn-label black">{{ props.label }}</p>
         <div :class="['btn-icon', reverse === 'default' ? 'btn-icon_reverse' : 'btn-icon_reverse-rtl-only']">
             <slot></slot>
         </div>
@@ -44,6 +44,7 @@ defineExpose({
     background-color: var(--red-accent);
     border-radius: 50%;
     flex-shrink: 0;
+    color: white;
 
     @include mobile {
         height: 28px;

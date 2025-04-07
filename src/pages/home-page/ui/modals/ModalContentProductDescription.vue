@@ -75,7 +75,9 @@ const store = useStore()
     }
 
     &__order-button {
-        margin-top: auto;
+        @include tablet {
+            margin-top: auto;
+        }
     }
 
 

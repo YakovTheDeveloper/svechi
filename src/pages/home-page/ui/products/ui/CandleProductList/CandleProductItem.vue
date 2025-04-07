@@ -39,7 +39,7 @@ const shouldHaveComma = computed(() => {
             </p>
             <div class="candle-product-item__price">
                 <button @click="onClick">
-                    <p class="text underline bold">
+                    <p class="text underline bold black">
                         {{ $t('more') }}
                         <svg class="candle-product-item__plus-icon" width="12" height="13" viewBox="0 0 12 13"
                             fill="none" xmlns="http://www.w3.org/2000/svg">

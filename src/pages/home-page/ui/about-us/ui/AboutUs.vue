@@ -21,7 +21,7 @@ const { locale } = useI18n()
                         О нашей <VSpan variant="fill">мастерской</VSpan>
                     </template>
                     <template v-else-if="locale === 'he'">
-                        על <VSpan variant="fill">המפעל</VSpan>שלנו
+                        על <VSpan variant="fill">המפעל</VSpan> שלנו
                     </template>
                     <template v-else>
                         About Our <VSpan variant="fill">Workshop</VSpan>
@@ -191,9 +191,20 @@ const { locale } = useI18n()
             height: 160px;
             background: url('/img/about-us/quotation-mark.png') center no-repeat;
 
-            @include tablet {
+            @include rtl-flip;
+
+            @include rtl {
+                right: unset;
+                left: 0;
+            }
+
+            @media (max-width: 1400px) {
                 display: none;
             }
+
+            // @include tablet {
+            //     display: none;
+            // }
         }
     }
 
@@ -229,6 +240,21 @@ const { locale } = useI18n()
             -ms-transform: scale(-1, 1);
             transform: scale(-1, 1);
             background: url('/img/about-us/quotation-mark.png') center no-repeat;
+
+
+
+            // @include rtl-flip;
+
+            @include rtl {
+                right: unset;
+                left: 0;
+                bottom: 25%;
+                -moz-transform: scale(1, 1);
+                -webkit-transform: scale(1, 1);
+                -o-transform: scale(1, 1);
+                -ms-transform: scale(1, 1);
+                transform: scale(1, 1);
+            }
 
             @include tablet {
                 bottom: 0%;

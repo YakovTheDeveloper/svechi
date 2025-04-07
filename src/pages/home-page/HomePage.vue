@@ -17,11 +17,13 @@ import PopularAroma from './ui/popular-aroma/ui/PopularAroma.vue';
 import VModal from '@/shared/ui/v-modal/ui/VModal.vue';
 import ModalContentProduct from './ui/modals/ModalContentProduct.vue';
 import { storeToRefs } from 'pinia';
-import { useStore } from '@/shared/stores/store';
+import { useStore, useWelcomeStore } from '@/shared/stores/store';
 import ToTheBeginnigButton from './ui/to-the-beginning-button/ToTheBeginnigButton.vue';
+import WelcomeModalContent from './ui/modals/welcome-modal/WelcomeModalContent.vue';
 
 // const store = useStore()
 const store = storeToRefs(useStore())
+const welcomeStore = storeToRefs(useWelcomeStore())
 const { clearModalContent } = useStore()
 
 // watchEffect(() => {
@@ -45,7 +47,10 @@ watch(store.showModal, (isShow) => !isShow && clearModalContent())
 	<VModal v-model="store.showModal.value">
 		<ModalContentProduct />
 	</VModal>
-	<ToTheBeginnigButton/>
+	<ToTheBeginnigButton />
+	<VModal v-model="welcomeStore.show.value" class="modals-welcome">
+		<WelcomeModalContent />
+	</VModal>
 </template>
 
 <style lang="scss" scoped>

@@ -14,7 +14,15 @@ const sliderBreakpoints = {
         spaceBetween: 16
     },
     960: {
+        slidesPerView: 3,
+        spaceBetween: 32
+    },
+    1260: {
         slidesPerView: 4,
+        spaceBetween: 32
+    },
+    1400: {
+        slidesPerView: 5,
         spaceBetween: 32
     },
     1800: {
@@ -41,7 +49,7 @@ const sliderBreakpoints = {
                 </template>
             </h2>
             <div class="popular-aroma__content">
-                <VSwiper :slides="slides" :breakpoints="sliderBreakpoints">
+                <VSwiper :slides="slides" :breakpoints="sliderBreakpoints" scroll-bar-class="popular-aroma-scrollbar">
                     <template #slide="{ slide }">
                         <div class="popular-aroma__item">
                             <IconWithBackground :src="slide.imgUrl" alt="aroma-icon" />
@@ -111,6 +119,12 @@ const sliderBreakpoints = {
         // display: flex;
 
         @include popular-aroma-breakpoint {
+            display: none;
+        }
+    }
+
+    :deep(.popular-aroma-scrollbar) {
+        @include tablet {
             display: none;
         }
     }

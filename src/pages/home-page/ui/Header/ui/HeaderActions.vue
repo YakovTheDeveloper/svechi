@@ -38,7 +38,7 @@ const { openModal } = useMobileMenuStore()
         <HeroTitle class="header-actions__title-center" />
         <div class="header-actions__contacts">
             <component is="button" class="header-actions__contacts-item" @click="onWriteUs">
-                <div class="header-actions__contacts-item-icons" :style="{ width: '100px' }">
+                <div class="header-actions__contacts-item-icons header-actions__contacts-item-icons_write-us">
                     <img :src="adminIcon" alt="contact-icon">
                     <img :src="phoneIcon" alt="contact-icon" class="header-actions__contacts-item-icons-phone">
                 </div>
@@ -93,13 +93,13 @@ const { openModal } = useMobileMenuStore()
     }
 
     @media (max-width: 1600px) {
-        padding: 64px 16px;
+        padding: 64px 16px 24px;
     }
 
     @include header-breakpoint {
         height: 960px;
         min-width: 100%;
-        padding: 40px 32px;
+        padding: 80px 40px 32px;
         border-radius: 0 !important;
     }
 
@@ -214,6 +214,14 @@ const { openModal } = useMobileMenuStore()
                 display: flex;
                 gap: 4px;
 
+                &_write-us {
+                    width: 100px;
+
+                    @media (max-width: 1300px) {
+                        width: 70px;
+                    }
+                }
+
                 &-phone {
                     transform: translateX(-17px);
 
@@ -225,6 +233,13 @@ const { openModal } = useMobileMenuStore()
                 a {
                     &:hover {
                         opacity: 0.7;
+                    }
+                }
+
+                @media (max-width: 1300px) {
+                    img {
+                        width: 44px;
+                        height: 44px;
                     }
                 }
 

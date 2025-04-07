@@ -3,7 +3,6 @@ import { computed } from 'vue'
 
 interface Props {
 	size?: 'default' | 'large'
-	radius?: 'xxs' | 'xs' | 's' | 'l'
 	variant?: 'primary' | 'secondary'
 	outline?: boolean
 	disabled?: boolean
@@ -12,7 +11,6 @@ interface Props {
 const {
 	size = 'default',
 	variant = 'primary',
-	radius,
 	outline,
 	disabled,
 } = defineProps<Props>()
@@ -21,7 +19,6 @@ const classes = computed(() => [
 	'btn',
 	`btn-${variant}`,
 	`btn-${size}`,
-	{ 'btn-outline': outline, [`btn-${radius}`]: radius },
 ])
 </script>
 
@@ -60,11 +57,6 @@ const classes = computed(() => [
 	color: var(--white);
 	background: var(--red-accent);
 
-	&.btn-outline {
-		color: var(--yellow);
-		background: transparent;
-		border: 4px solid var(--yellow);
-	}
 }
 
 .btn-white {

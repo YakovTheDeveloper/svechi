@@ -70,9 +70,10 @@ const { locale } = useI18n()
 </template>
 
 <style lang="scss" scoped>
-.container{
+.container {
     z-index: 2;
 }
+
 .title {
     margin-bottom: 40px;
     position: relative;
@@ -202,10 +203,6 @@ const { locale } = useI18n()
             content: '';
             position: absolute;
             z-index: 1;
-
-            @include mobile {
-                display: none;
-            }
         }
 
         &:before {
@@ -218,7 +215,7 @@ const { locale } = useI18n()
             @include rtl-flip;
 
             @include rtl {
-               left: 342px;
+                left: 342px;
             }
 
             @include tablet {
@@ -227,6 +224,14 @@ const { locale } = useI18n()
                 height: 266px;
                 bottom: -38px;
                 left: -150px;
+            }
+
+            @include mobile {
+                background: url('@/app/assets/decorations/unique-design/candle-line-2_mobile.svg') center no-repeat;
+                width: 141px;
+                height: 98px;
+                bottom: 0px;
+                left: -56px;
             }
         }
 
@@ -249,6 +254,15 @@ const { locale } = useI18n()
                 background: url('@/app/assets/decorations/unique-design/candle-line-1_tablet.svg') center no-repeat;
                 top: -40px;
                 right: -109px;
+            }
+
+            @include mobile {
+                background: url('@/app/assets/decorations/unique-design/candle-line-1_mobile.svg') center no-repeat;
+                width: 60px;
+                height: 97px;
+                top: -60px;
+                right: 0;
+                left: unset;
             }
         }
 
