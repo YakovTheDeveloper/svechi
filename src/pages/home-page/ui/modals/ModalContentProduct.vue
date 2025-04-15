@@ -6,6 +6,7 @@ import { useStore } from '@/shared/stores/store'
 import { getPublicUrl } from '@/shared/utils/getPublicUrl'
 import { candlesPhotos } from './imgPath'
 import { storeToRefs } from 'pinia'
+import ProductModalGallery from '@/pages/home-page/ui/modals/product-modal/ProductModalGallery.vue'
 
 const store = storeToRefs(useStore())
 const currentImage = ref('')
@@ -23,12 +24,16 @@ watchEffect(() => {
 
 const setCurrentImage = (src: string) => currentImage.value = src
 
+
+
+
 </script>
 
 
 <template>
     <div class="modal-product">
-        <div class="modal-product__gallery-part">
+        <ProductModalGallery />
+        <!-- <div class="modal-product__gallery-part">
             <div class="modal-product__thumbnails">
                 <div @click="setCurrentImage(imgUrl)" v-for="({ id, imgUrl }) in data" :class="[
                     'modal-product__thumbnails-item',
@@ -40,16 +45,16 @@ const setCurrentImage = (src: string) => currentImage.value = src
             <div class="modal-product__current-image">
                 <img :src="currentImage" alt="">
             </div>
-        </div>
+        </div> -->
         <ModalContentProductDescription />
     </div>
 </template>
 
 <style lang="scss" scoped>
 .modal-product {
-    display: grid;
+    display: flex;
     gap: 32px;
-    grid-template-columns: 5fr 4fr;
+
 
     @include tablet {
         grid-template-columns: 1fr;
@@ -59,31 +64,45 @@ const setCurrentImage = (src: string) => currentImage.value = src
         flex-direction: column;
 
         height: 100%;
-        // justify-content: space-between;
         gap: 48px;
     }
 
-    @include mobile {
-        gap: 16px;
-    }
+    // display: grid;
+    // gap: 32px;
+    // grid-template-columns: 5fr 4fr;
 
-    &__gallery-part {
-        display: flex;
-        justify-content: start;
-        gap: 32px;
+    // @include tablet {
+    //     grid-template-columns: 1fr;
+    //     grid-template-rows: auto auto 1fr;
 
-        @media (max-width: 1740px) {
-            flex-direction: column-reverse;
-        }
+    //     display: flex;
+    //     flex-direction: column;
 
-        @include tablet {
-            flex-direction: column;
-        }
+    //     height: 100%;
+    //     gap: 48px;
+    // }
 
-        @include mobile {
-            gap: 8px;
-        }
-    }
+    // @include mobile {
+    //     gap: 16px;
+    // }
+
+    // &__gallery-part {
+    //     display: flex;
+    //     justify-content: start;
+    //     gap: 32px;
+
+    //     @media (max-width: 1740px) {
+    //         flex-direction: column-reverse;
+    //     }
+
+    //     @include tablet {
+    //         flex-direction: column;
+    //     }
+
+    //     @include mobile {
+    //         gap: 8px;
+    //     }
+    // }
 
     &__thumbnails {
         display: flex;
