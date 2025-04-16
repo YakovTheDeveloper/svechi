@@ -1,12 +1,9 @@
 <template>
     <div class="language-selector">
-        <p class="language-selector-title bold">
-            Выберите язык страницы
-        </p>
         <div class="language-selector-languages">
-            <div :class="['language-selector-item', lang.value === locale && 'language-selector-item_active']"
+            <div @click="changeLanguage(lang.value)" :class="['language-selector-item', lang.value === locale && 'language-selector-item_active']"
                 v-for="lang in languages" :key="lang.id">
-                <div class="language-icon" @click="changeLanguage(lang.value)">
+                <div class="language-icon">
                     <img :src="lang.imgUrl" :alt="lang.value" />
                 </div>
                 {{ lang.display }}
@@ -24,8 +21,8 @@ import { useWelcomeStore } from '@/shared/stores/store'
 
 const languages = [
     { imgUrl: icon1, id: 1, value: 'ru', display: 'Русский' },
-    { imgUrl: icon2, id: 2, value: 'he', display: 'Иврит' },
-    { imgUrl: icon3, id: 3, value: 'en', display: 'Английский' },
+    { imgUrl: icon2, id: 2, value: 'he', display: 'עברית' },
+    { imgUrl: icon3, id: 3, value: 'en', display: 'English' },
 ]
 
 const { closeModal } = useWelcomeStore()

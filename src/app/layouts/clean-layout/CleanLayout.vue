@@ -17,18 +17,9 @@
 .page {
 	flex: 1 1 auto;
 	display: flex;
-	gap: 128px;
 	flex-direction: column;
 	margin: 0 auto;
 	max-width: 1920px;
 	width: 100%;
-
-	@include tablet {
-		gap: 48px;
-	}
-
-	@include mobile {
-		gap: 32px;
-	}
 }
 </style>

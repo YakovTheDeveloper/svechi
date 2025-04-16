@@ -32,20 +32,7 @@ const setCurrentImage = (src: string) => currentImage.value = src
 
 <template>
     <div class="modal-product">
-        <ProductModalGallery />
-        <!-- <div class="modal-product__gallery-part">
-            <div class="modal-product__thumbnails">
-                <div @click="setCurrentImage(imgUrl)" v-for="({ id, imgUrl }) in data" :class="[
-                    'modal-product__thumbnails-item',
-                    imgUrl === currentImage && 'modal-product__thumbnails-item_active',
-                ]" :key="id">
-                    <img :src="imgUrl" alt="product" draggable="false">
-                </div>
-            </div>
-            <div class="modal-product__current-image">
-                <img :src="currentImage" alt="">
-            </div>
-        </div> -->
+        <ProductModalGallery/>
         <ModalContentProductDescription />
     </div>
 </template>
@@ -55,17 +42,17 @@ const setCurrentImage = (src: string) => currentImage.value = src
     display: flex;
     gap: 32px;
 
-
     @include tablet {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto 1fr;
-
         display: flex;
         flex-direction: column;
 
         height: 100%;
         gap: 48px;
     }
+
+    // @media (max-width:1720px) {
+    //     flex-direction: column;
+    // }
 
     // display: grid;
     // gap: 32px;

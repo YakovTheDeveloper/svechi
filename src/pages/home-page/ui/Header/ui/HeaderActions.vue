@@ -93,7 +93,7 @@ const { openModal } = useMobileMenuStore()
     }
 
     @media (max-width: 1600px) {
-        padding: 64px 16px 24px;
+        padding: 64px 64px 24px 32px;
     }
 
     @include header-breakpoint {
@@ -217,7 +217,7 @@ const { openModal } = useMobileMenuStore()
                 &_write-us {
                     width: 100px;
 
-                    @media (max-width: 1300px) {
+                    @media (max-width: 1400px) {
                         width: 70px;
                     }
                 }
@@ -236,7 +236,7 @@ const { openModal } = useMobileMenuStore()
                     }
                 }
 
-                @media (max-width: 1300px) {
+                @media (max-width: 1400px) {
                     img {
                         width: 44px;
                         height: 44px;

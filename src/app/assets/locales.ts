@@ -13,7 +13,7 @@ export const messages = {
         popular: 'Популярное',
         more: 'Подробнее',
         view_all: 'Посмотреть все',
-
+        volume: 'объемом',
         unit_ml: 'мл',
         scents: 'ароматов',
 
@@ -111,6 +111,8 @@ export const messages = {
         popular: 'Popular',
         more: 'Learn More',
         view_all: 'View All',
+        volume: 'capacity of',
+        
 
         unit_ml: 'ml',
         scents: ' scents',
@@ -208,7 +210,7 @@ export const messages = {
         popular: 'הכי נמכר (הנמכר ביותר)',
         more: 'לפרטים',
         view_all: 'לראות יותר',
-
+        volume: 'בנפח',
         unit_ml: 'מ"ל',
         scents: 'טעמים',
 

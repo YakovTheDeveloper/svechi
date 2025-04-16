@@ -37,7 +37,7 @@ const sliderBreakpoints = {
 </script>
 
 <template>
-    <section class="gallery padding">
+    <section class="gallery padding" id="gallery">
         <h1 class="subtitle">
             <template v-if="locale === 'ru'">
                 Галерея <VSpan variant="fill">тепла и уюта</VSpan>

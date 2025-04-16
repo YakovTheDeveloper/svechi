@@ -181,31 +181,31 @@ const { locale } = useI18n()
             object-fit: contain;
         }
 
-        &:after {
-            position: absolute;
-            top: 13%;
-            right: 0;
-            z-index: -1;
-            content: '';
-            width: 152px;
-            height: 160px;
-            background: url('/img/about-us/quotation-mark.png') center no-repeat;
+        // &:after {
+        //     position: absolute;
+        //     top: 13%;
+        //     right: 0;
+        //     z-index: -1;
+        //     content: '';
+        //     width: 152px;
+        //     height: 160px;
+        //     background: url('/img/about-us/quotation-mark.png') center no-repeat;
 
-            @include rtl-flip;
+        //     @include rtl-flip;
 
-            @include rtl {
-                right: unset;
-                left: 0;
-            }
+        //     @include rtl {
+        //         right: unset;
+        //         left: 0;
+        //     }
 
-            @media (max-width: 1400px) {
-                display: none;
-            }
+        //     @media (max-width: 1400px) {
+        //         display: none;
+        //     }
 
-            // @include tablet {
-            //     display: none;
-            // }
-        }
+        //     // @include tablet {
+        //     //     display: none;
+        //     // }
+        // }
     }
 
     &__text-content {
@@ -217,6 +217,12 @@ const { locale } = useI18n()
         color: var(--black-secondary);
         align-items: start;
 
+        @include rtl {
+            padding-right: unset;
+            padding-left: 120px;
+            justify-content: space-between;
+        }
+
         @include tablet {
             padding-right: 0;
         }
@@ -224,45 +230,114 @@ const { locale } = useI18n()
         @include mobile {
             font-size: 14px;
             gap: 16px;
-        }
-
-        &:after {
-            position: absolute;
-            bottom: 18%;
-            right: 3%;
-            z-index: -1;
-            content: '';
-            width: 152px;
-            height: 160px;
-            -moz-transform: scale(-1, 1);
-            -webkit-transform: scale(-1, 1);
-            -o-transform: scale(-1, 1);
-            -ms-transform: scale(-1, 1);
-            transform: scale(-1, 1);
-            background: url('/img/about-us/quotation-mark.png') center no-repeat;
-
-
-
-            // @include rtl-flip;
 
             @include rtl {
-                right: unset;
-                left: 0;
-                bottom: 25%;
-                -moz-transform: scale(1, 1);
-                -webkit-transform: scale(1, 1);
-                -o-transform: scale(1, 1);
-                -ms-transform: scale(1, 1);
-                transform: scale(1, 1);
-            }
-
-            @include tablet {
-                bottom: 0%;
-                right: 0;
-                background-size: 50%;
-
+                padding: 0;
             }
         }
+
+        p {
+            position: relative;
+
+            &:after {
+                position: absolute;
+                bottom: 0%;
+                right: 0%;
+                z-index: -1;
+                content: '';
+                width: 152px;
+                height: 160px;
+                transform: translate(100%, 50%);
+                background: url('/img/about-us/quotation-mark-right.png') center no-repeat;
+
+                @include rtl {
+                    right: unset;
+                    left: 0;
+                    bottom: 0;
+                    transform: translate(-100%, 50%);
+                    background: url('/img/about-us/quotation-mark.png') center no-repeat;
+                }
+
+                @include tablet {
+                    bottom: 0%;
+                    right: 0;
+                    background-size: 50%;
+                }
+
+                @include mobile {
+                    width: 57px;
+                    height: 60px;
+                    background-size: contain !important;
+                    transform: translate(0, 50%);
+
+                    @include rtl {
+                        transform: translate(0, 50%);
+                    }
+
+                }
+            }
+
+            &:before {
+                position: absolute;
+                top: 0;
+                left: -20px;
+                transform: translate(-100%, -50%);
+                z-index: -1;
+                content: '';
+                width: 152px;
+                height: 160px;
+                background: url('/img/about-us/quotation-mark.png') center no-repeat;
+
+                @include rtl {
+                    transform: translate(100%, -50%);
+                    right: -20px;
+                    left: unset;
+                    background: url('/img/about-us/quotation-mark-right.png') center no-repeat;
+                }
+
+                @media (max-width: 1400px) {
+                    display: none;
+                }
+
+                // @include tablet {
+                //     display: none;
+                // }
+            }
+        }
+
+        // &:after {
+        //     position: absolute;
+        //     bottom: 18%;
+        //     right: 3%;
+        //     z-index: -1;
+        //     content: '';
+        //     width: 152px;
+        //     height: 160px;
+        //     -moz-transform: scale(-1, 1);
+        //     -webkit-transform: scale(-1, 1);
+        //     -o-transform: scale(-1, 1);
+        //     -ms-transform: scale(-1, 1);
+        //     transform: scale(-1, 1);
+        //     background: url('/img/about-us/quotation-mark.png') center no-repeat;
+
+        //     @include rtl {
+        //         right: unset;
+        //         left: 0;
+        //         bottom: 25%;
+        //         -moz-transform: scale(1, 1);
+        //         -webkit-transform: scale(1, 1);
+        //         -o-transform: scale(1, 1);
+        //         -ms-transform: scale(1, 1);
+        //         transform: scale(1, 1);
+        //     }
+
+        //     @include tablet {
+        //         bottom: 0%;
+        //         right: 0;
+        //         background-size: 50%;
+
+        //     }
+        // }
     }
 
     &__order-btn {

@@ -11,8 +11,15 @@ import 'swiper/css/thumbs';
 import { storeToRefs } from 'pinia';
 import { useStore } from '@/shared/stores/store';
 import { candlesPhotos } from '@/pages/home-page/ui/modals/imgPath';
+import { useWindowSize } from '@/shared/composables/useWindowSize';
+import type { SwiperOptions } from 'swiper/types';
 
 const thumbsSwiper = ref<SwiperClass | null>(null);
+const activeIndex = ref(0);
+
+const onMainSwiper = (swiper: SwiperClass) => {
+    activeIndex.value = swiper.realIndex;
+};
 
 const setThumbsSwiper = (swiper) => {
     thumbsSwiper.value = swiper;
@@ -34,20 +41,43 @@ onMounted(() => {
     thumbs.value = thumbsSwiper.value
 })
 
+const { width } = useWindowSize()
+
+const thumbDirection = computed(() => {
+    if (width.value <= 1740) return 'horizontal'
+    return 'vertical'
+})
+
+const defaultBreakpoints: SwiperOptions['breakpoints'] = {
+    0: {
+        spaceBetween: 8
+    },
+    360: {
+        spaceBetween: 8
+    },
+    500: {
+        spaceBetween: 24
+    },
+    640: {
+        spaceBetween: 32
+    }
+}
 
 </script>
 
 
 <template>
     <div class="gallery-part">
-        <swiper @swiper="setThumbsSwiper" :slides-per-view="5" :spaceBetween="32" :freeMode="true"
-            :direction="'vertical'" :watchSlidesProgress="true" :modules="modules" class="swiper-thumbs">
-            <swiper-slide v-for="({ id, imgUrl }) in data" :key="id" class="swiper-thumbs-item">
+        <swiper @swiper="setThumbsSwiper" @slideChange="onMainSwiper" :slides-per-view="5" :freeMode="true"
+            :direction="thumbDirection" :watchSlidesProgress="true" :modules="modules" :breakpoints="defaultBreakpoints"
+            class="swiper-thumbs">
+            <swiper-slide v-for="({ id, imgUrl }, index) in data" :key="id"
+                :class="['swiper-thumbs-item', index === activeIndex && 'swiper-thumbs-item_active']">
                 <img :src="imgUrl">
             </swiper-slide>
         </swiper>
-        <swiper :loop="true" :spaceBetween="10" :thumbs="{ swiper: thumbsSwiper }" :slidesPerView="1" :modules="modules"
-            class="swiper-main">
+        <swiper @slideChange="onMainSwiper" :loop="true" :spaceBetween="10" :thumbs="{ swiper: thumbsSwiper }"
+            :slidesPerView="1" :modules="modules" class="swiper-main">
             <swiper-slide v-for="({ id, imgUrl }) in data" :key="id" class="swiper-main-item">
                 <img :src="imgUrl">
             </swiper-slide>
@@ -57,7 +87,6 @@ onMounted(() => {
 
 <style lang="scss" scoped>
 .gallery-part {
-    width: 50%;
     display: flex;
     justify-content: start;
     gap: 32px;
@@ -67,7 +96,7 @@ onMounted(() => {
     }
 
     @include tablet {
-        flex-direction: column;
+        gap: 24px;
     }
 
     @include mobile {
@@ -75,14 +104,27 @@ onMounted(() => {
     }
 
     & .swiper-main {
-        width: 80%;
+        max-width: 744px;
         overflow: hidden;
+        width: 100%;
+
+        @media (max-width: 1740px) {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        @include tablet {
+            max-width: 100%;
+        }
 
         &-item {
-            max-width: 744px;
             aspect-ratio: 1;
             border-radius: 32px;
             overflow: hidden;
+
+            @include mobile {
+                border-radius: 16px;
+            }
 
             img {
                 width: 100%;
@@ -94,6 +136,11 @@ onMounted(() => {
     & .swiper-thumbs {
         width: 128px;
         height: 768px;
+
+        @media (max-width: 1740px) {
+            width: 100%;
+            height: auto;
+        }
 
         &-item {
             max-width: 128px;

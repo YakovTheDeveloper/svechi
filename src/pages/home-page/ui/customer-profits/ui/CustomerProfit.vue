@@ -57,6 +57,7 @@ const { locale } = useI18n()
 }
 
 .customer-profit {
+    min-height: 500px;
     display: flex;
     gap: 32px;
     display: grid;
@@ -107,6 +108,7 @@ const { locale } = useI18n()
         background: url('@/app/assets/decorations/customer-profit/2.svg') center no-repeat;
     }
 
+
     @include tablet {
         margin-top: 64px;
 
@@ -115,6 +117,11 @@ const { locale } = useI18n()
         background-position: 20% -20%;
         gap: 0;
     }
+
+    @media(max-width:1000px) {
+        margin-top: 8px;
+    }
+
 
     @include mobile {
         background-size: 108%;

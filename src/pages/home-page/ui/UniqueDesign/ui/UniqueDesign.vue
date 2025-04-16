@@ -10,6 +10,12 @@ import { useI18n } from 'vue-i18n';
 import IconArrowRight from '@/shared/icons/IconArrowRight.vue';
 import { scrollToId } from '@/shared/utils/scrollToId';
 const { locale } = useI18n()
+
+const toOurCandles = () => {
+    const isMobileOrTablet = window.innerWidth < 1000;
+    scrollToId('candle-products', isMobileOrTablet ? 20 : undefined);
+}
+
 </script>
 
 <template>
@@ -61,7 +67,7 @@ const { locale } = useI18n()
                     предложим индивидуальные решения, чтобы ваша свеча стала настоящим украшением вашего пространства!
                  -->
                 </p>
-                <VButtonIcon :label="$t('our_candles')" @click="scrollToId('candle-products')">
+                <VButtonIcon :label="$t('our_candles')" @click="toOurCandles">
                     <IconArrowRight />
                 </VButtonIcon>
             </div>

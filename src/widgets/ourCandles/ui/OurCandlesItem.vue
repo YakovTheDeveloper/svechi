@@ -21,7 +21,8 @@ const store = useStore()
         </div>
         <div class="candleItem__text" @click="emits('onClick')">
             <p class="text candleItem__text-title">{{ props.title }}</p>
-            <p class="candleItem__text-amount" v-if="props.amount">{{ props.amount }} {{ props.unit }}</p>
+            <p class="candleItem__text-amount" v-if="props.amount">{{ $t('volume') }} {{ props.amount }} {{ props.unit }}
+            </p>
         </div>
         <div class="candleItem__last">
             <VBadge variant="secondary">36 {{ $t('scents') }}</VBadge>
@@ -94,7 +95,7 @@ const store = useStore()
         }
     }
 
-    &__last{
+    &__last {
         display: flex;
         align-items: center;
         justify-content: space-between;

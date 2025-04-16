@@ -26,12 +26,13 @@ import MenuMobile from './menu-mobile/MenuMobile.vue';
 
 .header {
     display: flex;
-    gap: 32px;
+    gap: 64px;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
     @media (max-width: 1200px) {
         // flex-direction: column-reverse;
+        gap: 32px;
         grid-template-columns: 1fr
     }
 
@@ -59,13 +60,9 @@ import MenuMobile from './menu-mobile/MenuMobile.vue';
     }
 
     &__navbar {
-        @include tablet {
+        @include header-breakpoint {
             display: none;
         }
-
-        // @media (max-width: 1400px) {
-        //               display: none;
-        // }
     }
 
     &__title {

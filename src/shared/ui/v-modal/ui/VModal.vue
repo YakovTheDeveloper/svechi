@@ -82,7 +82,7 @@ onUnmounted(() => unlock())
 		@include mobile {
 			margin: 16px 0;
 		}
-		
+
 	}
 
 	&-content {
@@ -93,13 +93,17 @@ onUnmounted(() => unlock())
 		padding: 64px;
 		margin: 0 var(--padding-container);
 
+		@media (max-width: 1740px) {
+			max-width: 100%;
+		}
+
 		@include tablet {
 			height: fit-content;
 			// width: 100%;
 			overflow: auto;
 			padding: 48px;
 			margin: 0 var(--padding-container-tablet) var(--padding-container-tablet);
-			// margin-top: 6vh;
+			max-width: calc(100% - calc(var(--padding-container-tablet) * 2));
 			border-radius: 80px;
 			flex-grow: 1;
 		}
@@ -109,7 +113,7 @@ onUnmounted(() => unlock())
 			// width: 100%;
 			padding: 16px;
 			margin: 0 var(--padding-container-mobile) var(--padding-container-mobile);
-			// margin-top: 6vh;
+			max-width: calc(100% - calc(var(--padding-container-mobile) * 2));
 			border-radius: 32px;
 		}
 	}

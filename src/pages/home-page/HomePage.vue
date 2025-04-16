@@ -35,14 +35,14 @@ watch(store.showModal, (isShow) => !isShow && clearModalContent())
 </script>
 
 <template>
-	<Header />
-	<UniqueDesign />
-	<CandleProducts />
-	<CustomerProfit />
-	<Gallery />
-	<AboutUs />
-	<OurAdvantages />
-	<PopularAroma />
+	<Header class="section-margin-bottom" />
+	<UniqueDesign class="section-margin-bottom" />
+	<CandleProducts class="section-margin-bottom" />
+	<CustomerProfit class="section-margin-bottom" />
+	<Gallery class="section-margin-bottom" />
+	<AboutUs class="section-margin-bottom" />
+	<OurAdvantages class="section-margin-bottom" />
+	<PopularAroma class="section-margin-bottom" />
 	<Footer />
 	<VModal v-model="store.showModal.value">
 		<ModalContentProduct />
@@ -53,6 +53,14 @@ watch(store.showModal, (isShow) => !isShow && clearModalContent())
 	</VModal>
 </template>
 
+<style lang="scss">
+#gallery {
+	@include tablet {
+		margin-bottom: 0;
+	}
+}
+</style>
+
 <style lang="scss" scoped>
 .home {
 	height: 100vh;
@@ -61,7 +69,6 @@ watch(store.showModal, (isShow) => !isShow && clearModalContent())
 	justify-content: center;
 	align-items: center;
 	position: relative;
-	gap: 80px;
 }
 
 .hidden {

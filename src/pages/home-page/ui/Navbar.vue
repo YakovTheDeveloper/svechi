@@ -10,6 +10,18 @@ const props = defineProps<{
 }>()
 
 
+const toAboutUs = () => {
+    const isMobileOrTablet = window.innerWidth < 1000;
+    scrollToId('about-us', isMobileOrTablet ? 0 : undefined);
+    props.onAfterNav?.();
+}
+
+const toPromotions = () => {
+    const isMobileOrTablet = window.innerWidth < 1000;
+    scrollToId('promotions', isMobileOrTablet ? 40 : undefined);
+    props.onAfterNav?.();
+}
+
 </script>
 
 <template>
@@ -22,13 +34,13 @@ const props = defineProps<{
                 <a @click.prevent="scrollToId('footer'); props.onAfterNav?.()">{{ $t('nav_contacts') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a @click.prevent="scrollToId('about-us'); props.onAfterNav?.()">{{ $t('nav_about_us') }}</a>
+                <a @click.prevent="toAboutUs">{{ $t('nav_about_us') }}</a>
             </li>
             <li class="navbar-list__item">
                 <a @click.prevent="contact(); props.onAfterNav?.()">{{ $t('nav_consulting') }}</a>
             </li>
             <li class="navbar-list__item">
-                <a @click.prevent="scrollToId('promotions'); props.onAfterNav?.()">{{ $t('nav_promotions') }}</a>
+                <a @click.prevent="toPromotions">{{ $t('nav_promotions') }}</a>
             </li>
         </ul>
     </nav>

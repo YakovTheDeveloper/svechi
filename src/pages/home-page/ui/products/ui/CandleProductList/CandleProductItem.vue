@@ -136,6 +136,12 @@ const shouldHaveComma = computed(() => {
                 font-size: 18px;
             }
         }
+
+        button {
+            @include mobile {
+                align-self: center;
+            }
+        }
     }
 
     &__plus-icon {

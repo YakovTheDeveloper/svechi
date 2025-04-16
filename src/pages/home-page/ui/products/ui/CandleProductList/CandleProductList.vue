@@ -79,7 +79,7 @@ const { containerRef, fadeClasses } = useScrollFade();
 
 .fade-left {
     &:before {
-        @include fade-overlay-left($width: 15%);
+        @include fade-overlay-left($width: 4%);
 
         @include mobile {
             content: none;
@@ -88,8 +88,10 @@ const { containerRef, fadeClasses } = useScrollFade();
 }
 
 .fade-right {
+    
     &:after {
-        @include fade-overlay-right($width: 15%);
+        @include fade-overlay-right($width: 4%);
+        right: 0;
 
         @include mobile {
             content: none;
