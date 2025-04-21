@@ -21,7 +21,8 @@ const store = useStore()
         </div>
         <div class="candleItem__text" @click="emits('onClick')">
             <p class="text candleItem__text-title">{{ props.title }}</p>
-            <p class="candleItem__text-amount" v-if="props.amount">{{ $t('volume') }} {{ props.amount }} {{ props.unit }}
+            <p class="candleItem__text-amount" v-if="props.amount">{{ $t('volume') }} {{ props.amount }} {{ props.unit
+                }}
             </p>
         </div>
         <div class="candleItem__last">
@@ -75,6 +76,11 @@ const store = useStore()
         border-radius: 24px;
         overflow: hidden;
         background-color: var(--black-third);
+
+        @media (max-width: 600px) {
+            width: 75px;
+            height: 75px;
+        }
 
         @include mobile {
             width: 36px;

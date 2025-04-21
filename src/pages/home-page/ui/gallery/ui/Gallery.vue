@@ -14,9 +14,9 @@ const slides = [
     { imgUrl: getPublicUrl('img/gallery/1.png'), id: 1 },
     { imgUrl: getPublicUrl('img/gallery/2.png'), id: 2 },
     { imgUrl: getPublicUrl('img/gallery/3.png'), id: 3 },
-    // { imgUrl: getPublicUrl('img/gallery/3.png'), id: 4 },
-    // { imgUrl: getPublicUrl('img/gallery/2.png'), id: 5 },
-    // { imgUrl: getPublicUrl('img/gallery/1.png'), id: 6 }
+    { imgUrl: getPublicUrl('img/gallery/4.jpg'), id: 4 },
+    { imgUrl: getPublicUrl('img/gallery/5.jpg'), id: 5 },
+    { imgUrl: getPublicUrl('img/gallery/6.jpg'), id: 6 }
 ]
 
 const sliderBreakpoints = {

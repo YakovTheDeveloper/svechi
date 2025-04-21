@@ -60,7 +60,7 @@ const { openModal } = useMobileMenuStore()
                         <img :src="instIcon" alt="contact-icon">
                     </a>
                 </div>
-                <div class="header-actions__contacts-item-text">
+                <div class="header-actions__contacts-item-text join-us-text">
                     <p class="header-actions__contacts-item-text__title">
                         {{ $t('contact_join') }}
                     </p>
@@ -236,7 +236,7 @@ const { openModal } = useMobileMenuStore()
                     }
                 }
 
-                @media (max-width: 1400px) {
+                @media (max-width: 1430px) {
                     img {
                         width: 44px;
                         height: 44px;
@@ -261,6 +261,16 @@ const { openModal } = useMobileMenuStore()
                 &__sub {
                     color: var(--black-secondary);
                     font-size: 14px;
+                }
+
+                &.join-us-text {
+                    @media (max-width: 1320px) and (min-width: 1201px) {
+                        display: none;
+                    }
+
+                    @media (max-width: 610px) and (min-width: 501px) {
+                        display: none;
+                    }
                 }
             }
         }

@@ -23,6 +23,16 @@ body {
     overflow: hidden;
   }
 
+  // * {
+  //   font-size: inherit;
+  // }
+
+  @include mobile {
+    @include rtl {
+      font-family: "Playfair Display", sans-serif;
+    }
+  }
+
 }
 
 

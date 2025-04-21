@@ -108,6 +108,8 @@ const defaultBreakpoints: SwiperOptions['breakpoints'] = {
         overflow: hidden;
         width: 100%;
 
+        border-radius: 32px;
+
         @media (max-width: 1740px) {
             width: 100%;
             max-width: 600px;
@@ -115,6 +117,10 @@ const defaultBreakpoints: SwiperOptions['breakpoints'] = {
 
         @include tablet {
             max-width: 100%;
+        }
+
+        @include mobile {
+            border-radius: 16px;
         }
 
         &-item {
