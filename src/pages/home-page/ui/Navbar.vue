@@ -61,8 +61,9 @@ const toPromotions = () => {
 
     &__item {
         color: rgba(79, 79, 79, 1);
-        padding: 16px 24px;
+        padding: 16px;
         border-radius: 32px;
+        white-space: nowrap;
 
         @include mobile {
             padding: 10px;

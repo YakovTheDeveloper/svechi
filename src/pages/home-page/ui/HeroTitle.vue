@@ -21,7 +21,9 @@ Best practice way to do specific wraps in landing -->
         </template>
         <template v-else-if="locale === 'he'">
             <span class='line-break'>נרות עבודת <VSpan variant="fill">יד</VSpan> בעלי ניחוחים </span>
-            <span class='line-break'><VSpan variant="underlined">ייחודים </VSpan></span>
+            <span class='line-break'>
+                <VSpan variant="underlined">ייחודים </VSpan>
+            </span>
         </template>
         <template v-else>
             <span class='line-break'>
@@ -37,6 +39,11 @@ Best practice way to do specific wraps in landing -->
 .title {
     color: var(--black-primary);
     max-width: 728px;
+
+    // @include laptop {
+    //     font-size: 48px;
+    //     line-height: normal;
+    // }
 }
 
 .line-break {

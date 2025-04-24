@@ -26,9 +26,14 @@ import MenuMobile from './menu-mobile/MenuMobile.vue';
 
 .header {
     display: flex;
-    gap: 64px;
+    gap: 44px;
     display: grid;
     grid-template-columns: 1fr 1fr;
+
+    // @media (max-width: 1280px) {
+    //     gap: 24px;
+    // }
+
 
     @media (max-width: 1200px) {
         // flex-direction: column-reverse;
@@ -60,6 +65,17 @@ import MenuMobile from './menu-mobile/MenuMobile.vue';
     }
 
     &__navbar {
+
+        @media (max-width: 1600px) {
+            > :first-child {
+                flex-wrap: nowrap;
+                gap: 16px 0;
+                font-size: 20px;
+                justify-content: space-between;
+            }
+        }
+
+
         @include header-breakpoint {
             display: none;
         }

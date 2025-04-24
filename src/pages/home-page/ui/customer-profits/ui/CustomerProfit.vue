@@ -40,6 +40,8 @@ const { locale } = useI18n()
 .title {
     margin-bottom: 32px;
 
+
+
     @include tablet {
         font-size: 48px;
         line-height: normal;
