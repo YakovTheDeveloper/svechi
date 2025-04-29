@@ -54,6 +54,10 @@ const props = withDefaults(defineProps<{
         width: 110%;
         background: url('@/app/assets/decorations/text-span/curved-line.svg') center no-repeat;
 
+        @media (max-width: 1441px) {
+            bottom: -25%;
+        }
+
         @include mobile {
             background-image: url('@/app/assets/decorations/text-span/curved-line-mobile.svg');
             bottom: -10px;

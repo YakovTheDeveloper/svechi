@@ -86,7 +86,7 @@ const MOCK_DATA = computed(() => {
 .subtitle {
     margin-bottom: 64px;
     color: var(--black-primary);
-    line-height: 170%;
+    line-height: 180%;
 
     @include tablet {
         margin-bottom: 32px;

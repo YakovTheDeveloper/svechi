@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 <template>
 	<main class="main" ref="app">
-		<div class="page">
+		<div class="page zoom-wrapper">
 			<slot name="default" />
 		</div>
 	</main>

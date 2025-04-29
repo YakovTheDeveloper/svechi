@@ -93,6 +93,10 @@ const DATA: Product[] = computed(() => ([
     flex-direction: column;
     gap: 32px;
 
+    @include laptop {
+        gap: 16px;
+    }
+
     @include mobile {
         gap: 16px;
     }
@@ -112,6 +116,15 @@ const DATA: Product[] = computed(() => ([
         display: flex;
         flex-direction: column;
         gap: 16px;
+
+        @include laptop {
+            gap: 12px;
+        }
+
+        @include tablet {
+            gap: 16px;
+        }
+
     }
 }
 </style>

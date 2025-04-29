@@ -15,7 +15,7 @@ const props = withDefaults(defineProps<{
 
 <style lang="scss" scoped>
 .badge {
-    height: 36px;
+    // height: 36px;
     font-size: 18px;
     line-height: 23px;
     padding: 6px 16px;
@@ -28,8 +28,13 @@ const props = withDefaults(defineProps<{
     align-items: center;
     justify-content: center;
 
+    @include laptop {
+        font-size: 16px;
+        padding: 4px 16px;
+    }
+
     @include mobile {
-        font-size: 10px;  
+        font-size: 10px;
         height: fit-content;
         padding: 4px 6px;
         line-height: normal;

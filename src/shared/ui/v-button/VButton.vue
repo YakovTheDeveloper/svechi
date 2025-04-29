@@ -46,7 +46,13 @@ const classes = computed(() => [
 		pointer-events: none;
 	}
 
-	@include mobile{
+	@include laptop {
+		font-size: 20px;
+		padding: 18px 30px;
+
+	}
+
+	@include mobile {
 		padding: 10px 16px;
 		font-size: 14px;
 	}
@@ -62,5 +68,4 @@ const classes = computed(() => [
 .btn-white {
 	background: var(--white);
 }
-
 </style>

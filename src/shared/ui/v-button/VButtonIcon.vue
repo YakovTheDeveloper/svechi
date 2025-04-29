@@ -46,6 +46,11 @@ defineExpose({
     flex-shrink: 0;
     color: white;
 
+    @include laptop{
+        height: 48px;
+        width: 48px;
+    }
+
     @include mobile {
         height: 28px;
         width: 28px;

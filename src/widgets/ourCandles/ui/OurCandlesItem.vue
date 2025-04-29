@@ -20,8 +20,8 @@ const store = useStore()
             <img :src="props.imgUrl" alt="">
         </div>
         <div class="candleItem__text" @click="emits('onClick')">
-            <p class="text candleItem__text-title">{{ props.title }}</p>
-            <p class="candleItem__text-amount" v-if="props.amount">{{ $t('volume') }} {{ props.amount }} {{ props.unit
+            <p>{{ props.title }}</p>
+            <p v-if="props.amount">{{ $t('volume') }} {{ props.amount }} {{ props.unit
                 }}
             </p>
         </div>
@@ -48,6 +48,15 @@ const store = useStore()
         gap: 8px;
     }
 
+    @include laptop {
+        padding: 9px 0;
+        gap: 12px;
+    }
+
+    @include tablet {
+        padding: 12px 0;
+    }
+
     @media (max-width: 850px) {
         gap: 4px;
     }
@@ -60,14 +69,14 @@ const store = useStore()
         cursor: pointer;
         width: fit-content;
 
+        @include laptop {
+            font-size: 18px;
+        }
+
         @include mobile {
             font-size: 12px;
             font-weight: 500;
         }
-
-        &-title {}
-
-        &-amount {}
     }
 
     &__image-container {
@@ -76,6 +85,11 @@ const store = useStore()
         border-radius: 24px;
         overflow: hidden;
         background-color: var(--black-third);
+
+        @include laptop {
+            width: 70px;
+            height: 70px;
+        }
 
         @media (max-width: 600px) {
             width: 75px;

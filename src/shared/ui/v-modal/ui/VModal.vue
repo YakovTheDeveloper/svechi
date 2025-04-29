@@ -8,8 +8,6 @@ import { useStore } from '@/shared/stores/store'
 const isOpen = defineModel({ type: Boolean, required: true })
 const { lock, unlock } = useBodyLock()
 
-
-
 watchEffect(() => {
 	if (isOpen.value) lock()
 	else unlock()
@@ -19,31 +17,36 @@ onUnmounted(() => unlock())
 </script>
 
 <template>
-	<transition name="modal-animation">
-		<div v-if="isOpen" @click="isOpen = false" :class="['modal', $attrs.class]">
-			<div class="modal-top padding">
-				<button @click="isOpen = false" class="modal-close-btn-mobile">
-					<img :src="crossIcon" alt="">
-				</button>
-			</div>
-			<div @click.stop class="modal-content">
-				<button @click="isOpen = false" class="modal-close-btn">
-					<img :src="crossIcon" alt="">
-				</button>
-				<div class="modal-body">
-					<slot></slot>
+	<teleport to="body">
+		<transition name="modal-animation">
+			<div
+				v-if="isOpen"
+				@click="isOpen = false"
+				:class="['modal', $attrs.class]"
+			>
+				<div class="modal-top padding">
+					<button @click="isOpen = false" class="modal-close-btn-mobile">
+						<img :src="crossIcon" alt="" />
+					</button>
+				</div>
+				<div @click.stop class="modal-content zoom-wrapper-modal-content">
+					<button @click="isOpen = false" class="modal-close-btn">
+						<img :src="crossIcon" alt="" />
+					</button>
+					<div class="modal-body">
+						<slot></slot>
+					</div>
 				</div>
 			</div>
-		</div>
-	</transition>
-	<transition name="modal-overlay">
-		<VOverlay v-if="isOpen" />
-	</transition>
+		</transition>
+		<transition name="modal-overlay">
+			<VOverlay v-if="isOpen" @click="isOpen = false" />
+		</transition>
+	</teleport>
 </template>
 
 <style lang="scss">
 .modal.modals-welcome {
-
 	@include tablet {
 		align-items: stretch !important;
 	}
@@ -65,6 +68,7 @@ onUnmounted(() => unlock())
 <style scoped lang="scss">
 .modal {
 	position: fixed;
+	// max-height: 100vh;
 	inset: 0;
 	z-index: 6;
 	display: flex;
@@ -82,7 +86,6 @@ onUnmounted(() => unlock())
 		@include mobile {
 			margin: 16px 0;
 		}
-
 	}
 
 	&-content {
@@ -124,14 +127,13 @@ onUnmounted(() => unlock())
 		overflow: auto;
 	}
 
-
 	&-close-btn {
 		position: absolute;
 		background-color: transparent;
 		top: 48px;
 		right: 48px;
 
-		html[dir="rtl"] & {
+		html[dir='rtl'] & {
 			right: unset;
 			left: 48px;
 		}
@@ -140,9 +142,10 @@ onUnmounted(() => unlock())
 			display: none;
 		}
 
-		@include mobile {}
+		@include mobile {
+		}
 
-		html[dir="rtl"] & {
+		html[dir='rtl'] & {
 			right: unset;
 			left: 48px;
 		}
@@ -160,7 +163,7 @@ onUnmounted(() => unlock())
 		align-items: center;
 		justify-content: center;
 
-		html[dir="rtl"] & {
+		html[dir='rtl'] & {
 			margin-right: auto;
 			margin-left: unset;
 		}
@@ -182,7 +185,6 @@ onUnmounted(() => unlock())
 			}
 		}
 	}
-
 }
 
 .modal-overlay-enter-active,

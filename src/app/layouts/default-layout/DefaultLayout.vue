@@ -3,7 +3,7 @@ import { Footer } from '@/widgets/footer'
 </script>
 <template>
 	<main class="main" ref="app">
-		<div class="page">
+		<div class="page zoom-wrapper">
 			<slot name="default" />
 		</div>
 		<Footer />
