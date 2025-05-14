@@ -27,7 +27,7 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 	display: flex;
 	gap: 44px;
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 47% 1fr;
 
 	// @media (max-width: 1280px) {
 	//     gap: 24px;

@@ -79,8 +79,8 @@ const shouldHaveComma = computed(() => {
 	}
 
 	@include tablet {
-		max-width: 322px;
-		height: 360px;
+		// max-width: 322px;
+		// height: 360px;
 	}
 
 	@include mobile {
@@ -160,7 +160,7 @@ const shouldHaveComma = computed(() => {
 		&-more {
 			font-size: 24px;
 
-			@include laptop {
+			@include laptopmax {
 				font-size: 18px;
 			}
 		}
@@ -168,7 +168,7 @@ const shouldHaveComma = computed(() => {
 		&-text {
 			font-size: 28px;
 
-			@include laptop {
+			@include laptopmax {
 				font-size: 22px;
 			}
 

@@ -27,7 +27,8 @@ const toOurCandles = () => {
                         <VSpan variant="fill">Уникальный</VSpan> дизайн
                     </template>
                     <template v-else-if="locale === 'he'">
-                        <VSpan variant="fill">מיוחד</VSpan> עיצוב
+                        <!-- <VSpan variant="fill">מיוחד</VSpan> עיצוב -->
+                        עיצוב <VSpan variant="fill">מיוחד</VSpan> 
                     </template>
                     <template v-else>
                         <VSpan variant="fill">Unique</VSpan> Design

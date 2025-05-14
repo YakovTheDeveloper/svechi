@@ -86,6 +86,7 @@ const { openModal } = useMobileMenuStore()
         url('/img/header-bg.png') center no-repeat,
         rgba(0, 0, 0, 0.3);
     background-size: cover;
+    background-position: 60% 40%;
 
     html[dir='rtl'] & {
         border-bottom-right-radius: 64px;
@@ -94,6 +95,14 @@ const { openModal } = useMobileMenuStore()
 
     @media (max-width: 1600px) {
         padding: 50px 64px 24px 32px;
+    }
+
+    @media (max-width: 1400px) {
+        background-position: 60% 40%;
+    }
+
+    @media (max-width: 1300px) {
+        background-position: 54% 40%;
     }
 
     @include header-breakpoint {

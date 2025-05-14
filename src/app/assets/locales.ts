@@ -242,9 +242,9 @@ export const messages = {
         unique_design_benefits_aroma: 'ניחוח ייחודי',
         unique_design_benefits_unique_design: 'עיצוב מיוחד',
         unique_design_benefits_individual_solutions: 'התאמה אישית',
-        unique_design_text: `אנו מייצרים נרות עבודת יד ייחודיים המתאים לכל בית. נעזור לכם בבחירת ניחוח, צורה ועיצוב של נרות לפי הסגנון האינדיבידואלי שלכם. 
+        unique_design_text: `אנו מייצרים נרות עבודת יד ייחודיים המתאימים לכל בית. נעזור לכם בבחירת ניחוח, צורה ועיצוב של נרות לפי הסגנון האינדיבידואלי שלכם. 
 צרו איתנו קשר ואנו נשמח להציע לכם פתרונות לקישוט הייחודי של הבית שלכם.
-`,
+ `,
         unique_design_our_candles_list: 'הנרות שלנו',
 
         customer_profit_text: `
