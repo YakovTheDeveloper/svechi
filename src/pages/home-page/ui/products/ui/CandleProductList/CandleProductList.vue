@@ -90,6 +90,7 @@ const { containerRef, fadeClasses } = useScrollFade()
 		@media (max-width: 1200px) {
 			@include fade-overlay-right($width: 4%);
 		}
+
 		right: 0;
 
 		@include mobile {
@@ -109,7 +110,7 @@ const { containerRef, fadeClasses } = useScrollFade()
 	@include mobile {
 		display: grid;
 		grid-template-columns: 1fr 1fr;
-		grid-template-rows: repeat(2, 320px);
+		grid-template-rows: repeat(2, auto);
 	}
 }
 </style>

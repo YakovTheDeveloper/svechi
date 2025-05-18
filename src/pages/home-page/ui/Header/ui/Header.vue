@@ -59,10 +59,18 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 
 		@include tablet {
 			padding-right: var(--padding-container-tablet);
+
+			@include rtl {
+				padding-left: var(--padding-container-tablet);
+			}
 		}
 
 		@include mobile {
 			padding-right: var(--padding-container-mobile);
+
+			@include rtl {
+				padding-left: var(--padding-container-mobile);
+			}
 		}
 	}
 
