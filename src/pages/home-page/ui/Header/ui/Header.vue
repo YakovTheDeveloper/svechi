@@ -50,6 +50,12 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 		flex-direction: column;
 
 		@media (max-width: 1200px) {
+			padding-right: 64px;
+
+			@include rtl {
+				padding-left: 64px;
+			}
+
 			order: 1;
 		}
 
