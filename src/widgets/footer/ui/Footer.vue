@@ -14,7 +14,7 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 						{{ $t('footer_benefit') }}
 					</p>
 					<div class="footer__content-part__delivery">
-						<img src="@/app/assets/icons/delivery.svg" alt="delivery-icon" />
+						<img loading="lazy" src="@/app/assets/icons/delivery.svg" alt="delivery-icon" />
 						<p class="bold text">
 							{{ $t('footer_delivery') }}
 						</p>
@@ -44,7 +44,7 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 					<ul class="footer__contacts">
 						<li class="footer__list-item">
 							<a href="tel:+972532787532" class="footer__phone-link" dir="ltr">
-								<img src="@/app/assets/icons/phone.svg" alt="phone-icon">
+								<img loading="lazy" src="@/app/assets/icons/phone.svg" alt="phone-icon">
 								+972 53-278-7532
 							</a>
 						</li>
@@ -52,17 +52,17 @@ import { scrollToId } from '@/shared/utils/scrollToId';
 							<ul class="footer__socials">
 								<li>
 									<a :href="SocialLinks.Fb" target='_blank'>
-										<img src="@/app/assets/icons/fb.svg" alt="facebook-icon">
+										<img loading="lazy" src="@/app/assets/icons/fb.svg" alt="facebook-icon">
 									</a>
 								</li>
 								<li>
 									<a :href="SocialLinks.Inst" target='_blank'>
-										<img src="@/app/assets/icons/inst.svg" alt="inst-icon">
+										<img loading="lazy" src="@/app/assets/icons/inst.svg" alt="inst-icon">
 									</a>
 								</li>
 								<li>
 									<a href="https://wa.me/+972532787532" target='_blank'>
-										<img src="@/app/assets/icons/whatsapp.svg" alt="whatsapp-icon">
+										<img loading="lazy" src="@/app/assets/icons/whatsapp.svg" alt="whatsapp-icon">
 									</a>
 								</li>
 							</ul>

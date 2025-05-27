@@ -29,7 +29,7 @@ const { locale } = useI18n()
 				</p>
 			</div>
 			<div class="customer-profit__img padding-vertical">
-				<img src="/img/customer-profit/1.png" alt="customer-profit" />
+				<img loading="lazy" src="/img/customer-profit/1.png" alt="customer-profit" />
 			</div>
 		</section>
 	</div>
