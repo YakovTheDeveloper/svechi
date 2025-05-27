@@ -13,12 +13,20 @@ body {
 
   @media (max-width: 1700px) and (min-width: 1201px) {
     zoom: 0.9;
-    width: 111.11%; 
+    width: 111.11%;
+    margin: 0 auto;
+  }
+
+  @media (max-width:2200px) and (min-width: 1700px) {
+    zoom: 0.95;
+    width: 91%;
     margin: 0 auto;
   }
 }
 
+
 body {
+  font-synthesis: none !important;
   color: var(--black);
   font-size: 24px;
   font-family: var(--font-playfair-display);
@@ -71,6 +79,7 @@ body {
 
   @include tablet {
     padding-left: var(--padding-container-tablet);
+
     @include rtl {
       padding-left: unset;
       padding-right: var(--padding-container-tablet);
@@ -79,6 +88,7 @@ body {
 
   @include mobile {
     padding-left: var(--padding-container-mobile);
+
     @include rtl {
       padding-left: unset;
       padding-right: var(--padding-container-mobile);
