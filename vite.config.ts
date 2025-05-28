@@ -45,9 +45,9 @@ export default defineConfig({
 		}
 	},
 	define: {
-		'process.env.BASE_URL': JSON.stringify(process.env.NODE_ENV === 'development' ? '/' : '/')
+		'process.env.BASE_URL': JSON.stringify(process.env.NODE_ENV === 'development' ? '/' : '/svechi/')
 	},
-	base: process.env.NODE_ENV === 'development' ? '/' : '/',
+	base: process.env.NODE_ENV === 'development' ? '/' : '/svechi/',
 	build: {
 		outDir: 'dist', // Default output directory for the build
 		rollupOptions: {

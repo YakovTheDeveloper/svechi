@@ -1,1 +1,1 @@
-export const publicPath = process.env.NODE_ENV === 'development' ? '/' : '/';
+export const publicPath = process.env.NODE_ENV === 'development' ? '/' : '/svechi';
