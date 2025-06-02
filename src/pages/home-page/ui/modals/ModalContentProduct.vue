@@ -41,6 +41,7 @@ const setCurrentImage = (src: string) => currentImage.value = src
 .modal-product {
     display: flex;
     gap: 32px;
+    height: 100%;
 
     @include tablet {
         display: flex;

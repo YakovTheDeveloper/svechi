@@ -115,7 +115,8 @@ const DATA: Product[] = computed(() => ([
     &__list {
         display: flex;
         flex-direction: column;
-        gap: 16px;
+        justify-content: space-between;
+        // gap: 16px;
 
         @include laptop {
             gap: 12px;

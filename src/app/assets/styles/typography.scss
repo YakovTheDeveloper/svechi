@@ -50,6 +50,10 @@
   font-size: 24px;
   // color: var(--black);
 
+  @media (max-width: 1700px) and (min-width: 1201px) {
+    font-size: 22px;
+  }
+
   @media (max-width: 500px) {
     font-size: 14px;
   }

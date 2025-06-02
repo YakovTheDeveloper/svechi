@@ -8,12 +8,12 @@ import { useStore } from '@/shared/stores/store'
 const isOpen = defineModel({ type: Boolean, required: true })
 const { lock, unlock } = useBodyLock()
 
-watchEffect(() => {
-	if (isOpen.value) lock()
-	else unlock()
-})
+// watchEffect(() => {
+// 	if (isOpen.value) lock()
+// 	else unlock()
+// })
 
-onUnmounted(() => unlock())
+// onUnmounted(() => unlock())
 </script>
 
 <template>
@@ -47,6 +47,10 @@ onUnmounted(() => unlock())
 
 <style lang="scss">
 .modal.modals-welcome {
+	.modal-content {
+		height: auto;
+	}
+
 	@include tablet {
 		align-items: stretch !important;
 	}
@@ -68,7 +72,7 @@ onUnmounted(() => unlock())
 <style scoped lang="scss">
 .modal {
 	position: fixed;
-	// max-height: 100vh;
+	height: 100svh;
 	inset: 0;
 	z-index: 6;
 	display: flex;
@@ -91,6 +95,7 @@ onUnmounted(() => unlock())
 	&-content {
 		position: relative;
 		max-width: 1792px;
+		height: min(872px, 98svh);
 		border-radius: 64px;
 		background-color: var(--bg);
 		padding: 64px;

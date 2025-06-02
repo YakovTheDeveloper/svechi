@@ -29,7 +29,7 @@ const { locale } = useI18n()
                 </h2>
 
                 <template v-if="locale === 'ru'">
-                    <p>
+                    <p class="text">
                         Всем привет! Я Дарья Агафонова, и я создаю свечи ручной работы с уникальными ароматами. Каждая
                         свеча
                         сделана с любовью, из 100% натуральных компонентов, безопасных для здоровья. В отличие
@@ -59,7 +59,7 @@ const { locale } = useI18n()
                     </p>
                 </template>
                 <template v-else-if="locale === 'en'">
-                    <p>
+                    <p class="text">
                         Hello everyone! I’m Daria Agafonova, and I create handmade candles with unique fragrances. Each
                         candle is made with
                         love, from 100% natural components that are safe for your health. Unlike mass-produced candles
@@ -93,7 +93,7 @@ const { locale } = useI18n()
                     </p>
                 </template>
                 <template v-else>
-                    <p>
+                    <p class="text">
                         אהלן לכולם! אני, דריה אגפונוב, אני מייצרת נרות עבודת יד בעלי ניחוחים ייחודיים. כל נר מיוצר
                         מרכיבים טבעיים בדאגה לבריאות שלכם
                         </br>
@@ -139,13 +139,13 @@ const { locale } = useI18n()
     gap: 32px;
     position: relative;
 
-    @media (max-width: 1400px) {
+    @media (max-width: 1200px) {
         flex-direction: column;
     }
 
-    @include tablet {
-        flex-direction: column;
-    }
+    // @include tablet {
+    //     flex-direction: column;
+    // }
 
     &:after {
         width: 100%;
@@ -169,6 +169,10 @@ const { locale } = useI18n()
         max-width: 728px;
         flex-shrink: 0;
         position: relative;
+
+        @media(max-width: 1600px){
+            max-width: 650px;
+        }
 
         @include tablet {
             margin: 0 auto;
@@ -212,19 +216,19 @@ const { locale } = useI18n()
         display: flex;
         flex-direction: column;
         gap: 32px;
-        padding-right: 120px;
+        // padding-right: 120px;
         position: relative;
         color: var(--black-secondary);
         align-items: start;
 
         @include rtl {
             padding-right: unset;
-            padding-left: 120px;
+            // padding-left: 120px;
             justify-content: space-between;
         }
 
         @include tablet {
-            padding-right: 0;
+            // padding-right: 0;
         }
 
         @include mobile {
@@ -247,15 +251,19 @@ const { locale } = useI18n()
                 content: '';
                 width: 152px;
                 height: 160px;
-                transform: translate(100%, 50%);
+                transform: translate(25%, 50%);
                 background: url('/img/about-us/quotation-mark-right.png') center no-repeat;
 
                 @include rtl {
                     right: unset;
                     left: 0;
                     bottom: 0;
-                    transform: translate(-100%, 50%);
+                    transform: translate(-25%, 50%);
                     background: url('/img/about-us/quotation-mark.png') center no-repeat;
+                }
+
+                @media (max-width: 1400px) {
+                    transform: translate(25%, 50%) scale(0.8);
                 }
 
                 @include tablet {
@@ -288,6 +296,7 @@ const { locale } = useI18n()
                 height: 160px;
                 background: url('/img/about-us/quotation-mark.png') center no-repeat;
 
+
                 @include rtl {
                     transform: translate(100%, -50%);
                     right: -20px;
@@ -296,12 +305,12 @@ const { locale } = useI18n()
                 }
 
                 @media (max-width: 1400px) {
-                    display: none;
+                    transform: translate(-100%, -50%) scale(0.8);
                 }
 
-                // @include tablet {
-                //     display: none;
-                // }
+                @include tablet {
+                    display: none;
+                }
             }
         }
 

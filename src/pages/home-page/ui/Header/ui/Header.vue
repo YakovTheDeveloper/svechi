@@ -28,6 +28,7 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 	gap: 44px;
 	display: grid;
 	grid-template-columns: 47% 1fr;
+	overflow: hidden;
 
 	// @media (max-width: 1280px) {
 	//     gap: 24px;
@@ -48,6 +49,7 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 		gap: 70px;
 		flex-grow: 1;
 		flex-direction: column;
+		// justify-content: space-between;
 
 		@media (max-width: 1200px) {
 			padding-right: 64px;
@@ -87,7 +89,7 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 				gap: 16px 0;
 				font-size: 20px;
 				justify-content: space-between;
-				padding-top: 40px;
+				padding-top: 25px;
 			}
 		}
 

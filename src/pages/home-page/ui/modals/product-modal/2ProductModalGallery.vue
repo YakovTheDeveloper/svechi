@@ -40,7 +40,7 @@ const thumbs = ref(null)
 const { width } = useWindowSize()
 
 const thumbDirection = computed(() => {
-	if (width.value <= 1400) return 'horizontal'
+	if (width.value <= 1040) return 'horizontal'
 	return 'vertical'
 })
 
@@ -59,33 +59,15 @@ const defaultBreakpoints: SwiperOptions['breakpoints'] = {
 	},
 }
 onMounted(() => {
-	console.log(`output->mounted`)
 	thumbs.value = thumbsSwiper.value
 
+	// Force Safari layout reflow by toggling a class
 	if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
 		const el = document.querySelector('.swiper-thumbs') as HTMLElement
-
 		if (el) {
-			// Force layout reflow
-			void el.offsetHeight // <— THIS triggers reflow without visual change
-
-			// Optional: flip a class to refresh computed layout
 			el.classList.add('safari-reflow')
-			requestAnimationFrame(() => {
-				el.classList.remove('safari-reflow')
-			})
+			setTimeout(() => el.classList.remove('safari-reflow'), 50)
 		}
-
-		setTimeout(() => {
-			const el = document.querySelector('.swiper-thumbs') as HTMLElement
-			if (el) {
-				void el.offsetHeight
-				el.classList.add('safari-reflow')
-				requestAnimationFrame(() => {
-					el.classList.remove('safari-reflow')
-				})
-			}
-		}, 50)
 	}
 })
 </script>
@@ -164,7 +146,6 @@ onMounted(() => {
 		max-width: 744px;
 		aspect-ratio: 4 / 4; // Responsive aspect ratio
 		flex: 1 1 auto;
-		margin: 0;
 
 		max-height: 100%;
 		border-radius: 32px;
@@ -214,37 +195,25 @@ onMounted(() => {
 
 	// Thumbs Swiper
 	& .swiper-thumbs {
-		width: 96px;
+		max-width: 128px;
+		height: auto;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
-		flex-shrink: 0;
 
-		@media (max-width: 1400px) {
-			// 💡 This makes the thumbs row instead of column
-			flex-direction: row;
-			max-width: 100%;
-			width: 100%;
-			height: 100px;
+		@media (max-width: 1740px) {
+			// flex-direction: row;
+			// width: 100%;
+			// height: auto;
 		}
 
 		&-item {
 			position: relative;
-			padding-top: 0;
+			width: 100%;
+			padding-top: 100%; //
+			aspect-ratio: 1 / 1; // Keep this now
 			border-radius: 16px;
-			width: 96px !important; // force fixed square size
-			height: 96px !important;
 			overflow: hidden;
-
-			@media (max-width: 1400px) {
-				width: 100%;
-				padding-top: 0;
-				width: 96px !important; // force fixed square size
-				height: 96px !important;
-
-				height: auto;
-				flex-shrink: 0;
-			}
 
 			&_active {
 				outline: 3px solid var(--black-secondary);

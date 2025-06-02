@@ -59,33 +59,15 @@ const defaultBreakpoints: SwiperOptions['breakpoints'] = {
 	},
 }
 onMounted(() => {
-	console.log(`output->mounted`)
 	thumbs.value = thumbsSwiper.value
 
+	// Force Safari layout reflow by toggling a class
 	if (/^((?!chrome|android).)*safari/i.test(navigator.userAgent)) {
 		const el = document.querySelector('.swiper-thumbs') as HTMLElement
-
 		if (el) {
-			// Force layout reflow
-			void el.offsetHeight // <— THIS triggers reflow without visual change
-
-			// Optional: flip a class to refresh computed layout
 			el.classList.add('safari-reflow')
-			requestAnimationFrame(() => {
-				el.classList.remove('safari-reflow')
-			})
+			setTimeout(() => el.classList.remove('safari-reflow'), 50)
 		}
-
-		setTimeout(() => {
-			const el = document.querySelector('.swiper-thumbs') as HTMLElement
-			if (el) {
-				void el.offsetHeight
-				el.classList.add('safari-reflow')
-				requestAnimationFrame(() => {
-					el.classList.remove('safari-reflow')
-				})
-			}
-		}, 50)
 	}
 })
 </script>
@@ -214,11 +196,10 @@ onMounted(() => {
 
 	// Thumbs Swiper
 	& .swiper-thumbs {
-		width: 96px;
+		max-width: 128px;
 		display: flex;
 		flex-direction: column;
 		gap: 16px;
-		flex-shrink: 0;
 
 		@media (max-width: 1400px) {
 			// 💡 This makes the thumbs row instead of column
@@ -230,16 +211,17 @@ onMounted(() => {
 
 		&-item {
 			position: relative;
-			padding-top: 0;
+			width: 100%;
+			padding-top: 100%; //
+			aspect-ratio: 1 / 1; // Keep this now
 			border-radius: 16px;
-			width: 96px !important; // force fixed square size
-			height: 96px !important;
 			overflow: hidden;
 
 			@media (max-width: 1400px) {
 				width: 100%;
+				aspect-ratio: 1 / 1;
 				padding-top: 0;
-				width: 96px !important; // force fixed square size
+				max-width: 96px !important; // force fixed square size
 				height: 96px !important;
 
 				height: auto;

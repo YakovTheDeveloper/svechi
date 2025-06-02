@@ -62,14 +62,14 @@ watch(store.showModal, (isShow) => !isShow && clearModalContent())
 </style>
 
 <style lang="scss" scoped>
-.home {
-	height: 100vh;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-}
+// .home {
+// 	height: 100vh;
+// 	display: flex;
+// 	flex-direction: column;
+// 	justify-content: center;
+// 	align-items: center;
+// 	position: relative;
+// }
 
 .hidden {
 	opacity: 0;

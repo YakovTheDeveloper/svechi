@@ -29,7 +29,11 @@ const { locale } = useI18n()
 				</p>
 			</div>
 			<div class="customer-profit__img padding-vertical">
-				<img loading="lazy" src="/img/customer-profit/1.png" alt="customer-profit" />
+				<img
+					loading="lazy"
+					src="/img/customer-profit/1.png"
+					alt="customer-profit"
+				/>
 			</div>
 		</section>
 	</div>
@@ -175,8 +179,19 @@ const { locale } = useI18n()
 			top: 48%;
 			transform: translate(50%, -50%);
 
+			@media (max-width: 1800px) {
+				width: 50vw;
+				object-fit: contain;
+				position: absolute;
+				right: 50%;
+				top: 48%;
+				transform: translate(50%, -50%);
+			}
+
 			@include tablet {
+				width: unset;
 				min-width: unset;
+				object-fit: cover;
 				max-width: 100%;
 				position: absolute;
 				top: 43%;

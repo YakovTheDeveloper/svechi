@@ -12,8 +12,8 @@ body {
   overflow-x: hidden;
 
   @media (max-width: 1700px) and (min-width: 1201px) {
-    zoom: 0.9;
-    width: 111.11%; 
+    zoom: 0.98;
+    width: 94%;
     margin: 0 auto;
   }
 }
@@ -51,6 +51,11 @@ body {
   padding-left: var(--padding-container);
   padding-right: var(--padding-container);
 
+  @media (max-width: 1600px) {
+    padding-left: var(--padding-container-tablet);
+    padding-right: var(--padding-container-tablet);
+  }
+
   @include tablet {
     padding-left: var(--padding-container-tablet);
     padding-right: var(--padding-container-tablet);
@@ -68,6 +73,14 @@ body {
   @include rtl {
     padding-left: unset;
     padding-right: var(--padding-container);
+  }
+
+  @media (max-width: 1600px) {
+    padding-left: var(--padding-container-tablet);
+    @include rtl {
+      padding-left: unset;
+      padding-right: var(--padding-container-tablet);
+    }
   }
 
   @include tablet {
