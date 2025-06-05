@@ -73,31 +73,31 @@ const { containerRef, fadeClasses } = useScrollFade()
 	overflow-y: hidden;
 }
 
-.fade-left {
-	&:before {
-		@media (max-width: 1200px) {
-			@include fade-overlay-left($width: 4%);
-		}
+// .fade-left {
+// 	&:before {
+// 		@media (max-width: 1200px) {
+// 			@include fade-overlay-left($width: 4%);
+// 		}
 
-		@include mobile {
-			content: none;
-		}
-	}
-}
+// 		@include mobile {
+// 			content: none;
+// 		}
+// 	}
+// }
 
-.fade-right {
-	&:after {
-		@media (max-width: 1200px) {
-			@include fade-overlay-right($width: 4%);
-		}
+// .fade-right {
+// 	&:after {
+// 		@media (max-width: 1200px) {
+// 			@include fade-overlay-right($width: 4%);
+// 		}
 
-		right: 0;
+// 		right: 0;
 
-		@include mobile {
-			content: none;
-		}
-	}
-}
+// 		@include mobile {
+// 			content: none;
+// 		}
+// 	}
+// }
 
 .candle-product-list {
 	display: flex;

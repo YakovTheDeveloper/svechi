@@ -50,7 +50,7 @@ const sliderBreakpoints = {
             </template>
         </h1>
 
-        <VSwiper :slides="slides" :breakpoints="sliderBreakpoints" scroll-bar-class="gallery-scrollbar">
+        <VSwiper :no-fade="true" :slides="slides" :breakpoints="sliderBreakpoints" scroll-bar-class="gallery-scrollbar">
             <template #slide="{ slide }">
                 <div class="gallery-item">
                     <img loading="lazy" :src="slide.imgUrl" alt="gallery-image" draggable="false">

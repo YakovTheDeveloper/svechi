@@ -46,8 +46,9 @@ const store = useStore()
 		gap: 64px;
 	}
 
-    @media (max-width: 1400px) {
+	@media (max-width: 1400px) {
 		justify-content: space-between;
+		gap: 0;
 	}
 
 	@include tablet {
@@ -72,6 +73,10 @@ const store = useStore()
 	&__text {
 		// font-size: 24px;
 		color: var(--black-secondary);
+
+		@media (max-width: 1400px) {
+			font-size: 20px;
+		}
 
 		@include mobile {
 			font-size: 14px;

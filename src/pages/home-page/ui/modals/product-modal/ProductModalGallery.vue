@@ -52,10 +52,13 @@ const defaultBreakpoints: SwiperOptions['breakpoints'] = {
 		spaceBetween: 8,
 	},
 	500: {
-		spaceBetween: 24,
+		spaceBetween: 16,
 	},
 	640: {
-		spaceBetween: 32,
+		spaceBetween: 16,
+	},
+	768: {
+		spaceBetween: 16,
 	},
 }
 onMounted(() => {
@@ -153,6 +156,11 @@ onMounted(() => {
 		gap: 24px;
 	}
 
+	@media (max-width: 600px) {
+		gap: 16px;
+		flex-grow: 0;
+	}
+
 	@include mobile {
 		gap: 8px;
 	}
@@ -178,10 +186,14 @@ onMounted(() => {
 
 		@include tablet {
 			max-width: 100%;
+			flex-grow: 0;
 		}
 
 		@include mobile {
 			border-radius: 16px;
+		}
+
+		.swiper-wrapper {
 		}
 
 		&-item {
@@ -193,8 +205,10 @@ onMounted(() => {
 			overflow: hidden;
 
 			&_active {
-				outline: 3px solid var(--black-secondary);
-				outline-offset: -3px;
+				// outline: 10px solid var(--black-secondary);
+				// outline-offset: -10px;
+
+				// border: 10px solid var(--black-secondary);
 			}
 
 			img {
@@ -207,7 +221,8 @@ onMounted(() => {
 			}
 
 			@include mobile {
-				width: 48px;
+				padding-top: 100%;
+				// width: 48px;
 			}
 		}
 	}
@@ -228,6 +243,14 @@ onMounted(() => {
 			height: 100px;
 		}
 
+		@media (max-width: 768px) {
+			height: 72px;
+		}
+
+		@include mobile {
+			height: 48px;
+		}
+
 		&-item {
 			position: relative;
 			padding-top: 0;
@@ -235,6 +258,14 @@ onMounted(() => {
 			width: 96px !important; // force fixed square size
 			height: 96px !important;
 			overflow: hidden;
+
+			border: 3px solid transparent;
+			@media (max-width: 768px) {
+				border: 2px solid transparent;
+			}
+			@include mobile {
+				border: 1px solid transparent;
+			}
 
 			@media (max-width: 1400px) {
 				width: 100%;
@@ -246,9 +277,34 @@ onMounted(() => {
 				flex-shrink: 0;
 			}
 
+			@media (max-width: 1400px) {
+				width: 100%;
+				padding-top: 0;
+				width: 96px !important; // force fixed square size
+				height: 96px !important;
+
+				height: auto;
+				flex-shrink: 0;
+			}
+
+			@media (max-width: 768px) {
+				width: 72px !important; // force fixed square size
+				height: 72px !important;
+			}
+
+			@include mobile {
+				width: 48px !important;
+				height: 48px !important;
+			}
+
 			&_active {
-				outline: 3px solid var(--black-secondary);
-				outline-offset: -3px;
+				border: 3px solid var(--black-secondary);
+				@media (max-width: 768px) {
+					border: 2px solid var(--black-secondary);
+				}
+				@include mobile {
+					border: 1px solid var(--black-secondary);
+				}
 			}
 
 			img {
@@ -258,9 +314,6 @@ onMounted(() => {
 				height: 100%;
 				object-fit: cover;
 				user-select: none;
-			}
-			@include mobile {
-				width: 48px;
 			}
 		}
 	}

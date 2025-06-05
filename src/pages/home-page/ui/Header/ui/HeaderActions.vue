@@ -82,7 +82,8 @@ const { openModal } = useMobileMenuStore()
 <style lang="scss" scoped>
 .header-actions {
 	padding: 64px 64px 34px;
-
+	// @media (max-width: 1920px) {
+	// }
 	height: calc(100dvh - 20px);
 
 	// @supports (-webkit-touch-callout: none) {
