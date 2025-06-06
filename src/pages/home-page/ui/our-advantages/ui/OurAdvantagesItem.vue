@@ -38,6 +38,9 @@ const props = defineProps<{
 	@include laptop {
 		height: auto;
 		min-height: auto;
+		padding: 32px 28px 28px;
+		width: 100%;
+		gap: 24px;
 	}
 
 	@include mobile {
@@ -54,6 +57,10 @@ const props = defineProps<{
 		gap: 16px;
 		text-align: center;
 
+		@include laptop {
+			justify-content: space-between;
+		}
+
 		@include mobile {
 			gap: 8px;
 		}
@@ -63,12 +70,20 @@ const props = defineProps<{
 		color: var(--black-primary);
 		font-size: 36px;
 
+		@media (max-width: 1550px) {
+			font-size: 28px;
+		}
+
 		@include mobile {
 			font-size: 16px;
 		}
 	}
 
 	&__text {
+		@media (max-width: 1550px) {
+			font-size: 18px;
+		}
+
 		@include mobile {
 			font-size: 12px;
 		}

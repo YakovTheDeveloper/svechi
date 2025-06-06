@@ -170,6 +170,7 @@ const toOurCandles = () => {
 	}
 
 	&__description {
+		padding-top: 15px;
 		display: flex;
 		justify-content: space-between;
 		flex-direction: column;

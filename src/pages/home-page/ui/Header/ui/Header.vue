@@ -83,13 +83,32 @@ import MenuMobile from './menu-mobile/MenuMobile.vue'
 	}
 
 	&__navbar {
-		@media (max-width: 1600px) {
+		@media (max-width: 1700px) {
 			> :first-child {
 				flex-wrap: nowrap;
 				gap: 16px 0;
 				font-size: 20px;
 				justify-content: space-between;
 				padding-top: 25px;
+			}
+		}
+
+		
+		@media (max-width: 1450px) {
+			> :first-child {
+				font-size: 19px;
+			}
+		}
+
+		@media (max-width: 1350px) {
+			> :first-child {
+				font-size: 17px;
+			}
+		}
+
+		@media (max-width: 1300px) {
+			> :first-child {
+				font-size: 16px;
 			}
 		}
 

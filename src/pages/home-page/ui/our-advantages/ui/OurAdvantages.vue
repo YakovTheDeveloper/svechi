@@ -123,7 +123,7 @@ const MOCK_DATA = computed(() => {
         position: relative;
         z-index: 2;
 
-        @media (max-width: 1400px) {
+        @media (max-width: 1100px) {
             grid-template-columns: 1fr 1fr;
         }
 
